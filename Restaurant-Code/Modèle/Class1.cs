@@ -8,7 +8,11 @@ namespace Modèle
 {
     public class Class1
     {
+        // [0]
+
         int test;
         int test2;
+
+        // Maz was here ...
     }
 }
