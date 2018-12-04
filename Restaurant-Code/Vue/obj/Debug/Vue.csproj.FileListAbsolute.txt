@@ -1,0 +1,15 @@
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\bin\Debug\Restaurant-Code.exe.config
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\bin\Debug\Restaurant-Code.exe
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\bin\Debug\Restaurant-Code.pdb
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Vue.csprojAssemblyReference.cache
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\MainWindow.g.cs
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\App.g.cs
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant-Code_MarkupCompile.cache
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant-Code_MarkupCompile.lref
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\MainWindow.baml
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant-Code.g.resources
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant_Code.Properties.Resources.resources
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Vue.csproj.GenerateResource.cache
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Vue.csproj.CoreCompileInputs.cache
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant-Code.exe
+C:\Projet-Restaurant\Restaurant-Code\Restaurant-Code\obj\Debug\Restaurant-Code.pdb
