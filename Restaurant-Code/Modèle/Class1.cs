@@ -9,5 +9,6 @@ namespace Modèle
     public class Class1
     {
         int test;
+        int test2;
     }
 }
