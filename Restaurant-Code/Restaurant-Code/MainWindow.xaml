@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Code"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="427.5" Width="547.5">
     <Grid>
-        
+        <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="166,17,0,0" VerticalAlignment="Top" Height="39" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.135"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <GridSplitter HorizontalAlignment="Left" Height="464" Margin="260,-150,0,0" VerticalAlignment="Top" Width="18" RenderTransformOrigin="0.5,0.5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.01"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <GridSplitter HorizontalAlignment="Left" Height="466" Margin="264,64,0,-133" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.5,0.5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.252"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Button x:Name="BTNValider" Content="Next" HorizontalAlignment="Left" Margin="230,328,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.99,-0.202" FontSize="14" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.482"/>
+                    <TranslateTransform X="0.405" Y="1.149"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="88,124,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Working Hours:" HorizontalAlignment="Left" Margin="66,175,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="66,228,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.524,0.887"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="224,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Left" Height="127" Margin="368,131,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png"/>
+
     </Grid>
 </Window>
