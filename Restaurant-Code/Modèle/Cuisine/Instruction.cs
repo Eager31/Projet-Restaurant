@@ -14,8 +14,9 @@ namespace Modèle.Cuisine
         private List<KitchenTool> kitchenTool;
         private List<Ingredients> ingredients;
         private KitchenAction action;
+        private int duration;
 
-        public Instruction(int number,string name, List<KitchenTool> kitchenTool, List<Ingredients> ingredients, KitchenAction action)
+        public Instruction(int number,string name, List<KitchenTool> kitchenTool, List<Ingredients> ingredients, KitchenAction action, int duration)
         {
             this.Number = number;
             this.Name = name;
@@ -29,5 +30,6 @@ namespace Modèle.Cuisine
         public List<KitchenTool> KitchenTool { get => kitchenTool; set => kitchenTool = value; }
         public List<Ingredients> Ingredients { get => ingredients; set => ingredients = value; }
         public KitchenAction Action { get => action; set => action = value; }
+        public int Duration { get => duration; set => duration = value; }
     }
 }

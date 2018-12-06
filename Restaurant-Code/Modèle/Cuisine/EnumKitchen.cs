@@ -10,5 +10,7 @@ namespace Modèle.Cuisine
     {
         public enum IngredientsType { congelé, frais, sec };
         public enum KitchenToolsType { coupant,rond, plat };
+        public enum DishState { preparing, OK, eaten}
+        public enum DishType { entree, mainCourse, dessert }
     }
 }

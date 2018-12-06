@@ -33,7 +33,7 @@ namespace Tests_Unitaires
         private Instruction instruction2;
         private KitchenAction crush;
         private KitchenAction cut;
-        private Recipe crushedVegetables;
+        private Dish crushedVegetables;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -75,14 +75,14 @@ namespace Tests_Unitaires
             crush = new KitchenAction("crush", 10);
             cut = new KitchenAction("cut", 5);
 
-            instruction1 = new Instruction(1,"Cut the carrot", kitchenToolsList, ingredientsList, cut);
-            instruction2 = new Instruction(2,"crush the vegetables" , kitchenToolsList, ingredientsList, crush);
+            instruction1 = new Instruction(1,"Cut the carrot", kitchenToolsList, ingredientsList, cut,5);
+            instruction2 = new Instruction(2,"crush the vegetables" , kitchenToolsList, ingredientsList, crush,10);
             instructionList = new List<Instruction>
             {
                 instruction1,
                 instruction2
             };
-            crushedVegetables = new Recipe("crushed Vegetables", instructionList);
+            crushedVegetables = new Dish("crushed Vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.OK);
         }
         #region Additional test attributes
         //
@@ -136,9 +136,10 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void RecipeHasAttributes()
+        public void DishHasAttributes()
         {
             Assert.AreEqual(crushedVegetables.Name, "crushed Vegetables");
+            Assert.AreEqual(crushedVegetables.Type, EnumKitchen.DishType.mainCourse);
         }
 
 
