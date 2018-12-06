@@ -21,18 +21,19 @@ namespace Modèle.Plonge
         public int WashTime { get => washTime; set => washTime = value; }
         public int MaxNumber { get => maxNumber; set => maxNumber = value; }
 
-        public int wash(List<KitchenTool> kitchenToolList)
+        public int wash(QueueKitchenTools kitchenToolList)
         {
             int cpt = MaxNumber;
+            
             while (cpt >= 0)
             {
-                if (!kitchenToolList.Any()) { return 0; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
-                foreach (KitchenTool kt in kitchenToolList) //c'est pas très beau :( mais ça marche :)
+                if (!kitchenToolList.KitchenToolsQueue.Any()) { return 0; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
+                foreach (KitchenTool kt in kitchenToolList.KitchenToolsQueue) //c'est pas très beau :( mais ça marche :)
                 {
                     //vérification que l'outil est bien sale
                     if (kt.Type.Equals(EnumKitchen.KitchenToolsType.dirt))
                     {
-                        kitchenToolList.Remove(kt);
+                        kitchenToolList.KitchenToolsQueue.Remove(kt);
                         cpt--;
                     } 
                     break;

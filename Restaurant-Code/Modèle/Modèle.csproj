@@ -62,6 +62,8 @@
     <Compile Include="Plonge\DishwasherMachine.cs" />
     <Compile Include="Plonge\IWashingRoomMaterial.cs" />
     <Compile Include="Plonge\IWashingKitchenTools.cs" />
+    <Compile Include="Plonge\QueueKitchenTools.cs" />
+    <Compile Include="Plonge\QueueRoomTools.cs" />
     <Compile Include="Plonge\Sink.cs" />
     <Compile Include="Plonge\WashingRoomTools.cs" />
     <Compile Include="Plonge\WashingMachine.cs" />
