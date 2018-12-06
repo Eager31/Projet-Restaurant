@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuisine\Counter.cs" />
     <Compile Include="Cuisine\Cream.cs" />
     <Compile Include="Cuisine\DishDecorator.cs" />
     <Compile Include="Cuisine\EnumKitchen.cs" />
     <Compile Include="Cuisine\Freezer.cs" />
     <Compile Include="Cuisine\Fridge.cs" />
+    <Compile Include="Cuisine\ICounter.cs" />
     <Compile Include="Cuisine\Ingredients.cs" />
     <Compile Include="Cuisine\Instruction.cs" />
     <Compile Include="Cuisine\IStorage.cs" />

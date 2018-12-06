@@ -43,6 +43,7 @@ namespace Tests_Unitaires
         private Fridge fridge;
         private Supply supply;
         private Freezer freezer;
+        private Counter counter;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -111,6 +112,9 @@ namespace Tests_Unitaires
             fridge = new Fridge(ingredientsList);
             supply = new Supply(ingredientsList);
             freezer = new Freezer(ingredientsList);
+
+            counter = new Counter();
+
         }
 
         #region Additional test attributes
@@ -137,27 +141,27 @@ namespace Tests_Unitaires
 
             //Tests pour construire un menu
         [TestMethod]
-        public void IngredientsHasAttributes()
+        public void ingredientsHasAttributes()
         {
             Assert.AreEqual(carotte.Name, "carrot");
             Assert.AreEqual(carotte.DateDelivered.ToString(), "01/01/2018 07:30:00");
         }
 
         [TestMethod]
-        public void KitchenToolHasAttributes()
+        public void kitchenToolHasAttributes()
         {
             Assert.AreEqual(knife.Name, "knife");
         }
 
 
         [TestMethod]
-        public void KitchenActionHasAttributes()
+        public void kitchenActionHasAttributes()
         {
             Assert.AreEqual(crush.Name, "crush");
         }
 
         [TestMethod]
-        public void InstructionHasAttributes()
+        public void instructionHasAttributes()
         {
             Assert.AreEqual(instruction1.Name,"Cut the carrot");
             Assert.IsTrue(instructionList.Contains(instruction1));
@@ -166,14 +170,14 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void DishHasAttributes()
+        public void dishHasAttributes()
         {
             Assert.AreEqual(crushedVegetables.Name, "crushed Vegetables");
             Assert.AreEqual(crushedVegetables.Type, EnumKitchen.DishType.mainCourse);
         }
 
         [TestMethod]
-        public void MenuHasAttributes()
+        public void menuHasAttributes()
         {
             Assert.AreEqual(crushedVegetables.Name, "crushed Vegetables");
             Assert.AreEqual(crushedVegetables.Type, EnumKitchen.DishType.mainCourse);
@@ -181,7 +185,7 @@ namespace Tests_Unitaires
 
         //Tests pour stockage
         [TestMethod]
-        public void FridgeIsAStorage()
+        public void fridgeIsAStorage()
         {
             fridge.fillStorage(1, turnip);
             Assert.IsTrue(fridge.checkStorage().Contains(turnip));
@@ -190,7 +194,7 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void SupplyIsAStorage()
+        public void supplyIsAStorage()
         {
             fridge.fillStorage(2, turnip);
             Assert.IsTrue(fridge.checkStorage().Contains(turnip));
@@ -199,7 +203,7 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void FreezerIsAStorage()
+        public void freezerIsAStorage()
         {
             fridge.fillStorage(3, turnip);
             Assert.IsTrue(fridge.checkStorage().Contains(turnip));
@@ -209,7 +213,7 @@ namespace Tests_Unitaires
 
         //Décorateur sur plats
         [TestMethod]
-        public void DecoratorTest()
+        public void decoratorTest()
         {
             Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables");
             crushedVegetables = new Salt(crushedVegetables);
@@ -218,6 +222,29 @@ namespace Tests_Unitaires
             Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables, with salt, with pepper");
             crushedVegetables = new Cream(crushedVegetables);
             Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables, with salt, with pepper, with cream");
+        }
+
+        //Comptoir
+        [TestMethod]
+        public void isReturningActualLenght()
+        {
+            counter.TabDish[0] = entreePotato;
+            Assert.AreEqual(counter.actualLengthTab(), 1);
+            counter.TabDish[7] = entreePotato;
+            Assert.AreEqual(counter.actualLengthTab(), 2);
+            counter.TabDish[0] = null;
+            Assert.AreEqual(counter.actualLengthTab(), 1);
+        }
+
+        [TestMethod]
+        public void isTabFull()
+        {
+            for (int i = 0; i < counter.TabDish.Length; i++)
+            {
+                counter.TabDish[i] = entreePotato;
+            }
+            Assert.IsTrue(counter.isTabFull());
+
         }
     }
 }
