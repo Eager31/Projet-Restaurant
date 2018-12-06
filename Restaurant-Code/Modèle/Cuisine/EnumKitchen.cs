@@ -8,6 +8,7 @@ namespace Modèle.Cuisine
 {
     public class EnumKitchen
     {
-        public enum TypeIngredients { congelé, frais, sec };
+        public enum IngredientsType { congelé, frais, sec };
+        public enum KitchenToolsType { coupant,rond, plat };
     }
 }

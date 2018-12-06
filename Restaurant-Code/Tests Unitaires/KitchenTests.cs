@@ -24,7 +24,16 @@ namespace Tests_Unitaires
         private DateTime experationDate;
         private Ingredients carotte;
         private Ingredients patatte;
-        private List<Ingredients> listeIngredients;
+        private List<Ingredients> ingredientsList;
+        private List<KitchenTool> kitchenToolsList;
+        private KitchenTool knife;
+        private KitchenTool hammer;
+        private List<Instruction> instructionList;
+        private Instruction instruction1;
+        private Instruction instruction2;
+        private KitchenAction crush;
+        private KitchenAction cut;
+        private Recipe crushedVegetables;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -47,17 +56,33 @@ namespace Tests_Unitaires
         {
             livraisonDate = new DateTime(2018, 1, 1, 7, 30, 0); // 1/1/2018 7:30:00
             experationDate = new DateTime(2018, 3, 1, 7, 30, 0); // 3/1/2018 7:30:00
-            carotte = new Ingredients("carotte", EnumKitchen.TypeIngredients.frais, livraisonDate, experationDate);
-            patatte = new Ingredients("carotte", EnumKitchen.TypeIngredients.frais, livraisonDate, experationDate);
-            listeIngredients.Add(carotte);
-            listeIngredients.Add(patatte);
+            carotte = new Ingredients("carrot", EnumKitchen.IngredientsType.frais, livraisonDate, experationDate);
+            patatte = new Ingredients("potato", EnumKitchen.IngredientsType.frais, livraisonDate, experationDate);
+            ingredientsList = new List<Ingredients>
+            {
+                carotte,
+                patatte
+            };
 
-            instruction1 = new Instruction(List<Outils>, listeIngredients);
-            instruction2 = new Instruction(List<Outils>, listeIngredients);
-            listeInstruction = new List<Instruction>;
-            listeInstruction.add(instruction1);
-            listeInstruction.add(instruction2);
-            recette = new Recette("NomRecette",listeInstruction)
+            knife = new KitchenTool("knife", EnumKitchen.KitchenToolsType.coupant);
+            hammer = new KitchenTool("hammer", EnumKitchen.KitchenToolsType.plat);
+            kitchenToolsList = new List<KitchenTool>
+            {
+                knife,
+                hammer
+            };
+
+            crush = new KitchenAction("crush", 10);
+            cut = new KitchenAction("cut", 5);
+
+            instruction1 = new Instruction(1,"Cut the carrot", kitchenToolsList, ingredientsList, cut);
+            instruction2 = new Instruction(2,"crush the vegetables" , kitchenToolsList, ingredientsList, crush);
+            instructionList = new List<Instruction>
+            {
+                instruction1,
+                instruction2
+            };
+            crushedVegetables = new Recipe("crushed Vegetables", instructionList);
         }
         #region Additional test attributes
         //
@@ -84,14 +109,36 @@ namespace Tests_Unitaires
         [TestMethod]
         public void IngredientsHasAttributes()
         {
-            Assert.AreEqual(carotte.Name, "carotte");
+            Assert.AreEqual(carotte.Name, "carrot");
             Assert.AreEqual(carotte.DateDelivered.ToString(), "01/01/2018 07:30:00");
+        }
+
+        [TestMethod]
+        public void KitchenToolHasAttributes()
+        {
+            Assert.AreEqual(knife.Name, "knife");
+        }
+
+
+        [TestMethod]
+        public void KitchenActionHasAttributes()
+        {
+            Assert.AreEqual(crush.Name, "crush");
+        }
+
+        [TestMethod]
+        public void InstructionHasAttributes()
+        {
+            Assert.AreEqual(instruction1.Name,"Cut the carrot");
+            Assert.IsTrue(instructionList.Contains(instruction1));
+            Assert.AreEqual(instruction1.KitchenTool, kitchenToolsList);
+            
         }
 
         [TestMethod]
         public void RecipeHasAttributes()
         {
-            
+            Assert.AreEqual(crushedVegetables.Name, "crushed Vegetables");
         }
 
 
