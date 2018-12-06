@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuisine\Cream.cs" />
+    <Compile Include="Cuisine\DishDecorator.cs" />
     <Compile Include="Cuisine\EnumKitchen.cs" />
     <Compile Include="Cuisine\Freezer.cs" />
     <Compile Include="Cuisine\Fridge.cs" />
@@ -51,6 +53,8 @@
     <Compile Include="Cuisine\KitchenTool.cs" />
     <Compile Include="Cuisine\Dish.cs" />
     <Compile Include="Cuisine\Menu.cs" />
+    <Compile Include="Cuisine\Pepper.cs" />
+    <Compile Include="Cuisine\Salt.cs" />
     <Compile Include="Cuisine\Storage.cs" />
     <Compile Include="Cuisine\Supply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -97,8 +97,8 @@ namespace Tests_Unitaires
             {
                 instructionBis
             };
-            entreePotato = new Dish("Potato cutted", instructionListBis, EnumKitchen.DishType.entree, EnumKitchen.DishState.OK);
-            crushedVegetables = new Dish("crushed Vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.OK);
+            entreePotato = new Dish("Potato cutted","Wonderfull potato cutted as a Salad", instructionListBis, EnumKitchen.DishType.entree, EnumKitchen.DishState.OK);
+            crushedVegetables = new Dish("crushed Vegetables", "Any vegan would love vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.OK);
             listDish = new List<Dish>
             {
                 entreePotato,
@@ -207,5 +207,17 @@ namespace Tests_Unitaires
             Assert.IsFalse(fridge.checkStorage().Contains(turnip));
         }
 
+        //Décorateur sur plats
+        [TestMethod]
+        public void DecoratorTest()
+        {
+            Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables");
+            crushedVegetables = new Salt(crushedVegetables);
+            Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables, with salt");
+            crushedVegetables = new Pepper(crushedVegetables);
+            Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables, with salt, with pepper");
+            crushedVegetables = new Cream(crushedVegetables);
+            Assert.AreEqual(crushedVegetables.Description, "Any vegan would love vegetables, with salt, with pepper, with cream");
+        }
     }
 }
