@@ -23,10 +23,13 @@ namespace Tests_Unitaires
         private TestContext testContextInstance;
         private WashingMachine washingMachine;
         private List<KitchenTool> dirtyKitchenToolListEmpty;
+        private QueueKitchenTools queueKitchenTools;
         private KitchenTool dirtyKnife;
         private KitchenTool dirtyHammer;
         private List<KitchenTool> dirtyKitchenToolList;
         private DishwasherMachine dishWasherMachine;
+        private QueueRoomTools queueRoomTools;
+        private QueueKitchenTools queueKitchenToolsEmpty;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -94,22 +97,31 @@ namespace Tests_Unitaires
             dishWasherMachine = new DishwasherMachine();
             washingMachine = new WashingMachine();
             dirtyKitchenToolListEmpty = new List<KitchenTool> { };
+         
 
-        }
+            queueKitchenTools = new QueueKitchenTools();
+            queueRoomTools = new QueueRoomTools();
+
+            queueKitchenTools.KitchenToolsQueue = dirtyKitchenToolList;
+
+            queueKitchenToolsEmpty = new QueueKitchenTools();
+            queueKitchenToolsEmpty.KitchenToolsQueue = dirtyKitchenToolListEmpty;
+            }
 
 
         [TestMethod]
         public void washDirtyKitchenToolsWorking()
         {
-            int value = dishWasherMachine.wash(dirtyKitchenToolList);  //13 elements -  3 elements (pourra être modifié dans le futur)
+
+            int value = dishWasherMachine.wash(queueKitchenTools);  //13 elements -  3 elements (pourra être modifié dans le futur)
             Assert.AreEqual(1, value); //Working
-            value = dishWasherMachine.wash(dirtyKitchenToolList); //10 -3
-            value = dishWasherMachine.wash(dirtyKitchenToolList); // 7 - 3
-            value = dishWasherMachine.wash(dirtyKitchenToolList); //4 - 3
-            value = dishWasherMachine.wash(dirtyKitchenToolList); // 1 - 3 List Empty
+            value = dishWasherMachine.wash(queueKitchenTools); //10 -3
+            value = dishWasherMachine.wash(queueKitchenTools); // 7 - 3
+            value = dishWasherMachine.wash(queueKitchenTools); //4 - 3
+            value = dishWasherMachine.wash(queueKitchenTools); // 1 - 3 List Empty
             Assert.AreEqual(0, value);
 
-            int value2 = dishWasherMachine.wash(dirtyKitchenToolListEmpty);
+            int value2 = dishWasherMachine.wash(queueKitchenToolsEmpty);
             Assert.AreEqual(0, value2); //nothing to wash
 
 
