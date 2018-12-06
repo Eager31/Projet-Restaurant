@@ -9,7 +9,7 @@ namespace Modèle.Cuisine
     public class EnumKitchen
     {
         public enum IngredientsType { congelé, frais, sec };
-        public enum KitchenToolsType { coupant,rond, plat };
+        public enum KitchenToolsType { coupant,rond, plat, dirt };
         public enum DishState { preparing, OK, eaten}
         public enum DishType { entree, mainCourse, dessert }
     }

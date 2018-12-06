@@ -59,12 +59,18 @@
     <Compile Include="Cuisine\Salt.cs" />
     <Compile Include="Cuisine\Storage.cs" />
     <Compile Include="Cuisine\Supply.cs" />
+    <Compile Include="Plonge\DishwasherMachine.cs" />
+    <Compile Include="Plonge\IWashingRoomMaterial.cs" />
+    <Compile Include="Plonge\IWashingKitchenTools.cs" />
+    <Compile Include="Plonge\Sink.cs" />
+    <Compile Include="Plonge\WashingRoomTools.cs" />
+    <Compile Include="Plonge\WashingMachine.cs" />
+    <Compile Include="Plonge\WashingKitchenTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Salle\IRoomStuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CAD\" />
-    <Folder Include="Plonge\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
