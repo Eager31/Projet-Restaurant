@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur
+namespace Controleur.Commun
 {
-    public class Class1
+    class CleanTable
     {
-        //Test Modification pour gitignore   
     }
-
-
 }

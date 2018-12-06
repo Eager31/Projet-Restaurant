@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Cuisine\Chef.cs" />
+    <Compile Include="Cuisine\Cook.cs" />
+    <Compile Include="Cuisine\KitchenClerk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cuisine\" />
     <Folder Include="Plonge\" />
     <Folder Include="Salle\" />
   </ItemGroup>

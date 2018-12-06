@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modèle
+namespace Controleur.Salle
 {
-    public class Class1
+    class ClientCool
     {
-        // [0]
-
-        int test;
-        int test2;
-
-        // Maz was here ...
     }
 }
