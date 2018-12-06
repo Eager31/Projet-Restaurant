@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room.Element
 {
-    class ElementJug
+    class ElementJug : RoomStuff
     {
+        public ElementJug(string name, string type) : base(name, type)
+        {
+            this.name = "Jug";
+            this.type = type;
+        }
     }
 }

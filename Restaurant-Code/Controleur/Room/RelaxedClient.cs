@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class CleckRoom : Commun.Actor
+    class RelaxedClient : IBehaviorManager
     {
-        public string name { get; set; }
-
-        public CleckRoom(string name)
+        public void eat()
         {
-            this.name = name;
+            throw new NotImplementedException();
         }
     }
 }

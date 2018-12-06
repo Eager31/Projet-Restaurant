@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Salle
+namespace Controleur.Room
 {
-    class ClientStressedOut
+    interface IBehaviorManager
     {
+        void eat();
     }
 }

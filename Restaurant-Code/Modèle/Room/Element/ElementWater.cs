@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room.Element
 {
-    class ElementGlass : RoomStuff
+    class ElementWater : RoomStuff
     {
-        public ElementGlass(string name, string type) : base(name, type)
+        public ElementWater(string name, string type) : base(name, type)
         {
-            this.name = "Glass";
+            this.name = "Tablecloth";
             this.type = type;
         }
     }

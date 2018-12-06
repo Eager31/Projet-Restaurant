@@ -8,5 +8,15 @@ namespace Modèle.Room
 {
     class BookingForm
     {
+        string name;
+        ElementTable table;
+        int hour;
+
+        public BookingForm(string name, ElementTable table, int hour)
+        {
+            this.name = name;
+            this.table = table;
+            this.hour = hour;
+        }
     }
 }

@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Salle
+namespace Controleur.Room
 {
-    class HeadWaiter
+    class HeadWaiter : Commun.Actor
     {
+        public string name { get; set; }
+
+        public HeadWaiter(string name)
+        {
+            this.name = name;
+        }
+
+
     }
 }

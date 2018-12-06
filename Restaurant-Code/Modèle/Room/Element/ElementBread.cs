@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room.Element
 {
-    class ElementBread
+    class ElementBread : RoomStuff
     {
+        public ElementBread(string name, string type) : base(name, type)
+        {
+            this.name = "Bread";
+            this.type = type;
+        }
     }
 }

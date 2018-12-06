@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Salle
+namespace Controleur.Room
 {
-    class ClientCool
+    interface IFile
     {
+        void addClientList(Client client);
+        void removeClientList(Client client);
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room
 {
-    class Drink
+    abstract class RoomStuff
     {
-        string name;
-        string type;
+        public string name;
+        public ElementType type;
 
-        public Drink(string name, string type)
+        protected RoomStuff(string name, string type)
         {
             this.name = name;
             this.type = type;

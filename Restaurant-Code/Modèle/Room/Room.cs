@@ -8,5 +8,7 @@ namespace Modèle.Room
 {
     class Room
     {
+        public int number { get; set; }
+        public Square square;
     }
 }
