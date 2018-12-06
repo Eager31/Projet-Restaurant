@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modèle.Salle
+namespace Modèle.Room.Element
 {
-    interface IRoomStuff
+    class ElementGlass
     {
-
     }
 }
