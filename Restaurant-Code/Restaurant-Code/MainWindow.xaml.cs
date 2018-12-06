@@ -24,5 +24,12 @@ namespace Restaurant_Code
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window = new Window1();
+            window.Owner = this;
+            window.ShowDialog();
+        }
     }
 }
