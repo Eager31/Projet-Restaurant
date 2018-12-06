@@ -23,6 +23,8 @@ namespace Tests_Unitaires
         private DateTime livraisonDate;
         private DateTime experationDate;
         private Ingredients carotte;
+        private Ingredients patatte;
+        private List<Ingredients> listeIngredients;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -46,6 +48,16 @@ namespace Tests_Unitaires
             livraisonDate = new DateTime(2018, 1, 1, 7, 30, 0); // 1/1/2018 7:30:00
             experationDate = new DateTime(2018, 3, 1, 7, 30, 0); // 3/1/2018 7:30:00
             carotte = new Ingredients("carotte", EnumKitchen.TypeIngredients.frais, livraisonDate, experationDate);
+            patatte = new Ingredients("carotte", EnumKitchen.TypeIngredients.frais, livraisonDate, experationDate);
+            listeIngredients.Add(carotte);
+            listeIngredients.Add(patatte);
+
+            instruction1 = new Instruction(List<Outils>, listeIngredients);
+            instruction2 = new Instruction(List<Outils>, listeIngredients);
+            listeInstruction = new List<Instruction>;
+            listeInstruction.add(instruction1);
+            listeInstruction.add(instruction2);
+            recette = new Recette("NomRecette",listeInstruction)
         }
         #region Additional test attributes
         //
@@ -76,6 +88,12 @@ namespace Tests_Unitaires
             Assert.AreEqual(carotte.DateDelivered.ToString(), "01/01/2018 07:30:00");
         }
 
-        
+        [TestMethod]
+        public void RecipeHasAttributes()
+        {
+            
+        }
+
+
     }
 }
