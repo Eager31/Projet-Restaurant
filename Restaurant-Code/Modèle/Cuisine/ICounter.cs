@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Commun
+namespace Modèle.Cuisine
 {
-    class PrepareDish
+    interface ICounter
     {
+        Boolean isTabFull();
     }
 }

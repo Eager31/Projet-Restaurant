@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    class BringCaraffe
+    class BringJug
     {
     }
 }
