@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modèle.Room.Element;
-using Modèle.Map.IElement;
+//using Modèle.Map.IElement;
 
 namespace Modèle.Room
 {
-    public class ElementTable : IElement
+    public class ElementTable //: IElement
     {
 
         private int chairAmount { get; set; }
