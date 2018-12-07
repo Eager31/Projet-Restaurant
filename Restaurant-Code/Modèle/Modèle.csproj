@@ -41,6 +41,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="Cuisine\Counter.cs" />
+    <Compile Include="Cuisine\Cream.cs" />
+    <Compile Include="Cuisine\DishDecorator.cs" />
+    <Compile Include="Cuisine\EnumKitchen.cs" />
+    <Compile Include="Cuisine\Freezer.cs" />
+    <Compile Include="Cuisine\Fridge.cs" />
+    <Compile Include="Cuisine\ICounter.cs" />
+    <Compile Include="Cuisine\Ingredients.cs" />
+    <Compile Include="Cuisine\Instruction.cs" />
+    <Compile Include="Cuisine\IStorage.cs" />
+    <Compile Include="Cuisine\KitchenAction.cs" />
+    <Compile Include="Cuisine\KitchenTool.cs" />
+    <Compile Include="Cuisine\Dish.cs" />
+    <Compile Include="Cuisine\Menu.cs" />
+    <Compile Include="Cuisine\Pepper.cs" />
+    <Compile Include="Cuisine\Salt.cs" />
+    <Compile Include="Cuisine\Storage.cs" />
+    <Compile Include="Cuisine\Supply.cs" />
+    <Compile Include="Plonge\DishwasherMachine.cs" />
+    <Compile Include="Plonge\IWashingRoomMaterial.cs" />
+    <Compile Include="Plonge\IWashingKitchenTools.cs" />
+    <Compile Include="Plonge\QueueKitchenTools.cs" />
+    <Compile Include="Plonge\QueueRoomTools.cs" />
+    <Compile Include="Plonge\Sink.cs" />
+    <Compile Include="Plonge\WashingRoomTools.cs" />
+    <Compile Include="Plonge\WashingMachine.cs" />
+    <Compile Include="Plonge\WashingKitchenTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salle\IRoomStuff.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CAD\" />
+=======
     <Compile Include="Map\IElements.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\BookingForm.cs" />
@@ -63,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plonge\" />
+>>>>>>> Gilly
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
