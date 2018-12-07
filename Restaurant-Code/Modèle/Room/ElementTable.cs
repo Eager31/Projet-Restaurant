@@ -8,7 +8,7 @@ using Modèle.Room.Element;
 
 namespace Modèle.Room
 {
-    public class ElementTable //: IElement
+    public class ElementTable// : IElement
     {
 
         private int chairAmount { get; set; }
