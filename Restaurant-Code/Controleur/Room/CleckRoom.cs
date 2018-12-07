@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class CleckRoom : Commun.Actor
+    public class CleckRoom : Commun.Actor
     {
         public string name { get; set; }
 

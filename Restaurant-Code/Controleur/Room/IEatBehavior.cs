@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    interface IEatBehavior
+    public interface IEatBehavior
     {
-
+        void eat();
     }
 }
+

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class ClientQueue
+    public interface IQueue
     {
+        void addClientList(Client client);
+        void removeClientList(Client client);
     }
 }

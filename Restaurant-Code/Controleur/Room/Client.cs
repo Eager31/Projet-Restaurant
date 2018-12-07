@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class Client : Commun.Actor
+    public class Client : Commun.Actor
     {
 
-        public int number { get; set; }
-        public string name { get; set; }
+        private int number { get; set; }
+        private string name { get; set; }
 
-        public string type { get; set; }
+        private IEatBehavior behavior;
 
-        public Client(int number, string name, string type)
+        public Client(int number, string name)
         {
             this.number = number;
             this.name = name;
-            this.type = type;
+        }
+        
+        public void setBehavior(IEatBehavior behavior)
+        {
+            this.behavior = behavior;
         }
     }
 }

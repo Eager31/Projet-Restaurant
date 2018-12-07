@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class ClientPool
+    public class ClientPool
     {
     }
 }

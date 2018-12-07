@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class Butler : Commun.Actor
+    public class Butler : Commun.Actor
     {
-        public string name { get; set; }
-
+        private string name { get; set; }
+        private ClientList clientList { get; set; }
 
         public Butler(string name)
         {
             this.name = name;
-            ClientList.clientList = new List<Client>();
         }
     }
 

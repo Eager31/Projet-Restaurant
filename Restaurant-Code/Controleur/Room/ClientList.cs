@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class ClientList : IFile
+    public class ClientList : IQueue
     {
-        public static List<Client> clientList;
+        private static List<Client> clientList { get; set; }
 
         public void addClientList(Client client)
         {

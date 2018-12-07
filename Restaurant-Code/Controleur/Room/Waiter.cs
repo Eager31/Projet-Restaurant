@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modèle.Room;
 
 namespace Controleur.Room
 {
-    class Waiter : Commun.Actor
+    public class Waiter : Commun.Actor
     {
-        public string name { get; set; }
+        private string name { get; set; }
+        private Square square { get; set; }
+        private Row row { get; set; }
 
-        public Waiter(string name)
+        public Waiter(string name, Square square, Row row)
         {
             this.name = name;
+            this.square = square;
+            this.row = row;
         }
-
-
     }
 }

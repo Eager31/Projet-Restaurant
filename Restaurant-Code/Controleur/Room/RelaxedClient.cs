@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    class RelaxedClient : IBehaviorManager
+    public class RelaxedClient : IEatBehavior
     {
         public void eat()
         {
