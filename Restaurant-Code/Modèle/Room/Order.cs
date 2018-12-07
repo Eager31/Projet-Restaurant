@@ -7,10 +7,10 @@ using Modèle.Kitchen.Dich;
 
 namespace Modèle.Room
 {
-    class Order
+    public class Order
     {
-        Dich dich;
-        int tableNumber;
+        private Dich dich { get; set; }
+        private int tableNumber { get; set; } 
 
         public Order(Dich dich, int tableNumber)
         {

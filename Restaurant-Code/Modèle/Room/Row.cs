@@ -7,9 +7,16 @@ using Modèle.Map;
 
 namespace Modèle.Room
 {
-    class Row : Modèle.Map.IElements
+    public class Row : Modèle.Map.IElements
     {
-        public int number { get; set; }
-        public ElementTable table;
+
+        private int number { get; set; }
+        private ElementTable table { get; set; }
+
+        public Row(int number, ElementTable table)
+        {
+            this.number = number;
+            this.table = table;
+        }
     }
 }

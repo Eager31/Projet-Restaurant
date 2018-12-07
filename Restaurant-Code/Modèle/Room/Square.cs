@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room
 {
-    class Square
+    public class Square
     {
-        public int number { get; set; }
-        public Row row;
+        private int number { get; set; }
+        private Row row;
+
+        public Square(int number, Row row)
+        {
+            this.number = number;
+            this.row = row;
+        }
     }
 }

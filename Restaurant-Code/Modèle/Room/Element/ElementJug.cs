@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room.Element
 {
-    class ElementJug : RoomStuff
+    public class ElementJug : RoomStuff
     {
-        public ElementJug(string name, string type) : base(name, type)
+        public ElementJug(EnumRoom.JugType type, EnumRoom.MaterialState state) : base("Jug", type, state)
         {
-            this.name = "Jug";
-            this.type = type;
         }
     }
 }

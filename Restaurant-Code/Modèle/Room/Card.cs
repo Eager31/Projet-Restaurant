@@ -7,9 +7,15 @@ using Modèle.Kitchen.Menu;
 
 namespace Modèle.Room
 {
-    class Card
+    public class Card
     {
         List<Menu> menus = new List<Menu>();
         List<Drink> drinks = new List<Drink>();
+
+        public Card(List<Menu> menus, List<Drink> drinks)
+        {
+            this.menus = menus;
+            this.drinks = drinks;
+        }
     }
 }

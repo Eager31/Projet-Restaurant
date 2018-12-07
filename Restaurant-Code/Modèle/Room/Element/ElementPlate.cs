@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room.Element
 {
-    class ElementPlate : RoomStuff
+    public class ElementPlate : RoomStuff
     {
-        public ElementPlate(string name, string type) : base(name, type)
+        public ElementPlate(EnumRoom.PlateType type, EnumRoom.MaterialState state) : base("Plate", type, state)
         {
-            this.name = "Plate";
-            this.type = type;
         }
     }
 }

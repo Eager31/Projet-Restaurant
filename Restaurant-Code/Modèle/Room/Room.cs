@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room
 {
-    class Room
+    public class Room
     {
-        public int number { get; set; }
-        public Square square;
+
+        private int number { get; set; }
+        private Square square { get; set; }
+
+        public Room(int number, Square square)
+        {
+            this.number = number;
+            this.square = square;
+        }
     }
 }

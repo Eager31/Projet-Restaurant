@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room
 {
-    class BookingForm
+    public class BookingForm
     {
-        string name;
-        ElementTable table;
-        int hour;
+        private string name { get; set; }
+        private ElementTable table { get; set; }
+        private DateTime hour { get; set; }
 
-        public BookingForm(string name, ElementTable table, int hour)
+        public BookingForm(string name, ElementTable table, DateTime hour)
         {
             this.name = name;
             this.table = table;

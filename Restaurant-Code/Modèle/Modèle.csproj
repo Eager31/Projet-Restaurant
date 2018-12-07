@@ -41,13 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Map\IElements.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room\BookingForm.cs" />
+    <Compile Include="Room\Card.cs" />
+    <Compile Include="Room\ElementTable.cs" />
+    <Compile Include="Room\Element\ElementTowel.cs" />
+    <Compile Include="Room\Element\ElementWater.cs" />
+    <Compile Include="Room\Element\EnumRoom.cs" />
+    <Compile Include="Room\RoomStuff.cs" />
+    <Compile Include="Room\Drink.cs" />
+    <Compile Include="Room\Element\ElementBread.cs" />
+    <Compile Include="Room\Element\ElementGlass.cs" />
+    <Compile Include="Room\Element\ElementJug.cs" />
+    <Compile Include="Room\Element\ElementPlate.cs" />
+    <Compile Include="Room\Element\ElementTablecloth.cs" />
+    <Compile Include="Room\Order.cs" />
+    <Compile Include="Room\Room.cs" />
+    <Compile Include="Room\Row.cs" />
+    <Compile Include="Room\Square.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cuisine\" />
     <Folder Include="Plonge\" />
-    <Folder Include="Salle\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

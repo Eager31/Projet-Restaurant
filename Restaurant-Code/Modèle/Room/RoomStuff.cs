@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Modèle.Room
 {
-    abstract class RoomStuff
+    public abstract class RoomStuff
     {
-        public string name;
-        public ElementType type;
+        private string name { get; set; }
+        private Enum type { get; set; }
+        private Enum state { get; set; }
 
-        protected RoomStuff(string name, string type)
+        protected RoomStuff(string name, Enum type, Enum state)
         {
             this.name = name;
             this.type = type;
+            this.state = state;
         }
     }
 }
