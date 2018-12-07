@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Modèle.Plonge
 {
-    interface IWashingTools
+    public interface IWashingRoomMaterial
     {
-        int wash(List<KitchenTool> listKitchenTool); //!!!!!!! ==> List<MaterielRoom>
+        int wash(QueueRoomTools roomToolList); //!!!!!!! ==> List<MaterielRoom>
     }
 }

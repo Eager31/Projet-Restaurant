@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modèle.Cuisine
 {
-    public class Counter
+    public class Counter : ICounter
     {
         private Dish[] tabDish;
 

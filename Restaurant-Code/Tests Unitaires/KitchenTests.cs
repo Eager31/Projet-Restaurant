@@ -20,7 +20,7 @@ namespace Tests_Unitaires
         }
 
         private TestContext testContextInstance;
-        private DateTime livraisonDate;
+        private DateTime deliveryDate;
         private DateTime experationDate;
         private Ingredients carotte;
         private Ingredients patatte;
@@ -64,11 +64,11 @@ namespace Tests_Unitaires
         [TestInitialize]
         public void TestInitialize()
         {
-            livraisonDate = new DateTime(2018, 1, 1, 7, 30, 0); // 1/1/2018 7:30:00
+            deliveryDate = new DateTime(2018, 1, 1, 7, 30, 0); // 1/1/2018 7:30:00
             experationDate = new DateTime(2018, 3, 1, 7, 30, 0); // 3/1/2018 7:30:00
-            carotte = new Ingredients("carrot", EnumKitchen.IngredientsType.frais, livraisonDate, experationDate);
-            patatte = new Ingredients("potato", EnumKitchen.IngredientsType.frais, livraisonDate, experationDate);
-            turnip = new Ingredients("turnip", EnumKitchen.IngredientsType.frais, livraisonDate, experationDate);
+            carotte = new Ingredients("carrot", EnumKitchen.IngredientsType.frais, deliveryDate, experationDate);
+            patatte = new Ingredients("potato", EnumKitchen.IngredientsType.frais, deliveryDate, experationDate);
+            turnip = new Ingredients("turnip", EnumKitchen.IngredientsType.frais, deliveryDate, experationDate);
             ingredientsList = new List<Ingredients>
             {
                 carotte,

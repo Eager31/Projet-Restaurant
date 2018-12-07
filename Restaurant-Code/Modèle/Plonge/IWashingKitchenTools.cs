@@ -9,6 +9,6 @@ namespace Modèle.Plonge
 {
     interface IWashingKitchenTools
     {
-        int wash(List<KitchenTool> listKitchenTool);
+        int wash(QueueKitchenTools kitchenToolList);
     }
 }
