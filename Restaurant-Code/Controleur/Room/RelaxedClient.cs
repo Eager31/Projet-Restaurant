@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    public interface IEatBehavior
+    public class RelaxedClient : IEatBehavior
     {
-        void eat();
+        public void eat()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
-

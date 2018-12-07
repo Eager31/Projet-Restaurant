@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Salle
+namespace Modèle.Map
 {
-    class ClientCool
+    interface IElements
     {
     }
 }
