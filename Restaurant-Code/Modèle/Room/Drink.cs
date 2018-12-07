@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modèle.Room.Element;
 
-namespace Controleur.Room
+namespace Modèle.Room
 {
-    public class Butler : Commun.Actor
+    public class Drink
     {
         private string name { get; set; }
-        private ClientList clientList { get; set; }
+        private Enum type { get; set; }
 
-        public Butler(string name)
+        public Drink(string name, EnumRoom.DrinkType type)
         {
             this.name = name;
+            this.type = type;
         }
     }
-
-     
 }

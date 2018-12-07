@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modèle.Plonge
 {
-    public abstract class WashingRoomTools : IWashingRoomMaterial
+    public abstract class WashingRoomTools
     {
         private int washTime;
         private int maxNumber;

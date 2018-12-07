@@ -56,7 +56,6 @@
     <Compile Include="Commun\CleanTable.cs" />
     <Compile Include="Commun\CleanTableware.cs" />
     <Compile Include="Commun\ClearTable.cs" />
-    <Compile Include="Commun\PrepareDish.cs" />
     <Compile Include="Commun\Eat.cs" />
     <Compile Include="Commun\FindDishSimilarities.cs" />
     <Compile Include="Commun\IActor.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="Commun\Order.cs" />
     <Compile Include="Commun\Pay.cs" />
     <Compile Include="Commun\PlaceClient.cs" />
+    <Compile Include="Commun\PrepareDish.cs" />
     <Compile Include="Commun\RefuseOrder.cs" />
     <Compile Include="Commun\Serve.cs" />
     <Compile Include="Commun\SetEatBehaviour.cs" />
@@ -77,18 +77,27 @@
     <Compile Include="Kitchen\MainChef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Butler.cs" />
+    <Compile Include="Room\ClientList.cs" />
     <Compile Include="Room\CleckRoom.cs" />
     <Compile Include="Room\Client.cs" />
-    <Compile Include="Room\ClientCool.cs" />
-    <Compile Include="Room\ClientPool.cs" />
-    <Compile Include="Room\ClientQueue.cs" />
-    <Compile Include="Room\ClientStressedOut.cs" />
-    <Compile Include="Room\HeadWaiter.cs" />
     <Compile Include="Room\IEatBehavior.cs" />
+    <Compile Include="Room\RelaxedClient.cs" />
+    <Compile Include="Room\ClientPool.cs" />
+    <Compile Include="Room\StressedOutClient.cs" />
+    <Compile Include="Room\HeadWaiter.cs" />
+    <Compile Include="Room\IQueue.cs" />
     <Compile Include="Room\Waiter.cs" />
     <Compile Include="Time - Clock\Clock.cs" />
     <Compile Include="Time - Clock\IClock.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Plonge\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modèle\Modèle.csproj">
+      <Project>{F4509063-9C7E-4C96-BC73-A5A6EB823F72}</Project>
+      <Name>Modèle</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

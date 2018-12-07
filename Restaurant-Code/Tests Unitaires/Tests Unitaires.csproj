@@ -52,6 +52,7 @@
     <Compile Include="DishwasherTests.cs" />
     <Compile Include="KitchenTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

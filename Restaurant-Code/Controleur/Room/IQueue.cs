@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    public interface IEatBehavior
+    public interface IQueue
     {
-        void eat();
+        void addClientList(Client client);
+        void removeClientList(Client client);
     }
 }
-
