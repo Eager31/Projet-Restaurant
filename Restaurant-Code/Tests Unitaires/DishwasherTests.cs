@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modèle.Plonge;
 using Modèle.Cuisine;
+using Controleur.Commun.ObserverObservable;
+using System.IO;
+using Controleur.Cuisine;
 
 namespace Tests_Unitaires
 {
@@ -106,7 +109,16 @@ namespace Tests_Unitaires
 
             queueKitchenToolsEmpty = new QueueKitchenTools();
             queueKitchenToolsEmpty.KitchenToolsQueue = dirtyKitchenToolListEmpty;
-            }
+
+
+
+            //Récupérer la sortie standard
+            StreamWriter standardOut = new StreamWriter(Console.OpenStandardOutput());
+
+            standardOut.AutoFlush = true;
+
+            Console.SetOut(standardOut);
+        }
 
 
         [TestMethod]
@@ -120,11 +132,47 @@ namespace Tests_Unitaires
             value = dishWasherMachine.wash(queueKitchenTools); //4 - 3
             value = dishWasherMachine.wash(queueKitchenTools); // 1 - 3 List Empty
             Assert.AreEqual(0, value);
-
             int value2 = dishWasherMachine.wash(queueKitchenToolsEmpty);
             Assert.AreEqual(0, value2); //nothing to wash
-
-
         }
+
+        [TestMethod]
+        public void observerObservableDishWasherKitchenToolsListIsNotEmpty()
+        {
+            QueueKitchenTools kitchenQueueTest = new QueueKitchenTools();
+            QueueKitchenToolsHandler provider = new QueueKitchenToolsHandler(); //Fournit les informations de la kitchenQueueTest
+            DishWasher observer1 = new DishWasher("DishWasher1");
+            observer1.Subscribe(provider);
+            kitchenQueueTest.KitchenToolsQueue.Add(dirtyKnife);
+            kitchenQueueTest.KitchenToolsQueue.Add(dirtyKnife);
+            Assert.AreEqual(provider.QueueKitchenToosStatus(kitchenQueueTest).KitchenToolsQueue.Count, kitchenQueueTest.KitchenToolsQueue.Count);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.QueueKitchenToosStatus(kitchenQueueTest); //Fournit le status aux observer
+                string expected = string.Format("List contains : 2 : elements - DishWasher1{0}", Environment.NewLine); 
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void observerObservableDishWasherKitchenToolsListIsEmpty()
+        {
+            QueueKitchenTools kitchenQueueTest = new QueueKitchenTools();
+            QueueKitchenToolsHandler provider = new QueueKitchenToolsHandler(); //Fournit les informations de la kitchenQueueTest
+            DishWasher observer1 = new DishWasher("DishWasher1");
+            observer1.Subscribe(provider);
+            Assert.AreEqual(provider.QueueKitchenToosStatus(kitchenQueueTest).KitchenToolsQueue.Count, kitchenQueueTest.KitchenToolsQueue.Count);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.QueueKitchenToosStatus(kitchenQueueTest); //Fournit le status aux observer
+                string expected = string.Format("List is empty - DishWasher1{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
     }
 }

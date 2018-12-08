@@ -1,4 +1,6 @@
 ﻿using Modèle.Cuisine;
+using Modèle.Room;
+using Modèle.Room.Element;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace Modèle.Plonge
     {
         private int washTime;
         private int maxNumber;
-
+        
         public WashingRoomTools(int washTime, int maxNumber)
         {
             this.WashTime = washTime;
@@ -21,24 +23,24 @@ namespace Modèle.Plonge
         public int WashTime { get => washTime; set => washTime = value; }
         public int MaxNumber { get => maxNumber; set => maxNumber = value; }
 
-        public int wash(QueueRoomTools roomToolList) //!!!List<MaterielSalle>
+        public int wash(List<RoomStuff> roomStuffList)
         {
             int cpt = MaxNumber;
             while (cpt >= 0)
             {
-                if (!roomToolList.RoomToolsQueue.Any()) { return 0; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
-                foreach (KitchenTool kt in roomToolList.RoomToolsQueue) //c'est pas très beau :( mais ça marche :)
+                if (!roomStuffList.Any()) { return 0; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
+                foreach (RoomStuff kt in roomStuffList) //c'est pas très beau :( mais ça marche :)
                 {
-                    //vérification que l'outil est bien sale
-                    if (kt.Type.Equals(EnumKitchen.KitchenToolsType.dirt))
+                    //vérification que le materiel est bien sale
+                    if (kt.Equals(EnumRoom.MaterialState.Dirt))
                     {
-                        roomToolList.RoomToolsQueue.Remove(kt);
+                        roomStuffList.Remove(kt);
                         cpt--;
                     }
                     break;
                 }
             }
-            return 1; //Si on lui donne une liste vide
+            return 1; 
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public abstract class Actor : IAgir, IObserver<>, IActor
+    public abstract class Actor : IAgir, IActor
     {
-        
+
         private string name;
         private IAgir act;
         private int number;
@@ -19,15 +19,16 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public void checkTime()
+        {
+            throw new NotImplementedException();
+        }
+
         public int intAgir()
         {
             throw new NotImplementedException();
         }
 
-        public void checkTime()
-        {
-            throw new NotImplementedException();
-        }
 
         //start the Thrad <==> implements Runnable in Java
         public void threadStart()
@@ -37,19 +38,6 @@ namespace Controleur.Commun
             newThread.Start();
         }
 
-        public void OnNext(T value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnError(Exception error)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnCompleted()
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }

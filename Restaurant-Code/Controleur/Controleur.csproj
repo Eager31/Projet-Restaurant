@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +63,7 @@
     <Compile Include="Commun\IActor.cs" />
     <Compile Include="Commun\IAgir.cs" />
     <Compile Include="Commun\IsDishAchievable.cs" />
+    <Compile Include="Commun\ObserverObservable\QueueKitchenToolsHandler.cs" />
     <Compile Include="Commun\OpenRestaurant.cs" />
     <Compile Include="Commun\Order.cs" />
     <Compile Include="Commun\Pay.cs" />
@@ -90,9 +93,7 @@
     <Compile Include="Time - Clock\Clock.cs" />
     <Compile Include="Time - Clock\IClock.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Plonge\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Modèle\Modèle.csproj">
       <Project>{F4509063-9C7E-4C96-BC73-A5A6EB823F72}</Project>

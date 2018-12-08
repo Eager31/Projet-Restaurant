@@ -1,4 +1,5 @@
 ﻿using Modèle.Cuisine;
+using Modèle.Room;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,13 @@ namespace Modèle.Plonge
 {
     public class QueueRoomTools //must extends Obserer
     {
-        private List<KitchenTool> roomToolsQueue; //Must be List<KitchenRoom>
+        private List<RoomStuff> roomToolsQueue;
 
         public QueueRoomTools()
         {
-            this.RoomToolsQueue = new List<KitchenTool>(); //Must be List<KitchenRoom>
+            this.RoomToolsQueue = new List<RoomStuff>(); 
         }
 
-        public List<KitchenTool> RoomToolsQueue { get => roomToolsQueue; set => roomToolsQueue = value; }
+        public List<RoomStuff> RoomToolsQueue { get => roomToolsQueue; set => roomToolsQueue = value; }
     }
 }
