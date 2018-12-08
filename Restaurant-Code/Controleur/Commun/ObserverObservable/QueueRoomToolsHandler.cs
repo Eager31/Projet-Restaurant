@@ -1,4 +1,5 @@
-﻿using Modèle.Plonge;
+﻿using Controleur.Cuisine;
+using Modèle.Plonge;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +9,37 @@ using System.Threading.Tasks;
 namespace Controleur.Commun.ObserverObservable
 {
     //Classe qui va intéragir à la place de QueKitchenTools
-    public class QueueKitchenToolsHandler : IObservable<QueueKitchenTools>
+    public class QueueRoomStuffHandler : IObservable<QueueRoomTools>
     {
 
-        private List<IObserver<QueueKitchenTools>> observers; //Liste des clients qui vont recevoir l'update
-        private List<QueueKitchenTools> kitchenToolQeue; //File d'assiette sale
+        private List<IObserver<QueueRoomTools>> observers; //Liste des clients qui vont recevoir l'update
+        private List<QueueRoomTools> roomToolQueue; //File d'assiette sale
 
-        public QueueKitchenToolsHandler()
+        public QueueRoomStuffHandler()
         {
-            observers = new List<IObserver<QueueKitchenTools>>();
-            kitchenToolQeue = new List<QueueKitchenTools>(); //File d'assiette sale
+            observers = new List<IObserver<QueueRoomTools>>();
+            roomToolQueue = new List<QueueRoomTools>(); //File d'assiette sale
         }
 
-        public IDisposable Subscribe(IObserver<QueueKitchenTools> observer) //Demander à recevoir les infos
+        public IDisposable Subscribe(IObserver<QueueRoomTools> observer) //Demander à recevoir les infos
         {
             // Check whether observer is already registered. If not, add it
             if (!observers.Contains(observer))
             {
                 observers.Add(observer);
                 // Provide observer with existing data.
-                foreach (var item in kitchenToolQeue)
+                foreach (var item in roomToolQueue)
                     observer.OnNext(item);
             }
-            return new Unsubscriber<QueueKitchenTools>(observers, observer);
+            return new Unsubscriber2<QueueRoomTools>(observers, observer);
         }
-    
 
-    //Permet de récupérer le stats
-    public QueueKitchenTools QueueKitchenToolsStatus(QueueKitchenTools info)
+
+        //Permet de récupérer le stats
+        public QueueRoomTools QueueRoomToolsStatus(QueueRoomTools info)
         {
             //var info = new QueueKitchenTools(); //L'information
-            kitchenToolQeue.Add(info);
+            roomToolQueue.Add(info);
                 foreach (var observer in observers)
                     observer.OnNext(info); //On notifie que le bagage est apparue dans la liste
             return info; //Juste pour le TDD
@@ -53,12 +54,12 @@ namespace Controleur.Commun.ObserverObservable
     }
 
 }
-    internal class Unsubscriber<QueueKitchenTools> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
+    internal class Unsubscriber2<QueueRoomTools> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
     {
-        private List<IObserver<QueueKitchenTools>> _observers;
-        private IObserver<QueueKitchenTools> _observer;
+        private List<IObserver<QueueRoomTools>> _observers;
+        private IObserver<QueueRoomTools> _observer;
 
-        internal Unsubscriber(List<IObserver<QueueKitchenTools>> observers, IObserver<QueueKitchenTools> observer)
+        internal Unsubscriber2(List<IObserver<QueueRoomTools>> observers, IObserver<QueueRoomTools> observer)
         {
             this._observers = observers;
             this._observer = observer;

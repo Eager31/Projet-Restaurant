@@ -63,7 +63,9 @@
     <Compile Include="Commun\IActor.cs" />
     <Compile Include="Commun\IAgir.cs" />
     <Compile Include="Commun\IsDishAchievable.cs" />
+    <Compile Include="Commun\ObserverObservable\QueueRoomToolsHandler.cs" />
     <Compile Include="Commun\ObserverObservable\QueueKitchenToolsHandler.cs" />
+    <Compile Include="Commun\ObserverObservable\Unsubscriber.cs" />
     <Compile Include="Commun\OpenRestaurant.cs" />
     <Compile Include="Commun\Order.cs" />
     <Compile Include="Commun\Pay.cs" />

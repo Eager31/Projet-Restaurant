@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Controleur.Cuisine
 {
     // Observer
-    public class DishWasher : IObserver<QueueKitchenTools>
+    public class DishWasher : IObserver<QueueKitchenTools>, IObserver<QueueRoomTools>
     {
         private string name;
         private List<string> queueKitchenToolsInfos = new List<string>();
@@ -24,7 +24,14 @@ namespace Controleur.Cuisine
             this.name = name;
         }
 
-        public virtual void Subscribe(QueueKitchenToolsHandler provider)
+        //S'abonner à la file de la room stuf
+        public virtual void SubscribeQueueRoomStuff(QueueRoomStuffHandler provider)
+        {
+            cancellation = provider.Subscribe(this);
+        }
+
+        //S'abonner à la file de la cuisine
+        public virtual void SubscribeQueueKitchenTools(QueueKitchenToolsHandler provider)
         {
             cancellation = provider.Subscribe(this);
         }
@@ -60,6 +67,20 @@ namespace Controleur.Cuisine
             }
             
                 
+        }
+
+        public void OnNext(QueueRoomTools info)
+        {
+            if (info.RoomToolsQueue.Count > 0)
+            {
+                //traitement
+                Console.WriteLine("List contains : {1} : elements - {0}", this.name, info.RoomToolsQueue.Count);
+            }
+            else
+            {
+                //traitement
+                Console.WriteLine("List is empty - {0}", this.name);
+            }
         }
     }
 }
