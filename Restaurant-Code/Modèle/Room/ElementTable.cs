@@ -11,16 +11,16 @@ namespace Modèle.Room
     public class ElementTable// : IElement
     {
 
-        private int chairAmount { get; set; }
-        private int tableNumber { get; set; }
-        private string state { get; set; }
-        private Boolean isReserved { get; set; }
-        private ElementBread bread { get; set; }
-        private ElementWater water { get; set; }
-        private ElementPlate plate { get; set; }
-        private ElementTablecloth tablecloth { get; set; }
-        private ElementTowel towel { get; set; }
-        private ElementGlass glass { get; set; }
+        public int chairAmount { get; set; }
+        public int tableNumber { get; set; }
+        public string state { get; set; }
+        public Boolean isReserved { get; set; }
+        public ElementBread bread { get; set; }
+        public ElementWater water { get; set; }
+        public ElementPlate plate { get; set; }
+        public ElementTablecloth tablecloth { get; set; }
+        public ElementTowel towel { get; set; }
+        public ElementGlass glass { get; set; }
 
         public ElementTable(int chairAmount, int tableNumber, string state, bool isReserved, ElementBread bread, ElementWater water, ElementPlate plate, ElementTablecloth tablecloth, ElementTowel towel, ElementGlass glass)
         {

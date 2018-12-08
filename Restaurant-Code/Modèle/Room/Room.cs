@@ -9,8 +9,8 @@ namespace Modèle.Room
     public class Room
     {
 
-        private int number { get; set; }
-        private Square square { get; set; }
+        public int number { get; set; }
+        public Square square { get; set; }
 
         public Room(int number, Square square)
         {
