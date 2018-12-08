@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DAL
 {
-    class Context : DbContext
+    class DataContext : DbContext
     {
         public DbSet<Action> Action { get; set; }
         public DbSet<Dish> Dish { get; set; }
@@ -18,16 +18,5 @@ namespace DAL
         public DbSet<Instruction> Instruction { get; set; }
         public DbSet<KitchenTool> KitchenTool { get; set; }
 
-
-        public Context() : base("Context")
-        {
-
-        }
-
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
     }
 }

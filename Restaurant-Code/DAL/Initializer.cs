@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class Initializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<Context>
+    class Initializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DataContext>
     {
-        protected override void Seed(Context context)
+        protected override void Seed(DataContext context)
         {
             var slice = new Action { ID = 0, name = "Slice", description = "", duration = 2 };
             var peel = new Action { ID = 1, name = "Peel", description = "", duration = 2 };

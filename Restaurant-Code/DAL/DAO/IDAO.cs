@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    interface IDAO
+    interface IDAO<T>
     {
-        void create(Object obj);
-        Object get(int id);
-        void update(Object obj);
-        void delete(Object obj);
+        void create(T t);
+        void delete(int id);
+        T get(int id);
+        bool update(int id, T newT);
     }
 }

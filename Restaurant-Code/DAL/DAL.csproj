@@ -49,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
-    <Compile Include="Context.cs" />
-    <Compile Include="DAO.cs" />
-    <Compile Include="Dish.cs" />
-    <Compile Include="IDAO.cs" />
-    <Compile Include="Ingredient.cs" />
-    <Compile Include="IngredientType.cs" />
+    <Compile Include="dbModel\Action.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="DAO\ActionDAO.cs" />
+    <Compile Include="dbModel\Dish.cs" />
+    <Compile Include="DAO\IDAO.cs" />
+    <Compile Include="dbModel\Ingredient.cs" />
+    <Compile Include="dbModel\IngredientType.cs" />
     <Compile Include="Initializer.cs" />
-    <Compile Include="Instruction.cs" />
-    <Compile Include="KitchenTool.cs" />
+    <Compile Include="dbModel\Instruction.cs" />
+    <Compile Include="dbModel\KitchenTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
