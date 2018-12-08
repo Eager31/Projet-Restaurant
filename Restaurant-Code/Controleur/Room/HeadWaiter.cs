@@ -13,7 +13,7 @@ namespace Controleur.Room
         private Square square { get; set; }
         private Row row { get; set; }
 
-        public HeadWaiter(string name, Square square, Row row)
+        public HeadWaiter(string name, Square square, Row row) : base(name)
         {
             this.name = name;
             this.square = square;

@@ -118,6 +118,7 @@ namespace Tests_Unitaires
 
             counter = new Counter();
 
+           
         }
 
         #region Additional test attributes
@@ -255,7 +256,7 @@ namespace Tests_Unitaires
         {
             Counter counter = new Counter();
             CounterHandler provider = new CounterHandler(); //Fournit les informations de la kitchenQueueTest
-            Butler observer1 = new Butler("Butler1");
+            Butler observer1 = new Butler("David");
 
 
             counter.TabDish[0] = entreePotato;
@@ -269,7 +270,29 @@ namespace Tests_Unitaires
             {
                 Console.SetOut(sw);
                 provider.CounterStatus(counter); //Fournit le status aux observer
-                string expected = string.Format("Counter contains : 4 : elements - Butler1{0}", Environment.NewLine);
+                string expected = string.Format("Counter contains : 4 : elements - David{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void observerObservableAnyActorCounterIsNotEmpty()
+        {
+            Counter counter = new Counter();
+            Butler observer3 = new Butler("John"); //John can't check counter normaly :o
+            CounterHandler provider = new CounterHandler(); //Fournit les informations de la kitchenQueueTest
+           
+            counter.TabDish[0] = entreePotato;
+            counter.TabDish[1] = entreePotato;
+            counter.TabDish[2] = entreePotato;
+            counter.TabDish[3] = entreePotato;
+            observer3.SubscribeCounter(provider); //John observe the counter now :)
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.CounterStatus(counter); //Fournit le status aux observer
+                string expected = string.Format("Counter contains : 4 : elements - John{0}", Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }

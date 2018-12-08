@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controleur.Commun;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    public class CleckRoom : Commun.Actor
+    public class CleckRoom : Actor
     {
-        public string name { get; set; }
-
-        public CleckRoom(string name)
+        public CleckRoom(string name) : base(name)
         {
-            this.name = name;
         }
     }
 }

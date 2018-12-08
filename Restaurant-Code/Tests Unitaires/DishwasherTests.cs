@@ -143,7 +143,7 @@ namespace Tests_Unitaires
         {
             QueueKitchenTools kitchenQueueTest = new QueueKitchenTools();
             QueueKitchenToolsHandler provider = new QueueKitchenToolsHandler(); //Fournit les informations de la kitchenQueueTest
-            DishWasher observer1 = new DishWasher("DishWasher1");
+            DishWasher observer1 = new DishWasher("Gilly");
             observer1.SubscribeQueueKitchenTools (provider);
             kitchenQueueTest.KitchenToolsQueue.Add(dirtyKnife);
             kitchenQueueTest.KitchenToolsQueue.Add(dirtyKnife);
@@ -153,7 +153,7 @@ namespace Tests_Unitaires
             {
                 Console.SetOut(sw);
                 provider.QueueKitchenToolsStatus(kitchenQueueTest); //Fournit le status aux observer
-                string expected = string.Format("List contains : 2 : elements - DishWasher1{0}", Environment.NewLine); 
+                string expected = string.Format("List contains : 2 : elements - Gilly{0}", Environment.NewLine); 
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -163,7 +163,7 @@ namespace Tests_Unitaires
         {
             QueueKitchenTools kitchenQueueTest = new QueueKitchenTools();
             QueueKitchenToolsHandler provider = new QueueKitchenToolsHandler(); //Fournit les informations de la kitchenQueueTest
-            DishWasher observer1 = new DishWasher("DishWasher1");
+            DishWasher observer1 = new DishWasher("Louise");
             observer1.SubscribeQueueKitchenTools(provider);
             Assert.AreEqual(provider.QueueKitchenToolsStatus(kitchenQueueTest).KitchenToolsQueue.Count, kitchenQueueTest.KitchenToolsQueue.Count);
 
@@ -171,7 +171,7 @@ namespace Tests_Unitaires
             {
                 Console.SetOut(sw);
                 provider.QueueKitchenToolsStatus(kitchenQueueTest); //Fournit le status aux observer
-                string expected = string.Format("List is empty - DishWasher1{0}", Environment.NewLine);
+                string expected = string.Format("List is empty - Louise{0}", Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -181,7 +181,7 @@ namespace Tests_Unitaires
         {
             QueueRoomTools roomQueueTest = new QueueRoomTools();
             QueueRoomStuffHandler provider = new QueueRoomStuffHandler(); //Fournit les informations de la kitchenQueueTest
-            DishWasher observer1 = new DishWasher("DishWasher1");
+            DishWasher observer1 = new DishWasher("Marc");
             ElementPlate plate = new ElementPlate(EnumRoom.PlateType.Flat, EnumRoom.MaterialState.Dirt);
 
             roomQueueTest.RoomToolsQueue.Add(plate);
@@ -194,10 +194,11 @@ namespace Tests_Unitaires
             {
                 Console.SetOut(sw);
                 provider.QueueRoomToolsStatus(roomQueueTest); //Fournit le status aux observer
-                string expected = string.Format("List contains : 3 : elements - DishWasher1{0}", Environment.NewLine);
+                string expected = string.Format("List contains : 3 : elements - Marc{0}", Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
+
 
  
 

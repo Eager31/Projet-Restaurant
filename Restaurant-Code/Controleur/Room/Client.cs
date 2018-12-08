@@ -14,12 +14,10 @@ namespace Controleur.Room
 
         private IEatBehavior behavior;
 
-        public Client(int number, string name)
+        public Client(string name, int number) : base(name)
         {
-            this.number = number;
-            this.name = name;
         }
-        
+
         public void setBehavior(IEatBehavior behavior)
         {
             this.behavior = behavior;
