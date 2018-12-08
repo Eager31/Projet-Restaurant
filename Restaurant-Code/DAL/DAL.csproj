@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\IngredientTypeDAO.cs" />
     <Compile Include="dbModel\Action.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DAO\ActionDAO.cs" />
@@ -59,11 +60,28 @@
     <Compile Include="Initializer.cs" />
     <Compile Include="dbModel\Instruction.cs" />
     <Compile Include="dbModel\KitchenTool.cs" />
+    <Compile Include="Migrations\201812082040067_InitialCreate.cs" />
+    <Compile Include="Migrations\201812082040067_InitialCreate.Designer.cs">
+      <DependentUpon>201812082040067_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812082231091_AddUrl.cs" />
+    <Compile Include="Migrations\201812082231091_AddUrl.Designer.cs">
+      <DependentUpon>201812082231091_AddUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812082040067_InitialCreate.resx">
+      <DependentUpon>201812082040067_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812082231091_AddUrl.resx">
+      <DependentUpon>201812082231091_AddUrl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

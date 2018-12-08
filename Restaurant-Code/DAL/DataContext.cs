@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DAL
 {
-    class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Action> Action { get; set; }
         public DbSet<Dish> Dish { get; set; }
@@ -18,5 +18,11 @@ namespace DAL
         public DbSet<Instruction> Instruction { get; set; }
         public DbSet<KitchenTool> KitchenTool { get; set; }
 
+
+        public void initialize()
+        {
+            var initializer = new Initializer();
+            initializer.Seed(this);
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace DAL
 {
     class Initializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DataContext>
     {
-        protected override void Seed(DataContext context)
+        public void Seed(DataContext context)
         {
             var slice = new Action { ID = 0, name = "Slice", description = "", duration = 2 };
             var peel = new Action { ID = 1, name = "Peel", description = "", duration = 2 };
@@ -53,12 +53,14 @@ namespace DAL
 
             ingredientTypes.ForEach(s => context.IngredientType.Add(s));
             context.SaveChanges();
+            
 
 
+            var potato = new Ingredient { ID = 0, name = "Potato", typeId = fresh.ID, quantityInStock = 250, dateArrival = new DateTime(), dateExpire = new DateTime() };
+            var rice = new Ingredient { ID = 1, name = "Rice", typeId = longLife.ID, quantityInStock = 250, dateArrival = new DateTime(), dateExpire = new DateTime() };
+            var chicken = new Ingredient { ID = 2, name = "Chicken", typeId = frozen.ID, quantityInStock = 100, dateArrival = new DateTime(), dateExpire = new DateTime() };
 
-            var potato = new Ingredient { ID = 0, name = "Potato", type = null, quantityInStock = 250, dateArrival = new DateTime(), dateExpire = new DateTime() };
-            var rice = new Ingredient { ID = 1, name = "Rice", type = null, quantityInStock = 250, dateArrival = new DateTime(), dateExpire = new DateTime() };
-            var chicken = new Ingredient { ID = 2, name = "Chicken", type = null, quantityInStock = 100, dateArrival = new DateTime(), dateExpire = new DateTime() };
+            Console.WriteLine(potato.dateArrival);
 
             var ingredients = new List<Ingredient>
             {
@@ -70,7 +72,7 @@ namespace DAL
 
 
 
-            var sliceChicken = new Instruction { ID = 0, name = "Slice the chicken", description = "", ingredient = chicken, action = slice, tool = kitchenKnife };
+            var sliceChicken = new Instruction { ID = 0, name = "Slice the chicken", description = "", ingredientId = chicken.ID, actionId = slice.ID, toolId = kitchenKnife.ID };
 
             var instructions = new List<Instruction>
             {
@@ -83,9 +85,8 @@ namespace DAL
 
             var dishes = new List<Dish>
             {
-                new Dish { ID = 0, name = "Fish N' Chips", description = "", recipe = null},
-                new Dish { ID = 1, name = "Chicken Satay", description = "", recipe = new List<Instruction> {
-                    sliceChicken
+                new Dish { ID = 0, name = "Chicken Satay", description = "", recipe = new List<int> {
+                    sliceChicken.ID
                 } }
             };
 

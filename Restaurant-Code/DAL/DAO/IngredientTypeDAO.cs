@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ActionDAO : IDAO<Action>
+    public class IngredientTypeDAO : IDAO<IngredientType>
     {
         // Singleton pattern (thread safe) \\
-        private static ActionDAO instance = null;
+        private static IngredientTypeDAO instance = null;
         private static readonly object padlock = new object();
 
-        private ActionDAO()
+        private IngredientTypeDAO()
         {
         }
 
-        public static ActionDAO Instance
+        public static IngredientTypeDAO Instance
         {
             get {
                 lock (padlock) {
                     if (instance == null)
-                        instance = new ActionDAO();
+                        instance = new IngredientTypeDAO();
                     return instance;
                 }
             }
@@ -29,11 +29,11 @@ namespace DAL
 
 
         // CRUD \\
-        public void create(Action action)
+        public void create(IngredientType IngredientType)
         {
             using (var db = new DataContext())
             {
-                db.Action.Add(action);
+                db.IngredientType.Add(IngredientType);
                 db.SaveChanges();
             }
         }
@@ -42,34 +42,34 @@ namespace DAL
         {
             using (var db = new DataContext())
             {
-                var actionToRemove = db.Action.Where(a => a.ID == id).FirstOrDefault<Action>();
-                db.Action.Remove(actionToRemove);
+                var IngredientTypeToRemove = db.IngredientType.Where(a => a.ID == id).FirstOrDefault<IngredientType>();
+                db.IngredientType.Remove(IngredientTypeToRemove);
                 db.SaveChanges();
             }
         }
 
-        public Action get(int id)
+        public IngredientType get(int id)
         {
-            Action query = null;
+            IngredientType query = null;
 
             using (var db = new DataContext())
             {
-                query = db.Action.Where(a => a.ID == id).FirstOrDefault<Action>();
+                query = db.IngredientType.Where(a => a.ID == id).FirstOrDefault<IngredientType>();
             }
 
             return query;
         }
 
-        public bool update(int id, Action newAction)
+        public bool update(int id, IngredientType newIngredientType)
         {
             using (var db = new DataContext())
             {
-                var actionToModify = db.Action.Where(a => a.ID == id).FirstOrDefault<Action>();
+                var IngredientTypeToModify = db.IngredientType.Where(a => a.ID == id).FirstOrDefault<IngredientType>();
 
-                if (actionToModify == null)
+                if (IngredientTypeToModify == null)
                     return false;
 
-                actionToModify = newAction;
+                IngredientTypeToModify = newIngredientType;
                 db.SaveChanges();
             }
 

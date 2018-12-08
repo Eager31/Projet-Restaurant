@@ -9,9 +9,9 @@ namespace DAL
     public class Instruction
     {
         public int ID { get; set; }
-        public Ingredient ingredient { get; set; }
-        public Action action { get; set; }
-        public KitchenTool tool { get; set; }
+        public int ingredientId { get; set; }
+        public int actionId { get; set; }
+        public int toolId { get; set; }
         public string name { get; set; }
         public string description { get; set; }
     }
