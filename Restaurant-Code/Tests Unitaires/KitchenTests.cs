@@ -6,6 +6,7 @@ using Modèle.Cuisine;
 using Controleur.Commun.ObserverObservable;
 using Controleur.Room;
 using System.IO;
+using Controleur.Temps;
 
 namespace Tests_Unitaires
 {
@@ -296,5 +297,24 @@ namespace Tests_Unitaires
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
+        [TestMethod]
+        public void observerObservableAnyActorWatchingClock()
+        {
+            Clock clock = new Clock();
+            Butler studentObserver = new Butler("Student"); //Student can't check counter normaly :o
+            ClockHandler provider = new ClockHandler();
+
+            studentObserver.SubscribeClock(provider); //student is watching the clock
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.ClockStatus(clock); //Fournit le status aux observer
+                string expected = string.Format("The clock is watched - Student{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
+        
     }
 }

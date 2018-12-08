@@ -62,6 +62,7 @@
     <Compile Include="Commun\FindDishSimilarities.cs" />
     <Compile Include="Commun\IActor.cs" />
     <Compile Include="Commun\IsDishAchievable.cs" />
+    <Compile Include="Commun\ObserverObservable\ClockHandler.cs" />
     <Compile Include="Commun\ObserverObservable\CounterHandler.cs" />
     <Compile Include="Commun\ObserverObservable\QueueRoomToolsHandler.cs" />
     <Compile Include="Commun\ObserverObservable\QueueKitchenToolsHandler.cs" />

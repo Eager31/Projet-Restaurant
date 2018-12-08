@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.ObserverObservable;
+using Controleur.Temps;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomTools>
+    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomTools>, IObserver<Clock>
     {
 
         private IDisposable cancellation;
@@ -38,6 +39,11 @@ namespace Controleur.Commun
         }
     
         public virtual void SubscribeCounter(CounterHandler provider)
+        {
+            Cancellation = provider.Subscribe(this);
+        }
+
+        public virtual void SubscribeClock(ClockHandler provider)
         {
             Cancellation = provider.Subscribe(this);
         }
@@ -104,6 +110,13 @@ namespace Controleur.Commun
             }
         }
 
+
+        public void OnNext(Clock info)
+        {
+            //traitement
+            Console.WriteLine("The clock is watched - {0}", this.Name);
+        }
+
         /* Thread */
         public void threadStart()
         {
@@ -133,7 +146,6 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
-
 
     }
 

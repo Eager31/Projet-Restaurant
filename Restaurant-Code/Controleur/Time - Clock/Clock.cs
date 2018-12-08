@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Temps
 {
-    class Clock
+    public class Clock
     {
 
     }

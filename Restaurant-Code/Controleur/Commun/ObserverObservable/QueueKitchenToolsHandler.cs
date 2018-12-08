@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun.ObserverObservable
 {
-    //Classe qui va intéragir à la place de QueKitchenTools
     public class QueueKitchenToolsHandler : IObservable<QueueKitchenTools>
     {
 
         private List<IObserver<QueueKitchenTools>> observers; //Liste des clients qui vont recevoir l'update
-        private List<QueueKitchenTools> kitchenToolQeue; //File d'assiette sale
+        private List<QueueKitchenTools> qktList; 
 
         public QueueKitchenToolsHandler()
         {
             observers = new List<IObserver<QueueKitchenTools>>();
-            kitchenToolQeue = new List<QueueKitchenTools>(); //File d'assiette sale
+            qktList = new List<QueueKitchenTools>();
         }
 
         public IDisposable Subscribe(IObserver<QueueKitchenTools> observer) //Demander à recevoir les infos
@@ -27,20 +26,18 @@ namespace Controleur.Commun.ObserverObservable
             {
                 observers.Add(observer);
                 // Provide observer with existing data.
-                foreach (var item in kitchenToolQeue)
+                foreach (var item in qktList)
                     observer.OnNext(item);
             }
             return new Unsubscriber<QueueKitchenTools>(observers, observer);
         }
     
-
-    //Permet de récupérer le stats
+        
     public QueueKitchenTools QueueKitchenToolsStatus(QueueKitchenTools info)
         {
-            //var info = new QueueKitchenTools(); //L'information
-            kitchenToolQeue.Add(info);
+            qktList.Add(info);
                 foreach (var observer in observers)
-                    observer.OnNext(info); //On notifie que le bagage est apparue dans la liste
+                    observer.OnNext(info); 
             return info; //Juste pour le TDD
         }
 

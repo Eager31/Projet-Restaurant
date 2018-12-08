@@ -1,4 +1,5 @@
-﻿using Modèle.Cuisine;
+﻿using Controleur.Temps;
+using Modèle.Cuisine;
 using Modèle.Plonge;
 using System;
 using System.Collections.Generic;
@@ -8,38 +9,39 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun.ObserverObservable
 {
-    public class CounterHandler : IObservable<Counter>
+    public class ClockHandler : IObservable<Clock>
     {
 
-        private List<IObserver<Counter>> observers; //Liste des clients qui vont recevoir l'update
-        private List<Counter> counterList; 
+        private List<IObserver<Clock>> observers; //Liste des clients qui vont recevoir l'update
+        private List<Clock> clockList; 
 
-        public CounterHandler()
+        public ClockHandler()
         {
-            observers = new List<IObserver<Counter>>();
-            counterList = new List<Counter>(); 
+            observers = new List<IObserver<Clock>>();
+            clockList = new List<Clock>(); 
         }
 
-        public IDisposable Subscribe(IObserver<Counter> observer) //Demander à recevoir les infos
+        public IDisposable Subscribe(IObserver<Clock> observer) 
         {
             // Check whether observer is already registered. If not, add it
             if (!observers.Contains(observer))
             {
                 observers.Add(observer);
                 // Provide observer with existing data.
-                foreach (var item in counterList)
+                foreach (var item in clockList)
                     observer.OnNext(item);
             }
-            return new Unsubscriber3<Counter>(observers, observer);
+            return new Unsubscriber4<Clock>(observers, observer);
         }
     
 
     //Permet de récupérer le stats
-    public Counter CounterStatus(Counter info)
+    public Clock ClockStatus(Clock info)
         {
-            counterList.Add(info);
+            
+            clockList.Add(info);
                 foreach (var observer in observers)
-                    observer.OnNext(info); 
+                    observer.OnNext(info); //On notifie que le bagage est apparue dans la liste
             return info; //Juste pour le TDD
         }
 
@@ -52,12 +54,12 @@ namespace Controleur.Commun.ObserverObservable
     }
 
 }
-    internal class Unsubscriber3<Counter> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
+    internal class Unsubscriber4<Clock> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
     {
-        private List<IObserver<Counter>> _observers;
-        private IObserver<Counter> _observer;
+        private List<IObserver<Clock>> _observers;
+        private IObserver<Clock> _observer;
 
-        internal Unsubscriber3(List<IObserver<Counter>> observers, IObserver<Counter> observer)
+        internal Unsubscriber4(List<IObserver<Clock>> observers, IObserver<Clock> observer)
         {
             this._observers = observers;
             this._observer = observer;
