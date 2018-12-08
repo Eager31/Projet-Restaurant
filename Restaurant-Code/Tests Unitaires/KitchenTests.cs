@@ -3,6 +3,9 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modèle.Cuisine;
+using Controleur.Commun.ObserverObservable;
+using Controleur.Room;
+using System.IO;
 
 namespace Tests_Unitaires
 {
@@ -245,6 +248,30 @@ namespace Tests_Unitaires
             }
             Assert.IsTrue(counter.isTabFull());
 
+        }
+
+        [TestMethod]
+        public void observerObservableButlerCounterIsNotEmpty()
+        {
+            Counter counter = new Counter();
+            CounterHandler provider = new CounterHandler(); //Fournit les informations de la kitchenQueueTest
+            Butler observer1 = new Butler("Butler1");
+
+
+            counter.TabDish[0] = entreePotato;
+            counter.TabDish[1] = entreePotato;
+            counter.TabDish[2] = entreePotato;
+            counter.TabDish[3] = entreePotato;
+            observer1.SubscribeCounter(provider);
+            //Assert.AreEqual(provider.CounterStatus(counter).TabDish.Length, counter.TabDish.Length);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.CounterStatus(counter); //Fournit le status aux observer
+                string expected = string.Format("Counter contains : 4 : elements - Butler1{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
         }
     }
 }

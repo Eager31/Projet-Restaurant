@@ -8,6 +8,7 @@ using Controleur.Commun.ObserverObservable;
 using System.IO;
 using Controleur.Cuisine;
 using Modèle.Room.Element;
+using Controleur.Room;
 
 namespace Tests_Unitaires
 {
@@ -198,6 +199,7 @@ namespace Tests_Unitaires
             }
         }
 
+ 
 
     }
 }

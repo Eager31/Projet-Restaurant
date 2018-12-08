@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.ObserverObservable;
+using Modèle.Cuisine;
 using Modèle.Plonge;
 using System;
 using System.Collections.Generic;
@@ -82,6 +83,8 @@ namespace Controleur.Cuisine
                 Console.WriteLine("List is empty - {0}", this.name);
             }
         }
+
+       
     }
 }
 

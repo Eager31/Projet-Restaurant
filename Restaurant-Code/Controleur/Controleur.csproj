@@ -63,6 +63,7 @@
     <Compile Include="Commun\IActor.cs" />
     <Compile Include="Commun\IAgir.cs" />
     <Compile Include="Commun\IsDishAchievable.cs" />
+    <Compile Include="Commun\ObserverObservable\CounterHandler.cs" />
     <Compile Include="Commun\ObserverObservable\QueueRoomToolsHandler.cs" />
     <Compile Include="Commun\ObserverObservable\QueueKitchenToolsHandler.cs" />
     <Compile Include="Commun\ObserverObservable\Unsubscriber.cs" />
