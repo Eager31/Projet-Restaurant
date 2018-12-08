@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modèle.Room;
 using Modèle.Room.Element;
 using Modèle.Cuisine;
+using Controleur.Room;
 
 namespace Tests_Unitaires
 {
@@ -12,9 +13,9 @@ namespace Tests_Unitaires
     /// Description résumée pour RoomTests
     /// </summary>
     [TestClass]
-    public class RoomModelTests
+    public class RoomTests
     {
-        public RoomModelTests()
+        public RoomTests()
         {
             //
             // TODO: ajoutez ici la logique du constructeur
@@ -22,6 +23,8 @@ namespace Tests_Unitaires
         }
 
         private TestContext testContextInstance;
+
+        // Model
         private ElementBread bread;
         private ElementGlass glass;
         private ElementJug jug;
@@ -37,6 +40,13 @@ namespace Tests_Unitaires
         private BookingForm bookingForm;
         private DateTime bookingHour;
 
+        //Controller
+        private Butler butler;
+        private ClerkRoom clerkRoom;
+        private Client client;
+        private ClientPool clientPool;
+        private HeadWaiter headWaiter;
+        private Waiter waiter;
 
         /// <summary>
         ///Obtient ou définit le contexte de test qui fournit
@@ -60,6 +70,7 @@ namespace Tests_Unitaires
         {
             bookingHour = new DateTime(2018, 12, 12);
 
+            // Model
             bread = new ElementBread(EnumRoom.BreadType.White, EnumRoom.MaterialState.OK);
             glass = new ElementGlass(EnumRoom.GlassType.Water, EnumRoom.MaterialState.OK);
             jug = new ElementJug(EnumRoom.JugType.Cristal, EnumRoom.MaterialState.OK);
@@ -84,6 +95,14 @@ namespace Tests_Unitaires
             square = new Square(1, row);
             room = new Room(1, square);
             bookingForm = new BookingForm("foo", table, bookingHour);
+
+            // Controller
+            butler = new Butler("foo");
+            clerkRoom = new ClerkRoom("foo");
+            clientPool = new ClientPool();
+            headWaiter = new HeadWaiter("foo", square);
+            waiter = new Waiter("foo", square, row);
+            client = new Client(10, "foo");
         }
         #region Attributs de tests supplémentaires
         //
@@ -193,5 +212,51 @@ namespace Tests_Unitaires
             Assert.AreEqual(table, bookingForm.table);
             Assert.AreEqual(bookingHour, bookingForm.hour);
         }
+
+        [TestMethod]
+        public void BulterHasAName()
+        {
+            Assert.AreEqual("foo", butler.name);
+        }
+
+        [TestMethod]
+        public void ClerkRoomHasAName()
+        {
+            Assert.AreEqual("foo", clerkRoom.name);
+        }
+
+        [TestMethod]
+        public void ClientHasAttributes()
+        {
+            Assert.AreEqual("foo", client.name);
+            Assert.AreEqual(10, client.number);
+        }
+
+        [TestMethod]
+        public void HeadWaiterHasANameAndASquare()
+        {
+            Assert.AreEqual("foo", headWaiter.name);
+            Assert.AreEqual(square, headWaiter.square);
+
+        }
+
+        [TestMethod]
+        public void RelaxClientCanEat() // TODO: fix strategy and setBehavior
+        {
+            Client stressedClient = new Client(10, "foo"); 
+            Client relaxedClient = new Client(10, "bar");
+
+            Assert.AreEqual(stressedClient, relaxedClient);
+            //Assert.AreNotEqual(stressedClient, relaxedClient);
+        }
+
+        [TestMethod]
+        public void ClientPoolCanCreateAClient()
+        {
+            clientPool.CreateClientThread("foo", 10);
+            Client clientInList = ClientList.clientList[0];
+            Assert.AreEqual(client, clientInList);
+        }
+
     }
 }

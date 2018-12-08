@@ -52,12 +52,25 @@
     <Compile Include="DishwasherTests.cs" />
     <Compile Include="KitchenTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomModelTests.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RoomTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controleur\Controleur.csproj">
+      <Project>{B8204425-93F3-4AAF-98EE-78C1948C61F0}</Project>
+      <Name>Controleur</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modèle\Modèle.csproj">
       <Project>{F4509063-9C7E-4C96-BC73-A5A6EB823F72}</Project>
       <Name>Modèle</Name>
