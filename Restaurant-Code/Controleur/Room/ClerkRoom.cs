@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    public class CleckRoom : Commun.Actor
+    public class ClerkRoom : Commun.Actor
     {
         public string name { get; set; }
 
-        public CleckRoom(string name)
+        public ClerkRoom(string name)
         {
             this.name = name;
         }

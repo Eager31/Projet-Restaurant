@@ -8,8 +8,7 @@ namespace Controleur.Room
 {
     public class Butler : Commun.Actor
     {
-        private string name { get; set; }
-        private ClientList clientList { get; set; }
+        public string name { get; set; }
 
         public Butler(string name)
         {

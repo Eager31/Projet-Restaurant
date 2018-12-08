@@ -9,9 +9,9 @@ namespace Controleur.Room
 {
     public class Waiter : Commun.Actor
     {
-        private string name { get; set; }
-        private Square square { get; set; }
-        private Row row { get; set; }
+        public string name { get; set; }
+        public Square square { get; set; }
+        public Row row { get; set; }
 
         public Waiter(string name, Square square, Row row)
         {

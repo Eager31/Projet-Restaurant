@@ -8,7 +8,7 @@ namespace Controleur.Room
 {
     public interface IQueue
     {
-        void addClientList(Client client);
-        void removeClientList(Client client);
+        void addClientInList(Client client);
+        void removeClientInList(Client client);
     }
 }

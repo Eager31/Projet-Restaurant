@@ -9,10 +9,10 @@ namespace Controleur.Room
     public class Client : Commun.Actor
     {
 
-        private int number { get; set; }
-        private string name { get; set; }
+        public int number { get; set; }
+        public string name { get; set; }
 
-        private IEatBehavior behavior;
+        public IEatBehavior behavior { get; set; }
 
         public Client(int number, string name)
         {

@@ -78,7 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Butler.cs" />
     <Compile Include="Room\ClientList.cs" />
-    <Compile Include="Room\CleckRoom.cs" />
+    <Compile Include="Room\ClerkRoom.cs" />
     <Compile Include="Room\Client.cs" />
     <Compile Include="Room\IEatBehavior.cs" />
     <Compile Include="Room\RelaxedClient.cs" />
@@ -89,9 +89,6 @@
     <Compile Include="Room\Waiter.cs" />
     <Compile Include="Time - Clock\Clock.cs" />
     <Compile Include="Time - Clock\IClock.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Plonge\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modèle\Modèle.csproj">

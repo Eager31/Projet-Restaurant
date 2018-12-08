@@ -10,14 +10,12 @@ namespace Controleur.Room
     public class HeadWaiter : Commun.Actor
     {
         public string name { get; set; }
-        private Square square { get; set; }
-        private Row row { get; set; }
+        public Square square { get; set; }
 
-        public HeadWaiter(string name, Square square, Row row)
+        public HeadWaiter(string name, Square square)
         {
             this.name = name;
             this.square = square;
-            this.row = row;
         }
 
     }
