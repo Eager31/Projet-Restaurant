@@ -3,6 +3,7 @@ using Controleur.Commun.ObserverObservable;
 using Controleur.Temps;
 using Modèle.Cuisine;
 using Modèle.Plonge;
+using Modèle.Room;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,17 @@ namespace Controleur.Commun
         private IDisposable cancellation;
         private string name;
         private List<string> itemInfo = new List<string>();
+        private Boolean lockAction;
 
         public IDisposable Cancellation { get => cancellation; set => cancellation = value; }
         public string Name { get => name; set => name = value; }
         public List<string> ItemInfo { get => itemInfo; set => itemInfo = value; }
+        public bool LockAction { get => lockAction; set => lockAction = value; }
 
         protected Actor(string name)
         {
             this.Name = name;
+            this.LockAction = false;
         }
 
         /*Subscribe*/
@@ -148,7 +152,58 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        /*Actions possibles*/
         public int intAct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool boolAct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Dish dishAct(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(Dish d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Ingredients> ingredientListAct(Storage stor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void eTableAct(Actor act)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool boolAct(Actor act)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(ElementTable elementTable)
         {
             throw new NotImplementedException();
         }
