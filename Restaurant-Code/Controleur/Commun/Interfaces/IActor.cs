@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    interface IAgir
+    interface IActor
     {
-
-        void agir();
+        void checkTime();
+        void threadStart();
+        void act();
         int intAgir();
     }
 }

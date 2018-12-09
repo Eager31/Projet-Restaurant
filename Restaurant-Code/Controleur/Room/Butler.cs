@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Controleur.Commun;
+using Controleur.Commun.ObserverObservable;
+using Modèle.Cuisine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +9,10 @@ using System.Threading.Tasks;
 
 namespace Controleur.Room
 {
-    public class Butler : Commun.Actor
+    public class Butler : Actor
     {
-        private string name { get; set; }
-        private ClientList clientList { get; set; }
-
-        public Butler(string name)
+        public Butler(string name) : base(name)
         {
-            this.name = name;
         }
     }
-
-     
 }

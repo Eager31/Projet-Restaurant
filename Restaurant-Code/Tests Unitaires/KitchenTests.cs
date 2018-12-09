@@ -3,6 +3,10 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modèle.Cuisine;
+using Controleur.Commun.ObserverObservable;
+using Controleur.Room;
+using System.IO;
+using Controleur.Temps;
 
 namespace Tests_Unitaires
 {
@@ -115,6 +119,7 @@ namespace Tests_Unitaires
 
             counter = new Counter();
 
+           
         }
 
         #region Additional test attributes
@@ -246,5 +251,70 @@ namespace Tests_Unitaires
             Assert.IsTrue(counter.isTabFull());
 
         }
+
+        [TestMethod]
+        public void observerObservableButlerCounterIsNotEmpty()
+        {
+            Counter counter = new Counter();
+            CounterHandler provider = new CounterHandler(); //Fournit les informations de la kitchenQueueTest
+            Butler observer1 = new Butler("David");
+
+
+            counter.TabDish[0] = entreePotato;
+            counter.TabDish[1] = entreePotato;
+            counter.TabDish[2] = entreePotato;
+            counter.TabDish[3] = entreePotato;
+            observer1.SubscribeCounter(provider);
+            //Assert.AreEqual(provider.CounterStatus(counter).TabDish.Length, counter.TabDish.Length);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.CounterStatus(counter); //Fournit le status aux observer
+                string expected = string.Format("Counter contains : 4 : elements - David{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void observerObservableAnyActorCounterIsNotEmpty()
+        {
+            Counter counter = new Counter();
+            Butler observer3 = new Butler("John"); //John can't check counter normaly :o
+            CounterHandler provider = new CounterHandler(); //Fournit les informations de la kitchenQueueTest
+           
+            counter.TabDish[0] = entreePotato;
+            counter.TabDish[1] = entreePotato;
+            counter.TabDish[2] = entreePotato;
+            counter.TabDish[3] = entreePotato;
+            observer3.SubscribeCounter(provider); //John observe the counter now :)
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.CounterStatus(counter); //Fournit le status aux observer
+                string expected = string.Format("Counter contains : 4 : elements - John{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+        [TestMethod]
+        public void observerObservableAnyActorWatchingClock()
+        {
+            Clock clock = new Clock();
+            Butler studentObserver = new Butler("Student"); //Student can't check counter normaly :o
+            ClockHandler provider = new ClockHandler();
+
+            studentObserver.SubscribeClock(provider); //student is watching the clock
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.ClockStatus(clock); //Fournit le status aux observer
+                string expected = string.Format("The clock is watched - Student{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
+        
     }
 }

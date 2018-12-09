@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,39 +44,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commun\Actor.cs" />
-    <Compile Include="Commun\AssignTable.cs" />
-    <Compile Include="Commun\AuthorizeOrder.cs" />
-    <Compile Include="Commun\BringBread.cs" />
-    <Compile Include="Commun\BringJug.cs" />
-    <Compile Include="Commun\BringMealToCounter.cs" />
-    <Compile Include="Commun\BringMenu.cs" />
-    <Compile Include="Commun\CheckStocks.cs" />
-    <Compile Include="Commun\ChopVegetables.cs" />
-    <Compile Include="Commun\ClauseRestaurant.cs" />
-    <Compile Include="Commun\CleanKitchen.cs" />
-    <Compile Include="Commun\CleanKitchenware.cs" />
-    <Compile Include="Commun\CleanTable.cs" />
-    <Compile Include="Commun\CleanTableware.cs" />
-    <Compile Include="Commun\ClearTable.cs" />
-    <Compile Include="Commun\Eat.cs" />
-    <Compile Include="Commun\FindDishSimilarities.cs" />
-    <Compile Include="Commun\IActor.cs" />
-    <Compile Include="Commun\IAgir.cs" />
-    <Compile Include="Commun\IsDishAchievable.cs" />
-    <Compile Include="Commun\OpenRestaurant.cs" />
-    <Compile Include="Commun\Order.cs" />
-    <Compile Include="Commun\Pay.cs" />
-    <Compile Include="Commun\PlaceClient.cs" />
-    <Compile Include="Commun\PrepareDish.cs" />
-    <Compile Include="Commun\RefuseOrder.cs" />
-    <Compile Include="Commun\Serve.cs" />
-    <Compile Include="Commun\SetEatBehaviour.cs" />
-    <Compile Include="Commun\TakeOrder.cs" />
-    <Compile Include="Commun\VerifyReservation.cs" />
+    <Compile Include="Commun\Actions\AssignTable.cs" />
+    <Compile Include="Commun\Actions\AuthorizeOrder.cs" />
+    <Compile Include="Commun\Actions\BringBread.cs" />
+    <Compile Include="Commun\Actions\BringJug.cs" />
+    <Compile Include="Commun\Actions\BringMealToCounter.cs" />
+    <Compile Include="Commun\Actions\BringMenu.cs" />
+    <Compile Include="Commun\Actions\CheckStocks.cs" />
+    <Compile Include="Commun\Actions\ChopVegetables.cs" />
+    <Compile Include="Commun\Actions\CloseRestaurant.cs" />
+    <Compile Include="Commun\Actions\CleanKitchen.cs" />
+    <Compile Include="Commun\Actions\CleanKitchenware.cs" />
+    <Compile Include="Commun\Actions\CleanTable.cs" />
+    <Compile Include="Commun\Actions\CleanTableware.cs" />
+    <Compile Include="Commun\Actions\ClearTable.cs" />
+    <Compile Include="Commun\Actions\Eat.cs" />
+    <Compile Include="Commun\Actions\FindDishSimilarities.cs" />
+    <Compile Include="Commun\Interfaces\IActor.cs" />
+    <Compile Include="Commun\Actions\IsDishAchievable.cs" />
+    <Compile Include="Commun\ObserverObservable\ClockHandler.cs" />
+    <Compile Include="Commun\ObserverObservable\CounterHandler.cs" />
+    <Compile Include="Commun\ObserverObservable\QueueRoomToolsHandler.cs" />
+    <Compile Include="Commun\ObserverObservable\QueueKitchenToolsHandler.cs" />
+    <Compile Include="Commun\ObserverObservable\Unsubscriber.cs" />
+    <Compile Include="Commun\Actions\OpenRestaurant.cs" />
+    <Compile Include="Commun\Actions\Order.cs" />
+    <Compile Include="Commun\Actions\Pay.cs" />
+    <Compile Include="Commun\Actions\PlaceClient.cs" />
+    <Compile Include="Commun\Actions\PrepareDish.cs" />
+    <Compile Include="Commun\Actions\RefuseOrder.cs" />
+    <Compile Include="Commun\Actions\Serve.cs" />
+    <Compile Include="Commun\Actions\SetEatBehaviour.cs" />
+    <Compile Include="Commun\Actions\TakeOrder.cs" />
+    <Compile Include="Commun\Actions\VerifyReservation.cs" />
     <Compile Include="Kitchen\Cook.cs" />
     <Compile Include="Kitchen\KitchenClerck.cs" />
+    <Compile Include="Plonge\Concrete Machines\DishwasherMachine.cs" />
+    <Compile Include="Plonge\Concrete Machines\Sink.cs" />
+    <Compile Include="Plonge\Concrete Machines\WashingMachine.cs" />
     <Compile Include="Plonge\DishWasher.cs" />
     <Compile Include="Kitchen\MainChef.cs" />
+    <Compile Include="Plonge\EnumWash.cs" />
+    <Compile Include="Plonge\Interfaces\IWashingKitchenTools.cs" />
+    <Compile Include="Plonge\Interfaces\IWashingRoomMaterial.cs" />
+    <Compile Include="Plonge\WashingKitchenTools.cs" />
+    <Compile Include="Plonge\WashingRoomStuff.cs" />
+    <Compile Include="Plonge\WashMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Butler.cs" />
     <Compile Include="Room\ClientList.cs" />
@@ -91,11 +106,8 @@
     <Compile Include="Time - Clock\IClock.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Plonge\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Modèle\Modèle.csproj">
-      <Project>{F4509063-9C7E-4C96-BC73-A5A6EB823F72}</Project>
+      <Project>{f4509063-9c7e-4c96-bc73-a5a6eb823f72}</Project>
       <Name>Modèle</Name>
     </ProjectReference>
   </ItemGroup>

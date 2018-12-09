@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Commun
+namespace Controleur.Plonge
 {
-    interface IActor
+    public class EnumWash
     {
-        void checkTime();
-        void threadStart();
+        public enum MachineType { kitchen, room, Launching };
     }
 }

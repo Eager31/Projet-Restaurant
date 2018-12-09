@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controleur\Controleur.csproj">
+      <Project>{b8204425-93f3-4aaf-98ee-78c1948c61f0}</Project>
+      <Name>Controleur</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modèle\Modèle.csproj">
       <Project>{F4509063-9C7E-4C96-BC73-A5A6EB823F72}</Project>
       <Name>Modèle</Name>

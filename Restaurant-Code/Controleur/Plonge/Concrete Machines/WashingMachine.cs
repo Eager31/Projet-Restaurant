@@ -9,7 +9,7 @@ namespace Modèle.Plonge
 {
     public class WashingMachine : WashingRoomTools
     {
-        public WashingMachine() : base(10, 5) //int washTime, int maxNumber
+        public WashingMachine() : base(10, 5, "Washing Machine") //int washTime, int maxNumber, name
         {
 
         }
