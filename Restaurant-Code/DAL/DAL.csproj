@@ -49,6 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\KitchenToolDAO.cs" />
+    <Compile Include="DAO\InstructionDAO.cs" />
+    <Compile Include="DAO\IngredientDAO.cs" />
+    <Compile Include="DAO\DishDAO.cs" />
     <Compile Include="DAO\IngredientTypeDAO.cs" />
     <Compile Include="dbModel\Action.cs" />
     <Compile Include="DataContext.cs" />
