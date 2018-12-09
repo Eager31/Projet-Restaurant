@@ -43,8 +43,12 @@ namespace DAL
             using (var db = new DataContext())
             {
                 var kitchenToolToRemove = db.KitchenTool.Where(a => a.ID == id).FirstOrDefault<KitchenTool>();
-                db.KitchenTool.Remove(kitchenToolToRemove);
-                db.SaveChanges();
+
+                if (kitchenToolToRemove != null)
+                {
+                    db.KitchenTool.Remove(kitchenToolToRemove);
+                    db.SaveChanges();
+                }                
             }
         }
 

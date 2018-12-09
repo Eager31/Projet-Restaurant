@@ -43,8 +43,12 @@ namespace DAL
             using (var db = new DataContext())
             {
                 var ingredientToRemove = db.Ingredient.Where(a => a.ID == id).FirstOrDefault<Ingredient>();
-                db.Ingredient.Remove(ingredientToRemove);
-                db.SaveChanges();
+
+                if (ingredientToRemove != null)
+                {
+                    db.Ingredient.Remove(ingredientToRemove);
+                    db.SaveChanges();
+                }                
             }
         }
 

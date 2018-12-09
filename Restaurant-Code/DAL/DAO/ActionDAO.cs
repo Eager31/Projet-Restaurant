@@ -43,8 +43,12 @@ namespace DAL
             using (var db = new DataContext())
             {
                 var actionToRemove = db.Action.Where(a => a.ID == id).FirstOrDefault<Action>();
-                db.Action.Remove(actionToRemove);
-                db.SaveChanges();
+
+                if (actionToRemove != null)
+                {
+                    db.Action.Remove(actionToRemove);
+                    db.SaveChanges();
+                }
             }
         }
 
