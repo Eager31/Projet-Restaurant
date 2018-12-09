@@ -7,29 +7,22 @@ using System.Threading.Tasks;
 namespace Modèle.Cuisine
 {
 
-    
-
     public class Dish
     {
-        private string name;
-        private List<Instruction> listInstructions;
-        private Enum type;
-        private Enum state;
-        private string description;
-        
+        public string name { get; set; }
+        public List<Instruction> listInstructions { get; set; }
+        public Enum type { get; set; }
+        public Enum state { get; set; }
+        public string description { get; set; }
+
         public Dish(string name, string description, List<Instruction> listInstructions, Enum type, Enum state)
         {
-            this.Name = name;
-            this.ListInstructions = listInstructions;
-            this.Type = type;
-            this.State = state ;
-            this.Description = description;
+            this.name = name;
+            this.listInstructions = listInstructions;
+            this.type = type;
+            this.state = state ;
+            this.description = description;
         }
 
-        public string Name { get => name; set => name = value; }
-        public List<Instruction> ListInstructions { get => listInstructions; set => listInstructions = value; }
-        public Enum Type { get => type; set => type = value; }
-        public Enum State { get => state; set => state = value; }
-        public string Description { get => description; set => description = value; }
     }
 }

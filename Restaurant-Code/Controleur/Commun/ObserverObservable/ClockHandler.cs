@@ -12,8 +12,8 @@ namespace Controleur.Commun.ObserverObservable
     public class ClockHandler : IObservable<Clock>
     {
 
-        private List<IObserver<Clock>> observers; //Liste des clients qui vont recevoir l'update
-        private List<Clock> clockList; 
+        public List<IObserver<Clock>> observers { get; set; } //Liste des clients qui vont recevoir l'update
+        public List<Clock> clockList { get; set; }
 
         public ClockHandler()
         {

@@ -8,7 +8,7 @@ namespace Modèle.Cuisine
 {
     public abstract class DishDecorator : Dish
     {
-        public DishDecorator(Dish originalDish) : base(originalDish.Name, originalDish.Description, originalDish.ListInstructions, originalDish.Type, originalDish.State)
+        public DishDecorator(Dish originalDish) : base(originalDish.name, originalDish.description, originalDish.listInstructions, originalDish.type, originalDish.state)
         {
 
         }

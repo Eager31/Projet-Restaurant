@@ -9,27 +9,21 @@ namespace Modèle.Cuisine
     public class Instruction
     {
 
-        private int number;
-        private string name;
-        private List<KitchenTool> kitchenTool;
-        private List<Ingredients> ingredients;
-        private KitchenAction action;
-        private int duration;
+        public int number { get; set; }
+        public string name { get; set; }
+        public List<KitchenTool> kitchenTool { get; set; }
+        public List<Ingredients> ingredients { get; set; }
+        public KitchenAction action { get; set; }
+        public int duration { get; set; }
 
         public Instruction(int number,string name, List<KitchenTool> kitchenTool, List<Ingredients> ingredients, KitchenAction action, int duration)
         {
-            this.Number = number;
-            this.Name = name;
-            this.KitchenTool = kitchenTool;
-            this.Ingredients = ingredients;
-            this.Action = action;
+            this.number = number;
+            this.name = name;
+            this.kitchenTool = kitchenTool;
+            this.ingredients = ingredients;
+            this.action = action;
         }
 
-        public int Number { get => number; set => number = value; }
-        public string Name { get => name; set => name = value; }
-        public List<KitchenTool> KitchenTool { get => kitchenTool; set => kitchenTool = value; }
-        public List<Ingredients> Ingredients { get => ingredients; set => ingredients = value; }
-        public KitchenAction Action { get => action; set => action = value; }
-        public int Duration { get => duration; set => duration = value; }
     }
 }

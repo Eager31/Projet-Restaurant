@@ -8,8 +8,8 @@ namespace Modèle.Cuisine
 {
     public abstract class Storage : IStorage
     {
-        private int temperature;
-        private List<Ingredients> ingredientsList;
+        public int temperature { get; set; }
+        public List<Ingredients> ingredientsList { get; set; }
 
         protected Storage(int temperature, List<Ingredients> ingredientsList)
         {

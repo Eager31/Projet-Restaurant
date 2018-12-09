@@ -11,8 +11,8 @@ namespace Controleur.Commun.ObserverObservable
     public class QueueRoomStuffHandler : IObservable<QueueRoomStuff>
     {
 
-        private List<IObserver<QueueRoomStuff>> observers; //Liste des clients qui vont recevoir l'update
-        private List<QueueRoomStuff> qrtList; 
+        public List<IObserver<QueueRoomStuff>> observers { get; set; } //Liste des clients qui vont recevoir l'update
+        public List<QueueRoomStuff> qrtList { get; set; }
 
         public QueueRoomStuffHandler()
         {

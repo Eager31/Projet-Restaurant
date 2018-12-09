@@ -9,16 +9,13 @@ namespace Modèle.Cuisine
     public class KitchenTool
     {
 
-        private string name;
-        private Enum type;
+        public string name { get; set; }
+        public Enum type { get; set; }
 
         public KitchenTool(string name, Enum type)
         {
-            this.Name = name;
-            this.Type = type;
+            this.name = name;
+            this.type = type;
         }
-
-        public string Name { get => name; set => name = value; }
-        public Enum Type { get => type; set => type = value; }
     }
 }

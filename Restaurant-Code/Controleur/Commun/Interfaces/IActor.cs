@@ -10,7 +10,6 @@ namespace Controleur.Commun
     {
         void checkTime();
         void threadStart();
-        void act();
-        int intAgir();
+        void action();
     }
 }

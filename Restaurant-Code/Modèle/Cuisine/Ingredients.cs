@@ -8,10 +8,10 @@ namespace Modèle.Cuisine
 {
     public class Ingredients
     {
-        private string name;
-        private Enum ingredientTypes;
-        private DateTime dateDelivered;
-        private DateTime dateExpire;
+        public string name { get; set; }
+        public Enum ingredientTypes { get; set; }
+        public DateTime dateDelivered { get; set; }
+        public DateTime dateExpire { get; set; }
 
         public Ingredients(string name, Enum ingredientTypes, DateTime dateDelivered, DateTime dateExpire)
         {
@@ -21,9 +21,6 @@ namespace Modèle.Cuisine
             this.dateExpire = dateExpire;
         }
 
-        public string Name { get => name; set => name = value; }
-        public Enum IngredientTypes { get => ingredientTypes; set => ingredientTypes = value; }
-        public DateTime DateDelivered { get => dateDelivered; set => dateDelivered = value; }
-        public DateTime DateExpire { get => dateExpire; set => dateExpire = value; }
+        
     }
 }

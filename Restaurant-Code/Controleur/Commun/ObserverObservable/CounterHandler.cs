@@ -11,8 +11,8 @@ namespace Controleur.Commun.ObserverObservable
     public class CounterHandler : IObservable<Counter>
     {
 
-        private List<IObserver<Counter>> observers; //Liste des clients qui vont recevoir l'update
-        private List<Counter> counterList; 
+        public List<IObserver<Counter>> observers { get; set; } //Liste des clients qui vont recevoir l'update
+        public List<Counter> counterList { get; set; }
 
         public CounterHandler()
         {

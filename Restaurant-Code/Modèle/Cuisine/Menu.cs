@@ -8,9 +8,9 @@ namespace Modèle.Cuisine
 {
     public class Menu
     {
-        private string name;
-        private List<Dish> dishList;
-        private Boolean isMenuOfTheDay;
+        public string name { get; set; }
+        public List<Dish> dishList { get; set; }
+        public Boolean isMenuOfTheDay { get; set; }
 
         public Menu(string name, List<Dish> dishList, Boolean isMenuOfTheDay)
         {

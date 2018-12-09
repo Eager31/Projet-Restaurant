@@ -16,89 +16,86 @@ namespace Controleur.Commun
     public abstract class Actor : IActor, IAct, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
     {
 
-        private IDisposable cancellation;
-        private string name;
-        private List<string> itemInfo = new List<string>();
-        private Boolean lockAction;
+        public IDisposable cancellation { get; set; }
+        public string name { get; set; }
+        public List<string> itemInfo { get; set; }
+        public Boolean lockAction { get; set; }
+        public Dictionary<string,IAct> mapAct { get; set; }
 
-        public IDisposable Cancellation { get => cancellation; set => cancellation = value; }
-        public string Name { get => name; set => name = value; }
-        public List<string> ItemInfo { get => itemInfo; set => itemInfo = value; }
-        public bool LockAction { get => lockAction; set => lockAction = value; }
-
-        protected Actor(string name)
+    protected Actor(string name)
         {
-            this.Name = name;
-            this.LockAction = false;
+            this.name = name;
+            this.lockAction = false;
+            this.mapAct = new Dictionary<string, IAct>();
         }
 
         /*Subscribe*/
         public virtual void SubscribeQueueRoomStuff(QueueRoomStuffHandler provider)
         {
-            Cancellation = provider.Subscribe(this);
+            cancellation = provider.Subscribe(this);
         }
 
         public virtual void SubscribeQueueKitchenTools(QueueKitchenToolsHandler provider)
         {
-            Cancellation = provider.Subscribe(this);
+            cancellation = provider.Subscribe(this);
         }
     
         public virtual void SubscribeCounter(CounterHandler provider)
         {
-            Cancellation = provider.Subscribe(this);
+            cancellation = provider.Subscribe(this);
         }
 
         public virtual void SubscribeClock(ClockHandler provider)
         {
-            Cancellation = provider.Subscribe(this);
+            cancellation = provider.Subscribe(this);
         }
 
         /*Unsub*/
         public virtual void Unsubscribe()
         {
-            Cancellation.Dispose();
-            ItemInfo.Clear();
+            cancellation.Dispose();
+            itemInfo.Clear();
         }
 
         public virtual void OnCompleted()
         {
-            ItemInfo.Clear();
+            itemInfo.Clear();
         }
 
         /*Action after receving data*/
         public void OnNext(QueueKitchenTools info)
         {
-            if (info.KitchenToolsQueue.Count > 0)
+            if (info.kitchenToolsQueue.Count > 0)
             {
                 //traitement
-                Console.WriteLine("List contains : {1} : elements - {0}", this.Name, info.KitchenToolsQueue.Count);
+                Console.WriteLine("List contains : {1} : elements - {0}", this.name, info.kitchenToolsQueue.Count);
             }
             else
             {
                 //traitement
-                Console.WriteLine("List is empty - {0}", this.Name);
+                Console.WriteLine("List is empty - {0}", this.name);
             }
         }
 
         public void OnNext(QueueRoomStuff info)
         {
-            if (info.RoomToolsQueue.Count > 0)
+            if (info.roomToolsQueue.Count > 0)
             {
                 //traitement
-                Console.WriteLine("List contains : {1} : elements - {0}", this.Name, info.RoomToolsQueue.Count);
+                Console.WriteLine("List contains : {1} : elements - {0}", this.name, info.roomToolsQueue.Count);
             }
             else
             {
                 //traitement
-                Console.WriteLine("List is empty - {0}", this.Name);
+                Console.WriteLine("List is empty - {0}", this.name);
             }
         }
         public void OnNext(Counter info)
         {
             int cpt = 0;
-            for (int i = 0; i < info.TabDish.Length; i++)
+            for (int i = 0; i < info.tabDish.Length; i++)
             {
-                if (info.TabDish[i] != null)
+                if (info.tabDish[i] != null)
                 {
                     cpt++;
                 }
@@ -106,12 +103,12 @@ namespace Controleur.Commun
             if (cpt > 0)
             {
                 //traitement
-                Console.WriteLine("Counter contains : {1} : elements - {0}", this.Name, cpt);
+                Console.WriteLine("Counter contains : {1} : elements - {0}", this.name, cpt);
             }
             else
             {
                 //traitement
-                Console.WriteLine("Counter is empty - {0}", this.Name);
+                Console.WriteLine("Counter is empty - {0}", this.name);
             }
         }
 
@@ -119,28 +116,23 @@ namespace Controleur.Commun
         public void OnNext(Clock info)
         {
             //traitement
-            Console.WriteLine("The clock is watched - {0}", this.Name);
+            Console.WriteLine("The clock is watched - {0}", this.name);
         }
 
         /* Thread */
         public void threadStart()
         {
-            ThreadStart threadDelegate = new ThreadStart(this.act);
+            ThreadStart threadDelegate = new ThreadStart(this.action);
             Thread newThread = new Thread(threadDelegate);
             newThread.Start();
         }
 
         /*Functions*/
-        public void act()
+
+        public void action()
         {
             throw new NotImplementedException();
         }
-
-        public int intAgir()
-        {
-            throw new NotImplementedException();
-        }
-
         public void checkTime()
         {
             throw new NotImplementedException();
@@ -207,6 +199,7 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
+
     }
 
 }

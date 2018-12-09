@@ -10,13 +10,12 @@ namespace Modèle.Plonge
 {
     public class QueueRoomStuff //must extends Obserer
     {
-        private List<RoomStuff> roomToolsQueue;
+        public List<RoomStuff> roomToolsQueue { get; set; }
 
         public QueueRoomStuff()
         {
-            this.RoomToolsQueue = new List<RoomStuff>(); 
+            this.roomToolsQueue = new List<RoomStuff>(); 
         }
-
-        public List<RoomStuff> RoomToolsQueue { get => roomToolsQueue; set => roomToolsQueue = value; }
+        
     }
 }
