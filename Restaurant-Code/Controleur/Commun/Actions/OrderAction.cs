@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class Order : IAct
+    public class OrderAction : IAct
     {
         public bool boolAct()
         {
@@ -68,6 +68,11 @@ namespace Controleur.Commun
         }
 
         public void voidAct(ElementTable elementTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(int number, Ingredients ingredient)
         {
             throw new NotImplementedException();
         }

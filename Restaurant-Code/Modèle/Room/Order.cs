@@ -9,8 +9,8 @@ namespace Modèle.Room
 {
     public class Order
     {
-        private Dish dish { get; set; }
-        private int tableNumber { get; set; } 
+        public Dish dish { get; set; }
+        public int tableNumber { get; set; } 
 
         public Order(Dish dich, int tableNumber)
         {

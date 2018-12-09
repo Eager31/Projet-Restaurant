@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun;
+using Modèle.Room;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Controleur.Cuisine
             switch (choice)
             {
                 case "PrepareDish":
-                    this.mapAct["PrepareDish"].dishAct(order);
+                    this.mapAct["PrepareDish"].dishAct(order); //Crée un dish à partir d'un order
                     break;
                 case "PrepareMorningDish" :
                     this.mapAct["PrepareMorningDish"].dishAct();

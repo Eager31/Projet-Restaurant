@@ -12,17 +12,20 @@ namespace Controleur.Commun
 {
     public class PrepareDish : IAct
     {
+        /* principal */
+        public Dish dishAct(Order order)
+        {
+            Dish dish = new Dish(order.dish.name, order.dish.description, order.dish.listInstructions,order.dish.type,EnumKitchen.DishState.OK);
+            return dish;
+        }
+
+        /* Others*/
         public bool boolAct()
         {
             throw new NotImplementedException();
         }
 
         public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
         {
             throw new NotImplementedException();
         }
@@ -68,6 +71,11 @@ namespace Controleur.Commun
         }
 
         public void voidAct(ElementTable elementTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(int number, Ingredients ingredient)
         {
             throw new NotImplementedException();
         }

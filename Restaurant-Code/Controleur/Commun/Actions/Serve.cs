@@ -71,5 +71,10 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
+
+        public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
