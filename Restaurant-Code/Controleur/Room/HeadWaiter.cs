@@ -3,22 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controleur.Commun;
 using Modèle.Room;
 
 namespace Controleur.Room
 {
     public class HeadWaiter : Commun.Actor
     {
-        public string name { get; set; }
         public Square square { get; set; }
-        public Boolean lockAction { get; set; }
 
-        public HeadWaiter(string name, Square square)
+        public HeadWaiter(string name, Square square) : base(name)
         {
             this.name = name;
             this.square = square;
-            this.lockAction = false;
+
+            this.mapAct.Add("BringMenu", new BringMenu()); // Can bring the card
+            this.mapAct.Add("TakeOrder", new TakeOrder()); // Can take the order
+            this.mapAct.Add("PlaceClient", new PlaceClient()); // Can place the client
+  
         }
 
+        public void Action(String choice)
+        {
+            switch (choice)
+            {
+                case "BringMenu":
+                    this.mapAct["BringMenu"].act();
+                    break;
+                case "TakeOrder":
+                    this.mapAct["TakeOrder"].act();
+                    break;
+                case "PlaceClient":
+                    this.mapAct["PlaceClient"].act();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

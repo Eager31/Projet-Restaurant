@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controleur.Commun;
 
 namespace Controleur.Room
 {
@@ -10,18 +11,36 @@ namespace Controleur.Room
     {
 
         public int number { get; set; } // The number of the client in the group
-        public string name { get; set; } // The name of the client
         public IEatBehavior behavior { get; set; } // The behavior for the strategy DP
-
         public int tableNumber { get; set; }
 
-        public Client(int number, string name)
+        public Client(string name, int number, int tableNumber) : base(name)
         {
             this.number = number;
             this.name = name;
             this.tableNumber = 0;
+
+
+            // This the client behavior
+            this.mapAct.Add("Order", new Order()); // Can order to the Waiter
+            this.mapAct.Add("Pay", new Pay()); // Can pay
         }
-        
+
+        public void Action(String choice)
+        {
+            switch (choice)
+            {
+                case "Order":
+                    this.mapAct["Order"].act();
+                    break;
+                case "Pay":
+                    this.mapAct["Pay"].act();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void setBehavior(IEatBehavior behavior) // Define the client's behavior
         {
             this.behavior = behavior;
