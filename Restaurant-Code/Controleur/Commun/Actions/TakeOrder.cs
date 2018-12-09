@@ -27,6 +27,11 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public Dish dishAct()
+        {
+            throw new NotImplementedException();
+        }
+
         public void eTableAct(Actor act)
         {
             throw new NotImplementedException();

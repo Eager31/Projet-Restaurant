@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commun\Actions\PrepareMorningDish.cs" />
     <Compile Include="Commun\Actor.cs" />
     <Compile Include="Commun\Actions\AssignTable.cs" />
     <Compile Include="Commun\Actions\AuthorizeOrder.cs" />
