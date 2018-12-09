@@ -8,8 +8,8 @@ namespace Controleur.Commun.ObserverObservable
 {
     internal class Unsubscriber<QueueKitchenTools> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
     {
-        private List<IObserver<QueueKitchenTools>> _observers;
-        private IObserver<QueueKitchenTools> _observer;
+        public List<IObserver<QueueKitchenTools>> _observers { get; set; }
+        public IObserver<QueueKitchenTools> _observer { get; set; }
 
         internal Unsubscriber(List<IObserver<QueueKitchenTools>> observers, IObserver<QueueKitchenTools> observer)
         {

@@ -10,8 +10,8 @@ namespace Controleur.Commun.ObserverObservable
     public class QueueKitchenToolsHandler : IObservable<QueueKitchenTools>
     {
 
-        private List<IObserver<QueueKitchenTools>> observers; //Liste des clients qui vont recevoir l'update
-        private List<QueueKitchenTools> qktList; 
+        public List<IObserver<QueueKitchenTools>> observers { get; set; } //Liste des clients qui vont recevoir l'update
+        public List<QueueKitchenTools> qktList { get; set; }
 
         public QueueKitchenToolsHandler()
         {

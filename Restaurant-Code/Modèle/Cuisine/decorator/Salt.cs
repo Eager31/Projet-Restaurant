@@ -10,7 +10,7 @@ namespace Modèle.Cuisine
     {
         public Salt(Dish originalDish) : base(originalDish)
         {
-            this.Description += ", with salt";
+            this.description += ", with salt";
         }
     }
 }

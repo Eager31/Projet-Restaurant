@@ -9,13 +9,12 @@ namespace Modèle.Plonge
 {
     public class QueueKitchenTools //must extends Obserer
     {
-        private List<KitchenTool> kitchenToolsQueue;
+        public List<KitchenTool> kitchenToolsQueue { get; set; }
 
         public QueueKitchenTools()
         {
-            this.KitchenToolsQueue = new List<KitchenTool>();
+            this.kitchenToolsQueue = new List<KitchenTool>();
         }
-
-        public List<KitchenTool> KitchenToolsQueue { get => kitchenToolsQueue; set => kitchenToolsQueue = value; }
+        
     }
 }

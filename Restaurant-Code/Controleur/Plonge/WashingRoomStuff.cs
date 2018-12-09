@@ -21,20 +21,20 @@ namespace Modèle.Plonge
             Boolean tmp = false;
             while (tmp == false)
             {
-                foreach (RoomStuff tool in qrs.RoomToolsQueue)
+                foreach (RoomStuff tool in qrs.roomToolsQueue)
                 {
-                    if (!this.ToolsToWash.Any()) { this.ToolsToWash.Add(tool); } //premier passage
-                    if (this.ToolsToWash.Count <= this.MaxToolNumber)
+                    if (!this.toolsToWash.Any()) { this.toolsToWash.Add(tool); } //premier passage
+                    if (this.toolsToWash.Count <= this.maxToolNumber)
                     {
-                        this.ToolsToWash.Add(tool);
+                        this.toolsToWash.Add(tool);
                         //retirer de la queue 
-                        qrs.RoomToolsQueue.Remove(tool);
+                        qrs.roomToolsQueue.Remove(tool);
                     }
                     else //isFull
                     {
                         return;
                     }
-                    if (!qrs.RoomToolsQueue.Any()) { tmp = true; } //Si la queue est vide
+                    if (!qrs.roomToolsQueue.Any()) { tmp = true; } //Si la queue est vide
                     break;
                 }
             }
@@ -43,19 +43,19 @@ namespace Modèle.Plonge
         //supprime les élements pour réimplémenter plus tard
         public void endWash()
         {
-            ToolsToWash.Clear();
+            toolsToWash.Clear();
         }
 
         public void wash()
         {
-            this.IsRunning = true;
-            if (!ToolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
-            foreach (RoomStuff tw in ToolsToWash)
+            this.isRunning = true;
+            if (!toolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
+            foreach (RoomStuff tw in toolsToWash)
             {
                 tw.Type = EnumRoom.MaterialState.OK;
             }
             endWash();
-            this.IsRunning = false;
+            this.isRunning = false;
         }
 
     }

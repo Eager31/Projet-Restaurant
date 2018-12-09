@@ -9,15 +9,14 @@ namespace Modèle.Cuisine
     public class KitchenAction
     {
 
-        private string name;
-        private int duration;
+        public string name { get; set; }
+        public int duration { get; set; }
+
         public KitchenAction(string name, int duration)
         {
-            this.Name = name;
-            this.Duration = duration;
+            this.name = name;
+            this.duration = duration;
         }
 
-        public string Name { get => name; set => name = value; }
-        public int Duration { get => duration; set => duration = value; }
     }
 }

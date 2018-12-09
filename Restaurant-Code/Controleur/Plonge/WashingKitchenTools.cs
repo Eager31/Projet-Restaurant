@@ -18,20 +18,20 @@ namespace Modèle.Plonge
             Boolean tmp = false;
             while (tmp == false)
             {
-                foreach (KitchenTool tool in qkt.KitchenToolsQueue)
+                foreach (KitchenTool tool in qkt.kitchenToolsQueue)
                 {
-                    if (!this.ToolsToWash.Any()) { this.ToolsToWash.Add(tool); } //premier passage
-                    if (this.ToolsToWash.Count <= this.MaxToolNumber)
+                    if (!this.toolsToWash.Any()) { this.toolsToWash.Add(tool); } //premier passage
+                    if (this.toolsToWash.Count <= this.maxToolNumber)
                     {
-                        this.ToolsToWash.Add(tool);
+                        this.toolsToWash.Add(tool);
                         //retirer de la queue 
-                        qkt.KitchenToolsQueue.Remove(tool);
+                        qkt.kitchenToolsQueue.Remove(tool);
                     }
                     else //isFull
                     {
                         return;
                     }
-                    if (!qkt.KitchenToolsQueue.Any()){ tmp = true; } //Si la queue est vide
+                    if (!qkt.kitchenToolsQueue.Any()){ tmp = true; } //Si la queue est vide
                     break;
                 }
             }
@@ -40,19 +40,19 @@ namespace Modèle.Plonge
         //supprime les élements pour réimplémenter plus tard
         public void endWash()
         {
-            ToolsToWash.Clear();
+            toolsToWash.Clear();
         }
 
         public void wash()
         {
-            this.IsRunning = true;
-            if (!ToolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
-                foreach (KitchenTool tw in ToolsToWash)
+            this.isRunning = true;
+            if (!toolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
+                foreach (KitchenTool tw in toolsToWash)
                 {
-                    tw.Type = EnumKitchen.KitchenToolsType.OK;
+                    tw.type = EnumKitchen.KitchenToolsType.OK;
                 }
             endWash();
-            this.IsRunning = false;
+            this.isRunning = false;
         }
         
         }  
