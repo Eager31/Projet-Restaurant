@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controleur", "Controleur\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests Unitaires", "Tests Unitaires\Tests Unitaires.csproj", "{CDEC0A21-63E0-49E5-8FC8-B8EEBF18021C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPersos", "TestPersos\TestPersos.csproj", "{A1700E26-4A26-4E9A-B3D6-85148A9F5995}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,26 +105,6 @@ Global
 		{CDEC0A21-63E0-49E5-8FC8-B8EEBF18021C}.Release|x64.Build.0 = Release|Any CPU
 		{CDEC0A21-63E0-49E5-8FC8-B8EEBF18021C}.Release|x86.ActiveCfg = Release|Any CPU
 		{CDEC0A21-63E0-49E5-8FC8-B8EEBF18021C}.Release|x86.Build.0 = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|ARM.Build.0 = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|x64.Build.0 = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Debug|x86.Build.0 = Debug|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|ARM.ActiveCfg = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|ARM.Build.0 = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|ARM64.Build.0 = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|x64.ActiveCfg = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|x64.Build.0 = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|x86.ActiveCfg = Release|Any CPU
-		{A1700E26-4A26-4E9A-B3D6-85148A9F5995}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

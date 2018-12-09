@@ -9,6 +9,7 @@ using System.IO;
 using Controleur.Cuisine;
 using Modèle.Room.Element;
 using Controleur.Room;
+using Controleur.Temps;
 
 namespace Tests_Unitaires
 {
@@ -33,7 +34,7 @@ namespace Tests_Unitaires
         private KitchenTool dirtyHammer;
         private List<KitchenTool> dirtyKitchenToolList;
         private DishwasherMachine dishWasherMachine;
-        private QueueRoomTools queueRoomTools;
+        private QueueRoomStuff queueRoomTools;
         private QueueKitchenTools queueKitchenToolsEmpty;
 
         /// <summary>
@@ -78,24 +79,12 @@ namespace Tests_Unitaires
         public void initializedTest()
         {
 
-            dirtyKnife = new KitchenTool("knife", EnumKitchen.KitchenToolsType.dirt);
-            dirtyHammer = new KitchenTool("hammer", EnumKitchen.KitchenToolsType.dirt);
+            dirtyKnife = new KitchenTool("knife", EnumKitchen.KitchenToolsType.Dirt);
+            dirtyHammer = new KitchenTool("hammer", EnumKitchen.KitchenToolsType.Dirt);
             dirtyKitchenToolList = new List<KitchenTool>
             {
                 //10 knife
                 dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                dirtyKnife,
-                //3 hammer
-                dirtyHammer,
-                dirtyHammer,
                 dirtyHammer,
 
             };
@@ -105,7 +94,8 @@ namespace Tests_Unitaires
          
 
             queueKitchenTools = new QueueKitchenTools();
-            queueRoomTools = new QueueRoomTools();
+            queueRoomTools = new QueueRoomStuff();
+            
 
             queueKitchenTools.KitchenToolsQueue = dirtyKitchenToolList;
 
@@ -126,16 +116,11 @@ namespace Tests_Unitaires
         [TestMethod]
         public void washDirtyKitchenToolsWorking()
         {
-
-            int value = dishWasherMachine.wash(queueKitchenTools);  //13 elements -  3 elements (pourra être modifié dans le futur)
-            Assert.AreEqual(1, value); //Working
-            value = dishWasherMachine.wash(queueKitchenTools); //10 -3
-            value = dishWasherMachine.wash(queueKitchenTools); // 7 - 3
-            value = dishWasherMachine.wash(queueKitchenTools); //4 - 3
-            value = dishWasherMachine.wash(queueKitchenTools); // 1 - 3 List Empty
-            Assert.AreEqual(0, value);
-            int value2 = dishWasherMachine.wash(queueKitchenToolsEmpty);
-            Assert.AreEqual(0, value2); //nothing to wash
+            dishWasherMachine.addToWash(queueKitchenTools);
+            dishWasherMachine.wash(); 
+            Assert.AreEqual(dirtyKnife.Type, EnumKitchen.KitchenToolsType.OK);
+            Assert.AreEqual(dirtyHammer.Type, EnumKitchen.KitchenToolsType.OK);
+            Assert.AreEqual(dishWasherMachine.ToolsToWash.Count, 0); //La machine à laver est vidée et prête
         }
 
         [TestMethod]
@@ -179,7 +164,7 @@ namespace Tests_Unitaires
         [TestMethod]
         public void observerObservableDishWasherRoomStuffListIsNotEmpty()
         {
-            QueueRoomTools roomQueueTest = new QueueRoomTools();
+            QueueRoomStuff roomQueueTest = new QueueRoomStuff();
             QueueRoomStuffHandler provider = new QueueRoomStuffHandler(); //Fournit les informations de la kitchenQueueTest
             DishWasher observer1 = new DishWasher("Marc");
             ElementPlate plate = new ElementPlate(EnumRoom.PlateType.Flat, EnumRoom.MaterialState.Dirt);
@@ -199,8 +184,24 @@ namespace Tests_Unitaires
             }
         }
 
+        [TestMethod]
+        public void observerObservableMachinerWatchingClock()
+        {
+            Clock clock = new Clock();
+            WashingMachine machine = new WashingMachine(); //Student can't check counter normaly :o
+            ClockHandler provider = new ClockHandler();
 
- 
+            machine.SubscribeClock(provider); //student is watching the clock
+
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                provider.ClockStatus(clock); //Fournit le status aux observer
+                string expected = string.Format("The clock is watched - Washing Machine{0}", Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
+
 
     }
 }

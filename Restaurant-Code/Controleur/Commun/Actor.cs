@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomTools>, IObserver<Clock>
+    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
     {
 
         private IDisposable cancellation;
@@ -75,7 +75,7 @@ namespace Controleur.Commun
             }
         }
 
-        public void OnNext(QueueRoomTools info)
+        public void OnNext(QueueRoomStuff info)
         {
             if (info.RoomToolsQueue.Count > 0)
             {

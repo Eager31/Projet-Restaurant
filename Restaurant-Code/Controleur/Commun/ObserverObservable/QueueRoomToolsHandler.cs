@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun.ObserverObservable
 {
-    public class QueueRoomStuffHandler : IObservable<QueueRoomTools>
+    public class QueueRoomStuffHandler : IObservable<QueueRoomStuff>
     {
 
-        private List<IObserver<QueueRoomTools>> observers; //Liste des clients qui vont recevoir l'update
-        private List<QueueRoomTools> qrtList; 
+        private List<IObserver<QueueRoomStuff>> observers; //Liste des clients qui vont recevoir l'update
+        private List<QueueRoomStuff> qrtList; 
 
         public QueueRoomStuffHandler()
         {
-            observers = new List<IObserver<QueueRoomTools>>();
-            qrtList = new List<QueueRoomTools>(); 
+            observers = new List<IObserver<QueueRoomStuff>>();
+            qrtList = new List<QueueRoomStuff>(); 
         }
 
-        public IDisposable Subscribe(IObserver<QueueRoomTools> observer) //Demander à recevoir les infos
+        public IDisposable Subscribe(IObserver<QueueRoomStuff> observer) //Demander à recevoir les infos
         {
             // Check whether observer is already registered. If not, add it
             if (!observers.Contains(observer))
@@ -30,12 +30,12 @@ namespace Controleur.Commun.ObserverObservable
                 foreach (var item in qrtList)
                     observer.OnNext(item);
             }
-            return new Unsubscriber2<QueueRoomTools>(observers, observer);
+            return new Unsubscriber2<QueueRoomStuff>(observers, observer);
         }
 
 
         //Permet de récupérer le stats
-        public QueueRoomTools QueueRoomToolsStatus(QueueRoomTools info)
+        public QueueRoomStuff QueueRoomToolsStatus(QueueRoomStuff info)
         {
             qrtList.Add(info);
                 foreach (var observer in observers)

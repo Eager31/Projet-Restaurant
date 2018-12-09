@@ -9,13 +9,14 @@ namespace Modèle.Room
     public abstract class RoomStuff
     {
         private string name { get; set; }
-        private Enum type { get; set; }
+        private Enum type;
         private Enum state { get; set; }
+        public Enum Type { get => type; set => type = value; }
 
         protected RoomStuff(string name, Enum type, Enum state)
         {
             this.name = name;
-            this.type = type;
+            this.Type = type;
             this.state = state;
         }
     }

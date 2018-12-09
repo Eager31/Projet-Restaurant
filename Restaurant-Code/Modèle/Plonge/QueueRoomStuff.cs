@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Modèle.Plonge
 {
-    public class QueueRoomTools //must extends Obserer
+    public class QueueRoomStuff //must extends Obserer
     {
         private List<RoomStuff> roomToolsQueue;
 
-        public QueueRoomTools()
+        public QueueRoomStuff()
         {
             this.RoomToolsQueue = new List<RoomStuff>(); 
         }

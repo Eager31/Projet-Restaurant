@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Modèle.Plonge
 {
-    public class Sink : WashingKitchenTools
+    public class DishwasherMachine : WashingKitchenTools
     {
-        public Sink() : base(20, 3) //int washTime, int maxNumber
+        public DishwasherMachine() : base(10, 10, "Dishwasher Macine") //int washTime, int maxNumber, name
         {
 
         }
