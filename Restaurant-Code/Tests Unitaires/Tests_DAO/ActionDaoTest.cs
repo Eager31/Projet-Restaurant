@@ -44,7 +44,7 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]    // DELETE
-        public void Test_DeleteMethodRemovesEntryFromDatabaseWhenGivenId()
+        public void Test_DeleteMethodRemovesEntryFromDatabaseWhenGivenActionId()
         {
             var dao = ActionDAO.Instance;
 
