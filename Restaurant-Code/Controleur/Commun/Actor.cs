@@ -209,6 +209,11 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
+
+        public bool boolAct(OrderTable orderTbl, Storage stor)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

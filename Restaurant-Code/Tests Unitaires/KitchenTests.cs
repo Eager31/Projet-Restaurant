@@ -346,6 +346,29 @@ namespace Tests_Unitaires
             Assert.AreEqual(dishtmp.type, EnumKitchen.DishType.dessert);
             Assert.AreEqual(dishtmp.state, EnumKitchen.DishState.OK);
         }
-        
+
+
+        [TestMethod]
+        public void cookCheckIfPlateAvailibility()
+        {
+            int[] tableNumber = new int[3];
+            Dish[] DishTable = new Dish[3] ;
+     
+            DishTable[0] = entreePotato;// Notre dish continet : carotte + patatte
+            DishTable[1] = entreePotato;
+            OrderTable orderTbl = new OrderTable(DishTable, tableNumber);
+
+            IsDishAchievable isDishAvailable = new IsDishAchievable(); // <==> MainChef call
+
+            List<Ingredients> fridgeContainer = new List<Ingredients>();
+            Fridge frige = new Fridge(fridgeContainer);
+
+            Assert.IsFalse(isDishAvailable.boolAct(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
+            frige.fillStorage(5, carotte);
+            frige.fillStorage(5, patatte);
+            Assert.IsTrue(isDishAvailable.boolAct(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
+
+        }
+
     }
 }

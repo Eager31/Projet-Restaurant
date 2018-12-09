@@ -20,6 +20,7 @@ namespace Controleur.Commun.Interfaces
         void eTableAct(Actor act);
         int intAct();
         Boolean boolAct();
+        Boolean boolAct(OrderTable orderTbl, Storage stor);
         Boolean boolAct(Actor act);
         Dish dishAct(Order order);
         Dish dishAct();
