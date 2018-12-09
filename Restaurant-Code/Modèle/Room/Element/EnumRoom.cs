@@ -10,11 +10,10 @@ namespace Modèle.Room.Element
     {
         public enum BreadType {White };
         public enum GlassType {Wine, Water, Flute };
-        public enum JugType {Cristal };
+        public enum JugType {Sparkling, Tap };
         public enum PlateType {Flat, Small, Dessert };
         public enum TableclothType {Square, Round };
         public enum TowelType {Paper, Napkin };
-        public enum WaterType {Sparkling, Tap };
         public enum DrinkType {Coca, Wine }
         public enum MaterialState {OK, Dirt };
     }

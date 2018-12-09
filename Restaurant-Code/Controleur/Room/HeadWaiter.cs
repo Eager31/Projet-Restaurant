@@ -11,11 +11,13 @@ namespace Controleur.Room
     {
         public string name { get; set; }
         public Square square { get; set; }
+        public Boolean lockAction { get; set; }
 
         public HeadWaiter(string name, Square square)
         {
             this.name = name;
             this.square = square;
+            this.lockAction = false;
         }
 
     }

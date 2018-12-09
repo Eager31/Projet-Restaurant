@@ -31,7 +31,6 @@ namespace Tests_Unitaires
         private ElementPlate plate;
         private ElementTablecloth tablecloth;
         private ElementTowel towel;
-        private ElementWater water;
         private Drink drink;
         private ElementTable table;
         private Room room;
@@ -73,23 +72,22 @@ namespace Tests_Unitaires
             // Model
             bread = new ElementBread(EnumRoom.BreadType.White, EnumRoom.MaterialState.OK);
             glass = new ElementGlass(EnumRoom.GlassType.Water, EnumRoom.MaterialState.OK);
-            jug = new ElementJug(EnumRoom.JugType.Cristal, EnumRoom.MaterialState.OK);
+            jug = new ElementJug(EnumRoom.JugType.Tap, EnumRoom.MaterialState.OK);
             plate = new ElementPlate(EnumRoom.PlateType.Flat, EnumRoom.MaterialState.OK);
             tablecloth = new ElementTablecloth(EnumRoom.TableclothType.Square, EnumRoom.MaterialState.OK);
             towel = new ElementTowel(EnumRoom.TowelType.Paper, EnumRoom.MaterialState.OK);
-            water = new ElementWater(EnumRoom.WaterType.Tap, EnumRoom.MaterialState.OK);
             drink = new Drink("coca", EnumRoom.DrinkType.Coca);
             table = new ElementTable(
                 10,
                 10,
-                "libre",
+                "free",
                 false,
-                bread,
-                water,
                 plate,
                 tablecloth,
                 towel,
-                glass
+                glass,
+                bread,
+                jug
                 );
             row = new Row(10, table);
             square = new Square(1, row);
@@ -138,11 +136,10 @@ namespace Tests_Unitaires
         {
             Assert.AreEqual(EnumRoom.BreadType.White, bread.type);
             Assert.AreEqual(EnumRoom.GlassType.Water, glass.type);
-            Assert.AreEqual(EnumRoom.JugType.Cristal, jug.type);
+            Assert.AreEqual(EnumRoom.JugType.Tap, jug.type);
             Assert.AreEqual(EnumRoom.PlateType.Flat, plate.type);
             Assert.AreEqual(EnumRoom.TableclothType.Square, tablecloth.type);
             Assert.AreEqual(EnumRoom.TowelType.Paper, towel.type);
-            Assert.AreEqual(EnumRoom.WaterType.Tap, water.type);
         }
 
         [TestMethod]
@@ -154,7 +151,6 @@ namespace Tests_Unitaires
             Assert.AreEqual("Plate", plate.name);
             Assert.AreEqual("Tablecloth", tablecloth.name);
             Assert.AreEqual("Towel", towel.name);
-            Assert.AreEqual("Water", water.name);
         }
 
         [TestMethod]
@@ -162,10 +158,9 @@ namespace Tests_Unitaires
         {
             Assert.AreEqual(10, table.chairAmount);
             Assert.AreEqual(10, table.tableNumber);
-            Assert.AreEqual("libre", table.state);
+            Assert.AreEqual("free", table.state);
             Assert.AreEqual(false, table.isReserved);
             Assert.AreEqual(bread, table.bread);
-            Assert.AreEqual(water, table.water);
             Assert.AreEqual(plate, table.plate);
             Assert.AreEqual(tablecloth, table.tablecloth);
             Assert.AreEqual(towel, table.towel);
@@ -198,10 +193,10 @@ namespace Tests_Unitaires
         public void RemoveBreadandWaterOnTable()
         {
             table.bread = null;
-            table.water = null;
+            table.jug = null;
 
             Assert.AreEqual(null, table.bread);
-            Assert.AreEqual(null, table.water);
+            Assert.AreEqual(null, table.jug);
         }
 
         [TestMethod]

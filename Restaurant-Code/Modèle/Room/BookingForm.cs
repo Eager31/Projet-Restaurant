@@ -18,5 +18,10 @@ namespace Modèle.Room
             this.table = table;
             this.hour = hour;
         }
+
+        public void saveBookingForm(BookingForm bookingForm)
+        {
+            BookingList.bookingList.Add(bookingForm);
+        }
     }
 }

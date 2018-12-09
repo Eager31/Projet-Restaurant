@@ -9,10 +9,12 @@ namespace Controleur.Room
     public class Butler : Commun.Actor
     {
         public string name { get; set; }
+        public Boolean lockAction { get; set; }
 
         public Butler(string name)
         {
             this.name = name;
+            this.lockAction = false;
         }
     }
 

@@ -12,12 +12,13 @@ namespace Controleur.Room
         public string name { get; set; }
         public Square square { get; set; }
         public Row row { get; set; }
-
+        public Boolean lockAction { get; set; }
         public Waiter(string name, Square square, Row row)
         {
             this.name = name;
             this.square = square;
             this.row = row;
+            this.lockAction = false;
         }
     }
 }
