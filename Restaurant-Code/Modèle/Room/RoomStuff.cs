@@ -8,10 +8,10 @@ namespace Modèle.Room
 {
     public abstract class RoomStuff
     {
-        private string name { get; set; }
-        private Enum type;
-        private Enum state { get; set; }
-        public Enum Type { get => type; set => type = value; }
+        public string name { get; set; }
+        public Enum type;
+        public Enum state { get; set; }
+        public Enum Type { get; set; }
 
         protected RoomStuff(string name, Enum type, Enum state)
         {

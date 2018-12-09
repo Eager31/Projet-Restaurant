@@ -11,10 +11,28 @@ namespace Controleur.Cuisine
     {
         public Cook(string name) : base(name)
         {
-           
+            this.mapAct.Add("PrepareDish", new PrepareDish());
+            this.mapAct.Add("PrepareMorningDish", new PrepareMorningDish());
         }
 
-        
+        public void Action(String choice, Order order)
+        {
+            switch (choice)
+            {
+                case "PrepareDish":
+                    this.mapAct["PrepareDish"].dishAct(order);
+                    break;
+                case "PrepareMorningDish" :
+                    this.mapAct["PrepareMorningDish"].dishAct();
+                    break;
+                case "CheckClock":
+                    this.checkTime();
+                    break;
+                default:
+                    //Do nothing ?
+                    break;
+            }
+        }
         
     }
 }

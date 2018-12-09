@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class Eat : IAct
+    public class PrepareMorningDish : IAct
     {
         public bool boolAct()
         {

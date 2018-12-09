@@ -15,6 +15,7 @@ namespace Controleur.Commun.Interfaces
         Boolean boolAct();
         int intAct();
         Dish dishAct(Order order);
+        Dish dishAct();
         void voidAct(Dish d);
         List<Ingredients> ingredientListAct(Storage stor);
         void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool);

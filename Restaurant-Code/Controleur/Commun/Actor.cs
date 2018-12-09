@@ -200,6 +200,10 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public Dish dishAct()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
