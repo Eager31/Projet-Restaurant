@@ -43,8 +43,13 @@ namespace DAL
             using (var db = new DataContext())
             {
                 var dishToRemove = db.Dish.Where(a => a.ID == id).FirstOrDefault<Dish>();
-                db.Dish.Remove(dishToRemove);
-                db.SaveChanges();
+
+                if (dishToRemove != null)
+                {
+                    db.Dish.Remove(dishToRemove);
+                    db.SaveChanges();
+                }
+                
             }
         }
 
