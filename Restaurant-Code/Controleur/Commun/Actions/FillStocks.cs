@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controleur.Commun
+namespace Controleur.Commun.Actions
 {
-    public class VerifyReservation : IAct
+    public class FillStocks : IAct
     {
         public bool boolAct()
         {
@@ -68,11 +68,6 @@ namespace Controleur.Commun
         }
 
         public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
         {
             throw new NotImplementedException();
         }

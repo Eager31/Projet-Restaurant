@@ -12,17 +12,20 @@ namespace Controleur.Commun.Interfaces
     public interface IAct
     {
         void voidAct();
-        Boolean boolAct();
-        int intAct();
-        Dish dishAct(Order order);
-        Dish dishAct();
+        void voidAct(int number, Ingredients ingredient);
         void voidAct(Dish d);
-        List<Ingredients> ingredientListAct(Storage stor);
         void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool);
         void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff);
-        void eTableAct(Actor act);
-        Boolean boolAct(Actor act);
         void voidAct(ElementTable elementTable);
+        void eTableAct(Actor act);
+        int intAct();
+        Boolean boolAct();
+        Boolean boolAct(Actor act);
+        Dish dishAct(Order order);
+        Dish dishAct();
+        List<Ingredients> ingredientListAct(Storage stor);
+
+
 
     }
 }
