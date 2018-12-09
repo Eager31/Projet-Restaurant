@@ -1,4 +1,5 @@
-﻿using Controleur.Commun.ObserverObservable;
+﻿using Controleur.Commun.Interfaces;
+using Controleur.Commun.ObserverObservable;
 using Controleur.Temps;
 using Modèle.Cuisine;
 using Modèle.Plonge;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
+    public abstract class Actor : IActor, IAct, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
     {
 
         private IDisposable cancellation;
@@ -147,6 +148,10 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public int intAct()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

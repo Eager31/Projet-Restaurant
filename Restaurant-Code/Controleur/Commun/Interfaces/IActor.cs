@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    interface IActor
+    public interface IActor
     {
         void checkTime();
         void threadStart();

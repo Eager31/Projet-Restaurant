@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    class Order
+    public class Order
     {
     }
 }
