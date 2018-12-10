@@ -19,6 +19,7 @@ namespace DAL
         public DbSet<KitchenTool> KitchenTool { get; set; }
         public DbSet<Member> Member { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<InstructionInDish> InstructionInDish { get; set; }
 
         public void initialize()
         {
