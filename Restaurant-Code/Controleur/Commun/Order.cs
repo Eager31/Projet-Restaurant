@@ -13,7 +13,7 @@ namespace Controleur.Commun
     {
         // TODO : Need to take car of the thread, the lock access
         // TODO : Need to correct the attributes access
-        /*
+        
         public Actor.lockAction lockAction { get; set; }
 
         public int Client.number { get; set; }
@@ -29,7 +29,7 @@ namespace Controleur.Commun
             while (orderOk = false) {  
                 if (lockAction = true)  // Need to look at the lock
                 {
-                    Thread.Sleep(2000);
+                    //Thread.Sleep(2000);
                 }
 
                 else if(lockAction = false) // If the client is free, order
@@ -49,6 +49,5 @@ namespace Controleur.Commun
                 }
             }
         }
-        */
     }
 }

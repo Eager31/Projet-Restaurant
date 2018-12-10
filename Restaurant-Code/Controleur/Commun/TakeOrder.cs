@@ -21,7 +21,7 @@ namespace Controleur.Commun
             while (orderOk = false) {  
                 if (lockAction = true)  // Need to look at the lock
                 {
-                    Thread.Sleep(2000);
+                    //Thread.Sleep(2000);
                 }
 
                 else if(lockAction = false) // If the client is free, take the order

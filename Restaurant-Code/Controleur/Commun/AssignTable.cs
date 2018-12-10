@@ -13,6 +13,7 @@ namespace Controleur.Commun
         // TODO : Need to use Thread and the locks
         public void act(Client client, ElementTable table) // Assign a client to a table
         {
+            PlaceClient placeClient = new PlaceClient();
             client.setTableNumber(table.tableNumber); // Give the table's number to the client
             table.state = "occupied";
 
@@ -20,7 +21,7 @@ namespace Controleur.Commun
             {
                 table.isReserved = false;
             }
-            PlaceClient.act(table, client); // Place the client to the table
+            placeClient.act(table, client); // Place the client to the table
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Controleur.Room
         public void CreateClientThread(string clientName, int clientAmount)
         {
             string ThreadName = "Thread " + clientName.ToString();
-            Client client = new Client(clientAmount, clientName);
+            Client client = new Client(clientName, clientAmount, 0);
             Console.WriteLine("Un nouveau client a été placé dans la file d'attente");
             ClientList.clientList.Add(client);
             
