@@ -1,4 +1,6 @@
 ﻿using Controleur.Commun;
+using Modèle.Room;
+using Modèle.Room.Element;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +24,24 @@ namespace Controleur.Room
             this.mapAct.Add("CleanTable", new CleanTable()); // Can clean the table
 
         }
-        public void Action(String choice)
+        public void Action(String choice, ElementTable table , EnumRoom.BreadType breadType = EnumRoom.BreadType.White, EnumRoom.JugType jugType = EnumRoom.JugType.Tap)
         {
             switch (choice)
             {
-                case "BringBread":
-                    //this.mapAct["BringBread"].voidAct();
+                case "BringBread": 
+                    BringBread bringBread = (BringBread)this.mapAct["BringBread"];
+                    bringBread.voidAct(table, breadType);
                     break;
-                case "Bringjug":
-                    //this.mapAct["Bringjug"].voidAct();
+                case "Bringjug": 
+                    BringJug bringJug = (BringJug)this.mapAct["Bringjug"];
+                    bringJug.voidAct(table, jugType);
                     break;
-                case "Serve":
+               /* case "Serve":
                     //this.mapAct["Serve"].voidAct();
-                    break;
-                case "CleanTable":
-                    //this.mapAct["CleanTable"].voidAct();
+                    break; */
+                case "CleanTable": 
+                    CleanTable cleanTable = (CleanTable)this.mapAct["CleanTable"];
+                    cleanTable.voidAct(table);
                     break;
                 default:
                     break;

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Controleur.Commun;
 using Modèle.Room;
+using Modèle.Room.Element;
 
 namespace Controleur.Room
 {
@@ -28,21 +29,24 @@ namespace Controleur.Room
             this.mapAct.Add("Bringjug", new BringJug()); // Can bring the Jug
         }
 
-        public void Action(String choice)
+        public void Action(String choice, ElementTable table, EnumRoom.BreadType breadType = EnumRoom.BreadType.White, EnumRoom.JugType jugType = EnumRoom.JugType.Tap)
         {
             switch (choice)
             {
-                case "Serve":
-                    //this.mapAct["Serve"].act();
-                    break;
-                case "CleanTable":
-                    //this.mapAct["CleanTable"].act();
-                    break;
                 case "BringBread":
-                    //this.mapAct["BringBread"].act();
+                    BringBread bringBread = (BringBread)this.mapAct["BringBread"];
+                    bringBread.voidAct(table, breadType);
                     break;
                 case "Bringjug":
-                    //this.mapAct["Bringjug"].act();
+                    BringJug bringJug = (BringJug)this.mapAct["Bringjug"];
+                    bringJug.voidAct(table, jugType);
+                    break;
+                /* case "Serve":
+                     //this.mapAct["Serve"].voidAct();
+                     break; */
+                case "CleanTable":
+                    CleanTable cleanTable = (CleanTable)this.mapAct["CleanTable"];
+                    cleanTable.voidAct(table);
                     break;
                 default:
                     break;

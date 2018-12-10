@@ -1,6 +1,7 @@
 ﻿using Controleur.Commun;
 using Controleur.Commun.ObserverObservable;
 using Modèle.Cuisine;
+using Modèle.Room;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,17 @@ namespace Controleur.Room
             this.mapAct.Add("AssignTable", new AssignTable()); // Can assign a client to a table
 
         }
-        public void Action(String choice)
+        public void Action(String choice, Client client, ElementTable table = null)
         {
             switch (choice)
             {
                 case "VerifyReservation":
-                    //this.mapAct["VerifyReservation"].voidAct();
+                    VerifyReservation verifyReservation = (VerifyReservation)this.mapAct["VerifyReservation"];
+                    verifyReservation.voidAct(client);
                     break;
-                case "AssignTable":
-                    //this.mapAct["AssignTable"].voidAct();
+                case "AssignTable": 
+                    AssignTable assignTable = (AssignTable)this.mapAct["AssignTable"];
+                    assignTable.voidAct(client, table);
                     break;
                 default:
                     break;

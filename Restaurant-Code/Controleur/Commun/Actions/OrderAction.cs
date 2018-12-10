@@ -24,7 +24,7 @@ namespace Controleur.Commun
 
         List<Menu> orderList { get; set; }
 
-        public void act(Card card)         // This method changes the lock and gives the list of dish to HeadWaiter
+        public void voidAct(Card card)         // This method changes the lock and gives the list of dish to HeadWaiter
         {
             int sizeOfMenuDish = card.menus.Count -1 ; // Get the length of the menu list
 

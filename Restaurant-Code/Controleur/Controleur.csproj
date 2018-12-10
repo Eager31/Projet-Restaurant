@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commun\Actions\Eat.cs" />
     <Compile Include="Commun\Actions\FillStocks.cs" />
     <Compile Include="Commun\Actions\PrepareMorningDish.cs" />
     <Compile Include="Commun\Actions\RemoveFromStocks.cs" />
@@ -112,12 +113,8 @@
     <Compile Include="Room\ClerkRoom.cs" />
     <Compile Include="Room\Client.cs" />
     <Compile Include="Room\ClientListTable.cs" />
-    <Compile Include="Room\IEatBehavior.cs" />
-    <Compile Include="Room\RelaxedClient.cs" />
     <Compile Include="Room\ClientPool.cs" />
-    <Compile Include="Room\StressedOutClient.cs" />
     <Compile Include="Room\HeadWaiter.cs" />
-    <Compile Include="Room\IQueue.cs" />
     <Compile Include="Room\Waiter.cs" />
     <Compile Include="Time - Clock\Clock.cs" />
     <Compile Include="Time - Clock\IClock.cs" />

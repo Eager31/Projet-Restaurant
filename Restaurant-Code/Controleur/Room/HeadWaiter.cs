@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controleur.Commun;
+using Modèle.Cuisine;
 using Modèle.Room;
 
 namespace Controleur.Room
@@ -23,18 +24,21 @@ namespace Controleur.Room
 
         }
 
-        public void Action(String choice)
+        public void Action(String choice, ElementTable table = null, Card card = null, Client client = null, List<Menu> menus = null)
         {
             switch (choice)
             {
-                case "BringMenu":
-                    //this.mapAct["BringMenu"].voidAct();
+                case "BringMenu": //Arg Table Card
+                    BringMenu bringMenu = (BringMenu)this.mapAct["BringMenu"];
+                    bringMenu.voidAct(table, card);
                     break;
-                case "TakeOrder":
-                    //this.mapAct["TakeOrder"].voidAct();
+                case "TakeOrder": //Arg Client, List<Menu> 
+                    TakeOrder takeOrder = (TakeOrder)this.mapAct["TakeOrder"];
+                    takeOrder.voidAct(client, menus);
                     break;
-                case "PlaceClient":
-                    //this.mapAct["PlaceClient"].voidAct();
+                case "PlaceClient": // Arg Client Table
+                    PlaceClient placeClient = (PlaceClient)this.mapAct["PlaceClient"];
+                    placeClient.voidAct(table, client);
                     break;
                 default:
                     break;

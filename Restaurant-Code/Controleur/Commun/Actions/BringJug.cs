@@ -14,7 +14,7 @@ namespace Controleur.Commun
     public class BringJug //: IAct
     {
          // TODO : Need to take care of the DateBase and of the thread lock
-        public void voidAct(ElementTable table, EnumRoom.JugType type ) // Bring Water
+        public void voidAct(ElementTable table, EnumRoom.JugType type = EnumRoom.JugType.Tap) // Bring Water
         {
             ElementJug jug = new ElementJug(type, EnumRoom.MaterialState.OK); // Create a new Jug
             table.jug = jug; // Add the Jug to the table

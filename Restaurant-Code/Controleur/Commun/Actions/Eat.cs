@@ -7,12 +7,12 @@ using Controleur.Room;
 
 namespace Controleur.Commun.Actions
 {
-    class Eat
+    public class Eat
     {
         // Because we don't have time to finish the clock i can't manage the speed increase
         public void voidAct(Client client) // Allow the client to eat and so spend a specific time
         {
-            if(client.behavior == "relax")
+            if(client.behavior == "Relaxed")
             {
                 System.Threading.Thread.Sleep(30000); // Wait 30 seconds 
 

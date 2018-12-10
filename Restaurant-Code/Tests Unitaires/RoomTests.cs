@@ -6,6 +6,7 @@ using Modèle.Room;
 using Modèle.Room.Element;
 using Modèle.Cuisine;
 using Controleur.Room;
+using System.Threading;
 
 namespace Tests_Unitaires
 {
@@ -236,20 +237,12 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void RelaxClientCanEat() // TODO: fix strategy and setBehavior
+        public void ThereAreTwoTypeOfClient()
         {
-            Client stressedClient = new Client("foo", 10, 0);
-            Client relaxedClient = new Client("foo", 10, 0);
-            Assert.AreEqual(stressedClient, relaxedClient);
-            //Assert.AreNotEqual(stressedClient, relaxedClient);
-        }
+            Client stressedClient = new Client("foo", 10, 0, "StressedOut");
+            Client relaxedClient = new Client("foo", 10, 0, "Relaxed");
+            Assert.AreNotEqual(stressedClient, relaxedClient );
 
-        [TestMethod]
-        public void ClientPoolCanCreateAClient()
-        {
-            clientPool.CreateClientThread("foo", 10);
-            Client clientInList = ClientList.clientList[0];
-            Assert.AreEqual(client, clientInList);
         }
 
     }
