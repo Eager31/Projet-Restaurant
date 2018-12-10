@@ -65,6 +65,22 @@ namespace DAL
             return query;
         }
 
+        public List<int> getInstructionsFromDish(int dishID)
+        {
+            var instructions = new List<int>();
+
+            using (var db = new DataContext())
+            {
+                var query = db.InstructionInDish.Where(i => i.DishID == dishID);
+                foreach(var instruction in query)
+                {
+                    instructions.Add(instruction.InstructionID);
+                }
+            }
+
+            return instructions;
+        }
+
         public bool update(int id, Dish newDish)
         {
             using (var db = new DataContext())

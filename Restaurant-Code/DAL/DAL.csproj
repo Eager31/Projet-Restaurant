@@ -63,6 +63,7 @@
     <Compile Include="DAO\IDAO.cs" />
     <Compile Include="dbModel\Ingredient.cs" />
     <Compile Include="dbModel\IngredientType.cs" />
+    <Compile Include="dbModel\InstructionInDish.cs" />
     <Compile Include="dbModel\Member.cs" />
     <Compile Include="dbModel\Role.cs" />
     <Compile Include="Initializer.cs" />
