@@ -45,6 +45,7 @@
     <Compile Include="Cuisine\decorator\Cream.cs" />
     <Compile Include="Cuisine\decorator\DishDecorator.cs" />
     <Compile Include="Cuisine\EnumKitchen.cs" />
+    <Compile Include="Cuisine\OrderTable.cs" />
     <Compile Include="Cuisine\Storage\Freezer.cs" />
     <Compile Include="Cuisine\Storage\Fridge.cs" />
     <Compile Include="Cuisine\Interfaces\ICounter.cs" />

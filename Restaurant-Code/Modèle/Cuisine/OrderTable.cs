@@ -8,7 +8,7 @@ namespace Modèle.Cuisine
 {
     public class OrderTable
     {
-        public OrderTable(Dish[] dishTable, int[] tableNumberTable)
+        public OrderTable(Dish[] dishTable, int[] tableNumberTable) //Check if we can make static
         {
             this.dishTable = dishTable;
             this.tableNumberTable = tableNumberTable;

@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun;
+using Modèle.Cuisine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,15 @@ namespace Controleur.Cuisine
             this.mapAct.Add("FindDishSimilarities", new FindDishSimilarities());
         }
 
-        public void Action(String choice)
+        public void Action(String choice, OrderTable orderTbl, Storage stor)
         {
             switch (choice)
             {
                 case "isDishAchievable":
-                    if (this.mapAct["IsDishAchievable"].boolAct()) //If dish is Achievable
+                    if (this.mapAct["IsDishAchievable"].boolAct(orderTbl, stor)) //If dish is Achievable
                     {
-                        this.mapAct["FindDishSimilarities"].voidAct(); //Regroupement des similarités
-                        this.mapAct["AuthorizeOrder"].voidAct(); //Envoyer en cuisine & autoriser
+                        this.mapAct["FindDishSimilarities"].voidAct(orderTbl); //Regroupement des similarités
+                        this.mapAct["AuthorizeOrder"].voidAct(orderTbl); //Envoyer en cuisine & autoriser
                     }
                     else
                     {

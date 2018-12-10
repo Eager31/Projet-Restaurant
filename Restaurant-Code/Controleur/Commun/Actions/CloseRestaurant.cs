@@ -22,6 +22,11 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public bool boolAct(OrderTable orderTbl, Storage stor)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dish dishAct(Order order)
         {
             throw new NotImplementedException();
@@ -73,6 +78,11 @@ namespace Controleur.Commun
         }
 
         public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(OrderTable orderTbl)
         {
             throw new NotImplementedException();
         }

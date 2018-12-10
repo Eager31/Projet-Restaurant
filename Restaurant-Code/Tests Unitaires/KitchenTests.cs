@@ -7,6 +7,9 @@ using Controleur.Commun.ObserverObservable;
 using Controleur.Room;
 using System.IO;
 using Controleur.Temps;
+using Controleur.Cuisine;
+using Modèle.Room;
+using Controleur.Commun;
 
 namespace Tests_Unitaires
 {
@@ -48,6 +51,8 @@ namespace Tests_Unitaires
         private Supply supply;
         private Freezer freezer;
         private Counter counter;
+        private Cook cook;
+        private Order orderEntreePotato;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -102,7 +107,7 @@ namespace Tests_Unitaires
             {
                 instructionBis
             };
-            entreePotato = new Dish("Potato cutted","Wonderfull potato cutted as a Salad", instructionListBis, EnumKitchen.DishType.entree, EnumKitchen.DishState.OK);
+            entreePotato = new Dish("Potato cutted","Wonderfull potato cutted as a Salad", instructionListBis, EnumKitchen.DishType.entree, EnumKitchen.DishState.preparing);
             crushedVegetables = new Dish("crushed Vegetables", "Any vegan would love vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.OK);
             listDish = new List<Dish>
             {
@@ -119,7 +124,8 @@ namespace Tests_Unitaires
 
             counter = new Counter();
 
-           
+            cook = new Cook("GillyCuisto");
+            orderEntreePotato = new Order(entreePotato,5);
         }
 
         #region Additional test attributes
@@ -315,6 +321,54 @@ namespace Tests_Unitaires
             }
         }
 
+        [TestMethod]
+        public void cookPrepareDishTest()
+        {
+            Assert.AreEqual(orderEntreePotato.dish.state, EnumKitchen.DishState.preparing);
+            PrepareDish preparingDish = new PrepareDish();
+            Dish dishtmp = preparingDish.dishAct(orderEntreePotato); //<==> cook.Action("PrepareDish", orderEntreePotato);
+
+            //Le plat doit avoir le même nom que la commande & être dans le State "Ok"
+            Assert.AreEqual(dishtmp.name, orderEntreePotato.dish.name);
+            Assert.AreEqual(dishtmp.state, EnumKitchen.DishState.OK);
+        }
         
+
+        [TestMethod]
+        public void cookPrepareMorningDishTest()
+        {
+            
+            PrepareMorningDish preparingMorningDish = new PrepareMorningDish();
+            Dish dishtmp = preparingMorningDish.dishAct(); //<==> cook.Action("PrepareMonringDish", orderEntreePotato);
+
+            //Le plat doit avoir le même nom que la commande & être dans le State "Ok"
+            Assert.AreEqual(dishtmp.name, "Spceial dessert");
+            Assert.AreEqual(dishtmp.type, EnumKitchen.DishType.dessert);
+            Assert.AreEqual(dishtmp.state, EnumKitchen.DishState.OK);
+        }
+
+
+        [TestMethod]
+        public void cookCheckIfPlateAvailibility()
+        {
+            int[] tableNumber = new int[3];
+            Dish[] DishTable = new Dish[3] ;
+     
+            DishTable[0] = entreePotato;// Notre dish continet : carotte + patatte
+            DishTable[1] = entreePotato;
+            OrderTable orderTbl = new OrderTable(DishTable, tableNumber);
+
+            IsDishAchievable isDishAvailable = new IsDishAchievable(); // <==> MainChef call
+
+            List<Ingredients> fridgeContainer = new List<Ingredients>();
+            Fridge frige = new Fridge(fridgeContainer);
+
+            Assert.IsFalse(isDishAvailable.boolAct(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
+            frige.fillStorage(5, carotte);
+            frige.fillStorage(5, patatte);
+            Assert.IsTrue(isDishAvailable.boolAct(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
+
+        }
+
     }
 }

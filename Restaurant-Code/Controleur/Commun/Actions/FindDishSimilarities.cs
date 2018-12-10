@@ -12,12 +12,31 @@ namespace Controleur.Commun
 {
     public class FindDishSimilarities : IAct
     {
+        //Used
+
+        public void voidAct(OrderTable orderTbl)
+        {
+            for (int i = 0; i < orderTbl.dishTable.Length; i++) //Pour toute notre order table
+            {
+                if (orderTbl.dishTable[i] != null)
+                {
+                    //orderTbl.dishTable.OrderByDescending()
+                }
+            }
+        }
+
+        /* Other */ 
         public bool boolAct()
         {
             throw new NotImplementedException();
         }
 
         public bool boolAct(Actor act)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool boolAct(OrderTable orderTbl, Storage stor)
         {
             throw new NotImplementedException();
         }
@@ -71,5 +90,12 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
+
+        public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

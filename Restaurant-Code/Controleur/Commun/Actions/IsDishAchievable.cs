@@ -12,12 +12,40 @@ namespace Controleur.Commun
 {
     public class IsDishAchievable : IAct
     {
-        public bool boolAct()
+        /* Principal */
+
+        public bool boolAct(OrderTable orderTbl, Storage stor)
+        {
+            List <Instruction> instructions;
+            
+            for(int i = 0; i < orderTbl.dishTable.Length; i++) //Pour toute notre order table
+            {
+                if (orderTbl.dishTable[i] != null)
+                {
+                    instructions = orderTbl.dishTable[i].listInstructions;
+
+                    foreach (Instruction inst in instructions) //On récupère les instructions
+                    {
+                        foreach (Ingredients ing in inst.ingredients) //Pour tous les ingrédients de toutes les instructions
+                        {
+                            if (!stor.ingredientsList.Contains(ing)) //On peut l'améliorer plus tard, pour vérifier le nombre d'ingredient précisement
+                            {
+                                return false; //Ingredient non contain into Storage
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        /* Others */
+        public bool boolAct(Actor act)
         {
             throw new NotImplementedException();
         }
 
-        public bool boolAct(Actor act)
+        public bool boolAct()
         {
             throw new NotImplementedException();
         }
@@ -68,6 +96,16 @@ namespace Controleur.Commun
         }
 
         public void voidAct(ElementTable elementTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(OrderTable orderTbl)
         {
             throw new NotImplementedException();
         }
