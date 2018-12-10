@@ -18,7 +18,7 @@ namespace Controleur.Commun
         {
             foreach (Order order in orderTbl.orderList)
             {
-                foreach (Menu menu in order.dishList)
+                foreach (Menu menu in order.orderList)
                 {
                     foreach (Dish dish in menu.dishList)
                     {

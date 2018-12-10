@@ -318,7 +318,7 @@ namespace Tests_Unitaires
             Dish lastDish = new Dish(null, null, null, null, null);
 
             /*Before cooking*/
-            foreach (Menu mdish in orderDishPotatoAndVegetables.dishList) //veganMenu
+            foreach (Menu mdish in orderDishPotatoAndVegetables.orderList) //veganMenu
             {
                 foreach (Dish dish in mdish.dishList) //entreePotato,crushedVegetables
                 {

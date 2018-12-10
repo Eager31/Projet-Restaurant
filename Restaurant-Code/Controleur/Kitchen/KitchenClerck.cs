@@ -17,7 +17,7 @@ namespace Controleur.Cuisine
             this.mapAct.Add("CleanKitchen", new CleanKitchen());
             this.mapAct.Add("ChopVegetables", new ChopVegetables());
             this.mapAct.Add("CleanKitchenware", new CleanKitchenware());
-            this.mapAct.Add("CleanTableware", new CleanTableware());
+            //this.mapAct.Add("CleanTableware", new CleanTableware()); ?
             this.mapAct.Add("CheckStocks", new CheckStocks());
             this.mapAct.Add("FillStocks", new FillStocks());
             this.mapAct.Add("RemoveFromStocks", new RemoveFromStocks());

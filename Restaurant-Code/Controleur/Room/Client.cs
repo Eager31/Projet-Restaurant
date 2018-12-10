@@ -30,10 +30,10 @@ namespace Controleur.Room
             switch (choice)
             {
                 case "Order":
-                    this.mapAct["Order"].voidAct();
+                    //this.mapAct["Order"].voidAct();
                     break;
                 case "Pay":
-                    this.mapAct["Pay"].voidAct();
+                    //this.mapAct["Pay"].voidAct();
                     break;
                 default:
                     break;

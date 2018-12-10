@@ -23,10 +23,10 @@ namespace Controleur.Room
             switch (choice)
             {
                 case "VerifyReservation":
-                    this.mapAct["VerifyReservation"].voidAct();
+                    //this.mapAct["VerifyReservation"].voidAct();
                     break;
                 case "AssignTable":
-                    this.mapAct["AssignTable"].voidAct();
+                    //this.mapAct["AssignTable"].voidAct();
                     break;
                 default:
                     break;

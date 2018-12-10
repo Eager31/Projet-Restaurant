@@ -16,7 +16,7 @@ namespace Controleur.Commun
         {
             List<Dish> dishListReturn = new List<Dish>();
             Dish mynewDish = new Dish(null, null, null, null, null);
-            foreach (Menu menu in order.dishList)
+            foreach (Menu menu in order.orderList)
             {
                 foreach (Dish dish in menu.dishList)
                 {

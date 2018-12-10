@@ -240,7 +240,7 @@ namespace Tests_Unitaires
         {
             Client stressedClient = new Client("foo", 10, 0);
             Client relaxedClient = new Client("foo", 10, 0);
-            relaxedClient.setBehavior("relax");
+            //relaxedClient.setBehavior("relax");
             Assert.AreEqual(stressedClient, relaxedClient);
             //Assert.AreNotEqual(stressedClient, relaxedClient);
         }

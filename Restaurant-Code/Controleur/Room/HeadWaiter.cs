@@ -28,13 +28,13 @@ namespace Controleur.Room
             switch (choice)
             {
                 case "BringMenu":
-                    this.mapAct["BringMenu"].voidAct();
+                    //this.mapAct["BringMenu"].voidAct();
                     break;
                 case "TakeOrder":
-                    this.mapAct["TakeOrder"].voidAct();
+                    //this.mapAct["TakeOrder"].voidAct();
                     break;
                 case "PlaceClient":
-                    this.mapAct["PlaceClient"].voidAct();
+                    //this.mapAct["PlaceClient"].voidAct();
                     break;
                 default:
                     break;
