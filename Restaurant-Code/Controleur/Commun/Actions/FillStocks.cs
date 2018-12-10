@@ -37,6 +37,11 @@ namespace Controleur.Commun.Actions
             throw new NotImplementedException();
         }
 
+        public List<Dish> dishListAct(Order ord)
+        {
+            throw new NotImplementedException();
+        }
+
         public void eTableAct(Actor act)
         {
             throw new NotImplementedException();

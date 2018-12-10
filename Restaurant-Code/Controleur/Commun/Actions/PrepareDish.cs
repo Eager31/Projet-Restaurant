@@ -13,19 +13,19 @@ namespace Controleur.Commun
     public class PrepareDish : IAct
     {
         /* principal */
-        public Dish dishAct(Order order)
+
+        public List<Dish> dishListAct(Order order)
         {
+            List<Dish> dishListReturn = new List<Dish>();
             Dish mynewDish = new Dish(null, null, null, null, null);
             foreach (Menu menu in order.dishList)
             {
                 foreach (Dish dish in menu.dishList)
                 {
-
-                    mynewDish = new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK);
-                    return mynewDish;
+                    dishListReturn.Add(new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK));
                 }
             }
-            return mynewDish;
+            return dishListReturn;
         }
 
         /* Others*/
@@ -98,5 +98,12 @@ namespace Controleur.Commun
         {
             throw new NotImplementedException();
         }
+
+        public Dish dishAct(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

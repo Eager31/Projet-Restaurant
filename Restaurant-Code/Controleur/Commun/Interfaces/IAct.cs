@@ -26,6 +26,7 @@ namespace Controleur.Commun.Interfaces
         Dish dishAct(Order order);
         Dish dishAct();
         List<Ingredients> ingredientListAct(Storage stor);
+        List<Dish> dishListAct(Order ord);
 
 
 

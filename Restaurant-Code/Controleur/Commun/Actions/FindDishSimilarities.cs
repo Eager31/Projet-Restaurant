@@ -16,13 +16,13 @@ namespace Controleur.Commun
 
         public void voidAct(OrderTable orderTbl)
         {
-            for (int i = 0; i < orderTbl.dishTable.Length; i++) //Pour toute notre order table
+            /*for (int i = 0; i < orderTbl.dishTable.Length; i++) //Pour toute notre order table
             {
                 if (orderTbl.dishTable[i] != null)
                 {
                     //orderTbl.dishTable.OrderByDescending()
                 }
-            }
+            }*/
         }
 
         /* Other */ 
@@ -96,6 +96,9 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
-
+        public List<Dish> dishListAct(Order ord)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

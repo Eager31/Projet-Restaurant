@@ -18,20 +18,24 @@ namespace Controleur.Commun
         {
             foreach (Order order in orderTbl.orderList)
             {                
-                foreach (Dish dishList in order.dishList)
+                foreach (Menu menu in order.dishList)
                 {
-                    foreach (Instruction inst in dishList.listInstructions) //On récupère les instructions
+                    foreach (Dish dish in menu.dishList)
                     {
-                        foreach (Ingredients ing in inst.ingredients) //Pour tous les ingrédients de toutes les instructions
+                        foreach (Instruction inst in dish.listInstructions) //On récupère les instructions
                         {
-                            if (!stor.ingredientsList.Contains(ing)) //On peut l'améliorer plus tard, pour vérifier le nombre d'ingredient précisement
+                            foreach (Ingredients ing in inst.ingredients) //Pour tous les ingrédients de toutes les instructions
                             {
-                                return false; //Ingredient non contain into Storage
+                                if (!stor.ingredientsList.Contains(ing)) //On peut l'améliorer plus tard, pour vérifier le nombre d'ingredient précisement
+                                {
+                                    return false; //Ingredient non contain into Storage
+                                }
                             }
                         }   
                     }
                 }
             }
+            
             return true;
         }
 
@@ -51,6 +55,11 @@ namespace Controleur.Commun
         }
 
         public Dish dishAct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Dish> dishListAct(Order ord)
         {
             throw new NotImplementedException();
         }
