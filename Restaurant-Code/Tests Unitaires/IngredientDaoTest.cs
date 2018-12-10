@@ -9,11 +9,11 @@ namespace Tests_Unitaires
     public class IngredientDaoTest
     {
         [TestMethod]    // READ
-        public void Test_GetMethodReturnsIngredientWhenGivenId()
+        public void Test_GetMethodReturnsIngredientWhenGivenName()
         {
             var dao = IngredientDAO.Instance;
 
-            var actual = dao.get(21);
+            var actual = dao.getByName("TestIngredient");
             var expected = new DAL.Ingredient();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());
