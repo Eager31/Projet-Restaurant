@@ -11,12 +11,12 @@ namespace Controleur.Commun
     public class TakeOrder
     {
         // Todo : Need to take car of the thread, the lock access
-        /*
+        
         Actor.lockAction lockAction;
         Boolean orderOk = false;
 
         // This method changes the lock and gives the list of dish to the kitchen
-        public void act(Client client, List<Menu> menus)
+        public void act(Client client, List<Menu> orderList)
         {
             while (orderOk = false) {  
                 if (lockAction = true)  // Need to look at the lock
@@ -26,13 +26,14 @@ namespace Controleur.Commun
 
                 else if(lockAction = false) // If the client is free, take the order
                 {
+                    Order order = new Order(orderList, client.tableNumber);
                     lockAction = true;
-                    tableOrder.registerOrder(client.tableNumber, menus);
+                    tableOrder.registerOrder(order);
                     orderOk = true;
 
                 }
             }
         }
-        */
+        
     }
 }
