@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.Interfaces;
+using Controleur.Cuisine;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -10,90 +11,20 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class AuthorizeOrder : IAct
+    public class AuthorizeOrder : IVoidActWithOrderTableAndCook
     {
         /* Main */
-
-        public void voidAct(Dish d)
+        public void act(OrderTable orderTbl, Cook c)
         {
-            
+            //Les cooks vont devoir cuisiner
+           foreach (Order order in orderTbl.orderList)
+            {
+                c.Action("PrepareDish", order);
+            }
+
         }
 
-        /* Others */
-
-        public bool boolAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Dish> dishListAct(Order ord)
+        public void act(OrderTable orderTbl)
         {
             throw new NotImplementedException();
         }

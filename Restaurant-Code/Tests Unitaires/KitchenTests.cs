@@ -326,7 +326,7 @@ namespace Tests_Unitaires
                 }
             }
 
-            dishListReturn = preparingDish.dishListAct(orderDishPotatoAndVegetables); //cook
+            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables); //cook
 
             /*After cooking*/
                 foreach (Dish dish in dishListReturn) //entreePotato,crushedVegetables
@@ -344,7 +344,7 @@ namespace Tests_Unitaires
         {
             
             PrepareMorningDish preparingMorningDish = new PrepareMorningDish();
-            Dish dishtmp = preparingMorningDish.dishAct(); //<==> cook.Action("PrepareMonringDish", orderEntreePotato);
+            Dish dishtmp = preparingMorningDish.act(); //<==> cook.Action("PrepareMonringDish", orderEntreePotato);
             //Le plat doit avoir le même nom que la commande & être dans le State "Ok"
             Assert.AreEqual(dishtmp.name, "Spceial dessert");
             Assert.AreEqual(dishtmp.type, EnumKitchen.DishType.dessert);
@@ -366,10 +366,10 @@ namespace Tests_Unitaires
             List<Ingredients> fridgeContainer = new List<Ingredients>();
             Fridge frige = new Fridge(fridgeContainer);
 
-            Assert.IsFalse(isDishAvailable.boolAct(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
+            Assert.IsFalse(isDishAvailable.act(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
             frige.fillStorage(5, carotte);
             frige.fillStorage(5, patatte);
-            Assert.IsTrue(isDishAvailable.boolAct(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
+            Assert.IsTrue(isDishAvailable.act(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
         }
         
     }

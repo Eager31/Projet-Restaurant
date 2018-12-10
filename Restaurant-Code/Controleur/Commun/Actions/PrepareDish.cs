@@ -10,11 +10,9 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class PrepareDish : IAct
+    public class PrepareDish : IDishListActWithOrder
     {
-        /* principal */
-
-        public List<Dish> dishListAct(Order order)
+        public List<Dish> act(Order order)
         {
             List<Dish> dishListReturn = new List<Dish>();
             Dish mynewDish = new Dish(null, null, null, null, null);
@@ -27,83 +25,5 @@ namespace Controleur.Commun
             }
             return dishListReturn;
         }
-
-        /* Others*/
-        public bool boolAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-
     }
 }

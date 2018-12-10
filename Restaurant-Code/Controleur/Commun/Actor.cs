@@ -13,20 +13,20 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public abstract class Actor : IActor, IAct, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
+    public abstract class Actor : IActor, IObserver<Counter>, IObserver<QueueKitchenTools>, IObserver<QueueRoomStuff>, IObserver<Clock>
     {
 
         public IDisposable cancellation { get; set; }
         public string name { get; set; }
         public List<string> itemInfo { get; set; }
         public Boolean lockAction { get; set; }
-        public Dictionary<string,IAct> mapAct { get; set; }
+        public Dictionary<string, Object> mapAct { get; set; }
 
     protected Actor(string name)
         {
             this.name = name;
             this.lockAction = false;
-            this.mapAct = new Dictionary<string, IAct>();
+            this.mapAct = new Dictionary<string,Object>();
         }
 
         /*Subscribe*/
@@ -216,11 +216,6 @@ namespace Controleur.Commun
         }
 
         public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Dish> dishListAct(Order ord)
         {
             throw new NotImplementedException();
         }
