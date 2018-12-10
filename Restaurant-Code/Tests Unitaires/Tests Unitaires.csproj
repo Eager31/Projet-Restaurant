@@ -64,7 +64,9 @@
     <Compile Include="IngredientTypeDaoTest.cs" />
     <Compile Include="InstructionDaoTest.cs" />
     <Compile Include="KitchenToolDaoTest.cs" />
+    <Compile Include="MemberDaoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleDaoTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controleur\Controleur.csproj">

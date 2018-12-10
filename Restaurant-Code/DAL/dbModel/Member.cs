@@ -14,7 +14,7 @@ namespace DAL.dbModel
         // Member name (ex: John, Mike, Joe, ...)
         public string name { get; set; }
 
-        // Amount of a certain role in the restaurant
+        // ID of role 
         public int roleID { get; set; }
     }
 }
