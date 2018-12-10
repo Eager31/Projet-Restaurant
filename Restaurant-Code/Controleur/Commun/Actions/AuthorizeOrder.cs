@@ -12,6 +12,15 @@ namespace Controleur.Commun
 {
     public class AuthorizeOrder : IAct
     {
+        /* Main */
+
+        public void voidAct(Dish d)
+        {
+            
+        }
+
+        /* Others */
+
         public bool boolAct()
         {
             throw new NotImplementedException();
@@ -57,10 +66,7 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
         {
@@ -78,6 +84,11 @@ namespace Controleur.Commun
         }
 
         public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void voidAct(OrderTable orderTbl)
         {
             throw new NotImplementedException();
         }

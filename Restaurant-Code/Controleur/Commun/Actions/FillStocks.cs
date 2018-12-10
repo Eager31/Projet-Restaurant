@@ -81,5 +81,10 @@ namespace Controleur.Commun.Actions
         {
             throw new NotImplementedException();
         }
+
+        public void voidAct(OrderTable orderTbl)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

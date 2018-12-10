@@ -17,6 +17,7 @@ namespace Controleur.Commun.Interfaces
         void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool);
         void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff);
         void voidAct(ElementTable elementTable);
+        void voidAct(OrderTable orderTbl);
         void eTableAct(Actor act);
         int intAct();
         Boolean boolAct();
