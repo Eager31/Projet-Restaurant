@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Code"
         mc:Ignorable="d"
-        Title="Window2" Height="900" Width="1080">
+        Title="Window2" Height="966" Width="1080">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
     <Grid>
         <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="412,42,0,0" VerticalAlignment="Top" Height="39" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -18,7 +19,7 @@
             </Label.RenderTransform>
         </Label>
         <Image HorizontalAlignment="Left" Height="126" Margin="768,36,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png"/>
-        <Label Content="Restaurant Toulouse - Labege" HorizontalAlignment="Left" Margin="434,87,0,0" VerticalAlignment="Top" Height="27" Width="168" FontSize="14"/>
+        <Label Content="Restaurant Toulouse - Labege" HorizontalAlignment="Left" Margin="426,87,0,0" VerticalAlignment="Top" Height="27" Width="198" FontSize="14"/>
         <Label Content="Settings" HorizontalAlignment="Left" Margin="466,135,0,0" VerticalAlignment="Top" Width="92" FontSize="20"/>
         <Label Content="Start time" HorizontalAlignment="Left" Margin="45,204,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
         <Label Content="End time" HorizontalAlignment="Left" Margin="45,246,0,0" VerticalAlignment="Top" Width="92" FontSize="20"/>
@@ -32,20 +33,22 @@
         <Label Content="Head Waiter" HorizontalAlignment="Left" Margin="562,241,0,0" VerticalAlignment="Top" Width="126" FontSize="20"/>
         <Label Content="Waiter" HorizontalAlignment="Left" Margin="562,278,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
         <Label Content="Clerk" HorizontalAlignment="Left" Margin="562,315,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
-        <Label Content="Chef" HorizontalAlignment="Left" Margin="562,352,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
-        <Label Content="Head of parties" HorizontalAlignment="Left" Margin="562,389,0,0" VerticalAlignment="Top" Width="148" FontSize="20"/>
+        <Label Content="Head hef" HorizontalAlignment="Left" Margin="562,352,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
+        <Label Content="Cook" HorizontalAlignment="Left" Margin="562,389,0,0" VerticalAlignment="Top" Width="148" FontSize="20"/>
         <Label Content="Kitchen Clerk" HorizontalAlignment="Left" Margin="562,431,0,0" VerticalAlignment="Top" Width="126" FontSize="20"/>
-        <Label Content="Diver" HorizontalAlignment="Left" Margin="562,468,0,0" VerticalAlignment="Top" Width="107" FontSize="20"/>
-        <ListBox x:Name="List1" HorizontalAlignment="Left" Height="24" Margin="768,217,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List2" HorizontalAlignment="Left" Height="24" Margin="768,254,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List3" HorizontalAlignment="Left" Height="24" Margin="768,291,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List4" HorizontalAlignment="Left" Height="24" Margin="768,328,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List5" HorizontalAlignment="Left" Height="24" Margin="768,365,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List6" HorizontalAlignment="Left" Height="24" Margin="768,402,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List7" HorizontalAlignment="Left" Height="24" Margin="768,444,0,0" VerticalAlignment="Top" Width="220"/>
-        <ListBox x:Name="List8" HorizontalAlignment="Left" Height="24" Margin="768,481,0,0" VerticalAlignment="Top" Width="220"/>
-        <Button x:Name="Btn1" Content="Quit" HorizontalAlignment="Left" Margin="107,814,0,0" VerticalAlignment="Top" Width="76" FontSize="18" Click="Btn1_Click"/>
-        <Button x:Name="Btn2" Content="Start" HorizontalAlignment="Left" Margin="913,809,0,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+        <Label Content="Dishwasher" HorizontalAlignment="Left" Margin="562,468,0,0" VerticalAlignment="Top" Width="126" FontSize="20"/>
+        <Button x:Name="Btn1" Content="Quit" HorizontalAlignment="Left" Margin="145,463,0,0" VerticalAlignment="Top" Width="76" FontSize="18" Click="Btn1_Click"/>
+        <Button x:Name="Btn2" Content="Start" HorizontalAlignment="Left" Margin="343,463,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Btn2_Click"/>
+        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="802,204,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged"/>
+        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="802,246,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox3" HorizontalAlignment="Left" Margin="802,288,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox4" HorizontalAlignment="Left" Margin="802,326,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox5" HorizontalAlignment="Left" Margin="802,362,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox6" HorizontalAlignment="Left" Margin="802,404,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox7" HorizontalAlignment="Left" Margin="802,441,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBox8" HorizontalAlignment="Left" Margin="802,483,0,0" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Left" Margin="167,510,0,0" VerticalAlignment="Top" Source="Restaurant.png" Height="415"/>
 
     </Grid>
+    </ScrollViewer>
 </Window>

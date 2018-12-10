@@ -28,8 +28,10 @@ namespace Restaurant_Code
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window1 window = new Window1();
-            window.Owner = this;
-            window.ShowDialog();
+            
+            window.Show();
+
+            this.Close();
         }
     }
 }
