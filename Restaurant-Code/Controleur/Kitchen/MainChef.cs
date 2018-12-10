@@ -23,14 +23,18 @@ namespace Controleur.Cuisine
             switch (choice)
             {
                 case "isDishAchievable":
-                    if (this.mapAct["IsDishAchievable"].boolAct(orderTbl, stor)) //If dish is Achievable
+                    IsDishAchievable isDishAchievable = (IsDishAchievable)this.mapAct["IsDishAchievable"];
+                    if (isDishAchievable.act(orderTbl, stor)) //If dish is Achievable
                     {
-                        this.mapAct["FindDishSimilarities"].voidAct(orderTbl); //Regroupement des similarités
-                        this.mapAct["AuthorizeOrder"].voidAct(orderTbl); //Envoyer en cuisine & autoriser
+                        FindDishSimilarities findDishSimilarities = (FindDishSimilarities) this.mapAct["FindDishSimilarities"];
+                        findDishSimilarities.act(orderTbl); //Regroupement des similarités
+                        AuthorizeOrder authorizeOrder = (AuthorizeOrder)this.mapAct["AuthorizeOrder"];
+                        authorizeOrder.act(orderTbl); //Envoyer en cuisine & autoriser
                     }
                     else
                     {
-                        this.mapAct["RefuseOrder"].voidAct();
+                        RefuseOrder refuseOrder = (RefuseOrder)this.mapAct["RefuseOrder"];
+                        refuseOrder.act(orderTbl);
                     }
                     break;
                 case "CheckClock":
