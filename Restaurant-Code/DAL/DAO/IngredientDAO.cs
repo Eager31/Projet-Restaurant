@@ -64,6 +64,18 @@ namespace DAL
             return query;
         }
 
+        public Ingredient getByName(string name)
+        {
+            Ingredient query = null;
+
+            using (var db = new DataContext())
+            {
+                query = db.Ingredient.Where(a => a.name == name).FirstOrDefault<Ingredient>();
+            }
+
+            return query;
+        }
+
         public bool update(int id, Ingredient newIngredient)
         {
             using (var db = new DataContext())

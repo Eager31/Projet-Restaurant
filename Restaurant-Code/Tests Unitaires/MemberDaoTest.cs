@@ -13,7 +13,7 @@ namespace Tests_Unitaires
         {
             var dao = MemberDAO.Instance;
 
-            var actual = dao.getByName("Name");
+            var actual = dao.getByName("TestMember");
             var expected = new DAL.Member();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());
