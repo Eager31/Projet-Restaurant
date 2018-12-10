@@ -2,6 +2,10 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Modèle.Room;
+using Modèle.Room.Element;
+using Modèle.Cuisine;
+using Controleur.Room;
 
 namespace Tests_Unitaires
 {
@@ -20,10 +24,34 @@ namespace Tests_Unitaires
 
         private TestContext testContextInstance;
 
+        // Model
+        private ElementBread bread;
+        private ElementGlass glass;
+        private ElementJug jug;
+        private ElementPlate plate;
+        private ElementTablecloth tablecloth;
+        private ElementTowel towel;
+        private Drink drink;
+        private ElementTable table;
+        private Room room;
+        private Square square;
+        private Row row;
+        private BookingForm bookingForm;
+        private DateTime bookingHour;
+
+        //Controller
+        private Butler butler;
+        private ClerkRoom clerkRoom;
+        private Client client;
+        private ClientPool clientPool;
+        private HeadWaiter headWaiter;
+        private Waiter waiter;
+
         /// <summary>
         ///Obtient ou définit le contexte de test qui fournit
         ///des informations sur la série de tests active, ainsi que ses fonctionnalités.
         ///</summary>
+        ///
         public TestContext TestContext
         {
             get
@@ -36,6 +64,44 @@ namespace Tests_Unitaires
             }
         }
 
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            bookingHour = new DateTime(2018, 12, 12);
+
+            // Model
+            bread = new ElementBread(EnumRoom.BreadType.White, EnumRoom.MaterialState.OK);
+            glass = new ElementGlass(EnumRoom.GlassType.Water, EnumRoom.MaterialState.OK);
+            jug = new ElementJug(EnumRoom.JugType.Tap, EnumRoom.MaterialState.OK);
+            plate = new ElementPlate(EnumRoom.PlateType.Flat, EnumRoom.MaterialState.OK);
+            tablecloth = new ElementTablecloth(EnumRoom.TableclothType.Square, EnumRoom.MaterialState.OK);
+            towel = new ElementTowel(EnumRoom.TowelType.Paper, EnumRoom.MaterialState.OK);
+            drink = new Drink("coca", EnumRoom.DrinkType.Coca);
+            table = new ElementTable(
+                10,
+                10,
+                "free",
+                false,
+                plate,
+                tablecloth,
+                towel,
+                glass,
+                bread,
+                jug
+                );
+            row = new Row(10, table);
+            square = new Square(1, row);
+            room = new Room(1, square);
+            bookingForm = new BookingForm("foo", table, bookingHour);
+
+            // Controller
+            butler = new Butler("foo");
+            clerkRoom = new ClerkRoom("foo");
+            clientPool = new ClientPool();
+            headWaiter = new HeadWaiter("foo", square);
+            waiter = new Waiter("foo", square, row);
+            client = new Client("foo", 10, 0);
+        }
         #region Attributs de tests supplémentaires
         //
         // Vous pouvez utiliser les attributs supplémentaires suivants lorsque vous écrivez vos tests :
@@ -59,11 +125,133 @@ namespace Tests_Unitaires
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void DrinkHasAType()
         {
-            //
-            // TODO: ajoutez ici la logique du test
-            //
+            Assert.AreEqual(EnumRoom.DrinkType.Coca, drink.type);
+            Assert.AreEqual("coca", drink.name);
         }
+
+        [TestMethod]
+        public void ElementHasAType()
+        {
+            Assert.AreEqual(EnumRoom.BreadType.White, bread.type);
+            Assert.AreEqual(EnumRoom.GlassType.Water, glass.type);
+            Assert.AreEqual(EnumRoom.JugType.Tap, jug.type);
+            Assert.AreEqual(EnumRoom.PlateType.Flat, plate.type);
+            Assert.AreEqual(EnumRoom.TableclothType.Square, tablecloth.type);
+            Assert.AreEqual(EnumRoom.TowelType.Paper, towel.type);
+        }
+
+        [TestMethod]
+        public void ElementHasAName()
+        {
+            Assert.AreEqual("Bread", bread.name);
+            Assert.AreEqual("Glass", glass.name);
+            Assert.AreEqual("Jug", jug.name);
+            Assert.AreEqual("Plate", plate.name);
+            Assert.AreEqual("Tablecloth", tablecloth.name);
+            Assert.AreEqual("Towel", towel.name);
+        }
+
+        [TestMethod]
+        public void TableHasValidAttributes()
+        {
+            Assert.AreEqual(10, table.chairAmount);
+            Assert.AreEqual(10, table.tableNumber);
+            Assert.AreEqual("free", table.state);
+            Assert.AreEqual(false, table.isReserved);
+            Assert.AreEqual(bread, table.bread);
+            Assert.AreEqual(plate, table.plate);
+            Assert.AreEqual(tablecloth, table.tablecloth);
+            Assert.AreEqual(towel, table.towel);
+            Assert.AreEqual(glass, table.glass);
+
+        }
+
+        [TestMethod]
+        public void RowHasAttributes()
+        {
+            Assert.AreEqual(10, row.number);
+            Assert.AreEqual(table, row.table);
+        }
+
+        [TestMethod]
+        public void SquareHasAttributes()
+        {
+            Assert.AreEqual(1, square.number);
+            Assert.AreEqual(row, square.row);
+        }
+
+        [TestMethod]
+        public void RoomHasAttributes()
+        {
+            Assert.AreEqual(1, room.number);
+            Assert.AreEqual(square, room.square);
+        }
+
+        [TestMethod]
+        public void RemoveBreadandWaterOnTable()
+        {
+            table.bread = null;
+            table.jug = null;
+
+            Assert.AreEqual(null, table.bread);
+            Assert.AreEqual(null, table.jug);
+        }
+
+        [TestMethod]
+        public void IsBookingFormValid()
+        {
+
+            Assert.AreEqual("foo", bookingForm.name);
+            Assert.AreEqual(table, bookingForm.table);
+            Assert.AreEqual(bookingHour, bookingForm.hour);
+        }
+
+        [TestMethod]
+        public void BulterHasAName()
+        {
+            Assert.AreEqual("foo", butler.name);
+        }
+
+        [TestMethod]
+        public void ClerkRoomHasAName()
+        {
+            Assert.AreEqual("foo", clerkRoom.name);
+        }
+
+        [TestMethod]
+        public void ClientHasAttributes()
+        {
+            Assert.AreEqual("foo", client.name);
+            Assert.AreEqual(10, client.number);
+        }
+
+        [TestMethod]
+        public void HeadWaiterHasANameAndASquare()
+        {
+            Assert.AreEqual("foo", headWaiter.name);
+            Assert.AreEqual(square, headWaiter.square);
+
+        }
+
+        [TestMethod]
+        public void RelaxClientCanEat() // TODO: fix strategy and setBehavior
+        {
+            Client stressedClient = new Client("foo", 10, 0);
+            Client relaxedClient = new Client("foo", 10, 0);
+            //relaxedClient.setBehavior("relax");
+            Assert.AreEqual(stressedClient, relaxedClient);
+            //Assert.AreNotEqual(stressedClient, relaxedClient);
+        }
+
+        [TestMethod]
+        public void ClientPoolCanCreateAClient()
+        {
+            clientPool.CreateClientThread("foo", 10);
+            Client clientInList = ClientList.clientList[0];
+            Assert.AreEqual(client, clientInList);
+        }
+
     }
 }

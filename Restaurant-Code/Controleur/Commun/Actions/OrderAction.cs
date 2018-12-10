@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.Interfaces;
+using Controleur.Room;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -10,81 +11,32 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class OrderAction : IAct
+    public class OrderAction //: IAct
     {
-        public bool boolAct()
-        {
-            throw new NotImplementedException();
-        }
+        // TODO : Need to take car of the thread, the lock access
+        // TODO : Need to correct the attributes access
 
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
+        public Client client { get; set; }
 
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
+        public bool orderOk = false;
 
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
+        Random rnd = new Random();
 
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
+        List<Menu> orderList { get; set; }
 
-        public void eTableAct(Actor act)
+        public void act(Card card)         // This method changes the lock and gives the list of dish to HeadWaiter
         {
-            throw new NotImplementedException();
-        }
+            int sizeOfMenuDish = card.menus.Count -1 ; // Get the length of the menu list
 
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
+            for (int i =0; i < client.number; i++){ // For all client on the table
+                int rndNumber = rnd.Next(0, sizeOfMenuDish); // generate a random number
+                Menu menuToOrder = card.menus[rndNumber]; // With this number, choose a random menu on the card
+                orderList.Add(menuToOrder); // Add the menu to the order list
+            }
 
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            orderOk = true;
+            TakeOrder takeOrder = new TakeOrder();
+            takeOrder.voidAct(client, orderList);  
         }
     }
 }

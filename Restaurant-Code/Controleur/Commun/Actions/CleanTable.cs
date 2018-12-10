@@ -10,81 +10,37 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class CleanTable : IAct
+    public class CleanTable // : IAct
     {
-        public bool boolAct()
+        public List<string> elementToClean = new List<string> { };
+        // TODO: Need to use thread and locks
+        public void voidAct(ElementTable table) // Clean all the Element
         {
-            throw new NotImplementedException();
-        }
+            int numberOfClient = table.chairAmount; // Number of client at table
+            int moveNeeded = (numberOfClient / 5) + 1; // Number of move between room and kitchen needed
+            table.bread = null;
+            table.card = null;
+            table.glass = null;
+            table.jug = null;
+            table.plate = null;
+            table.tablecloth = null;
+            table.towel = null;
 
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
+            elementToClean.Add("bread");
+            elementToClean.Add("jug");
+            elementToClean.Add("tablecloth");
 
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            for (int i = 0; i < numberOfClient; i++) // Add in list all elements
+            {
+                elementToClean.Add("plate");
+                elementToClean.Add("card");
+                elementToClean.Add("glass");
+                elementToClean.Add("towel");
+            }
+            for (int i = 0; i < moveNeeded; i++) // Carry 5 items to kitchen and loop until done
+            {
+                // Call Socket here
+            }
         }
     }
 }

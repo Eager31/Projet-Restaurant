@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.dbModel
+namespace DAL
 {
-    class Member
+    public class Member
     {
         // Member ID
         public int ID { get; set; }
@@ -14,7 +14,7 @@ namespace DAL.dbModel
         // Member name (ex: John, Mike, Joe, ...)
         public string name { get; set; }
 
-        // Amount of a certain role in the restaurant
+        // ID of role 
         public int roleID { get; set; }
     }
 }

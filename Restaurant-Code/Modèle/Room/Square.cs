@@ -8,8 +8,8 @@ namespace Modèle.Room
 {
     public class Square
     {
-        private int number { get; set; }
-        private Row row;
+        public int number { get; set; }
+        public Row row { get; set; }
 
         public Square(int number, Row row)
         {

@@ -2,6 +2,7 @@
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
+using Modèle.Room.Element;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,81 +11,14 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class BringBread : IAct
+    public class BringBread //: IAct
     {
-        public bool boolAct()
+         // TODO : Need to take care of the DateBase and of the thread lock
+        public void voidAct(ElementTable table, EnumRoom.BreadType type) // Bring bread
         {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            ElementBread bread = new ElementBread(type, EnumRoom.MaterialState.OK); // Create a new bread
+            table.bread = bread; // Add the bread to the table
+            //Bread in database --
         }
     }
 }

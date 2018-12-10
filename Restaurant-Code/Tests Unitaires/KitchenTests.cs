@@ -52,7 +52,8 @@ namespace Tests_Unitaires
         private Freezer freezer;
         private Counter counter;
         private Cook cook;
-        private Order orderEntreePotato;
+        private List<Order> orderList;
+        private Order orderDishPotatoAndVegetables;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -108,7 +109,7 @@ namespace Tests_Unitaires
                 instructionBis
             };
             entreePotato = new Dish("Potato cutted","Wonderfull potato cutted as a Salad", instructionListBis, EnumKitchen.DishType.entree, EnumKitchen.DishState.preparing);
-            crushedVegetables = new Dish("crushed Vegetables", "Any vegan would love vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.OK);
+            crushedVegetables = new Dish("crushed Vegetables", "Any vegan would love vegetables", instructionList, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.preparing);
             listDish = new List<Dish>
             {
                 entreePotato,
@@ -124,31 +125,19 @@ namespace Tests_Unitaires
 
             counter = new Counter();
 
-            cook = new Cook("GillyCuisto");
-            orderEntreePotato = new Order(entreePotato,5);
-        }
 
-        #region Additional test attributes
-            //
-            // You can use the following additional attributes as you write your tests:
-            //
-            // Use ClassInitialize to run code before running the first test in the class
-            // [ClassInitialize()]
-            // public static void MyClassInitialize(TestContext testContext) { }
-            //
-            // Use ClassCleanup to run code after all tests in a class have run
-            // [ClassCleanup()]
-            // public static void MyClassCleanup() { }
-            //
-            // Use TestInitialize to run code before running each test 
-            // [TestInitialize()]
-            // public void MyTestInitialize() { }
-            //
-            // Use TestCleanup to run code after each test has run
-            // [TestCleanup()]
-            // public void MyTestCleanup() { }
-            //
-            #endregion
+            /* Fonct Kitchen */
+            cook = new Cook("GillyCuisto");
+
+            List<Menu> listMenu = new List<Menu>();
+            listMenu.Add(veganMenu);
+            /* On crée un order qui va demander un veganMenu*/
+            orderDishPotatoAndVegetables = new Order(listMenu, 1);
+
+
+            orderList = new List<Order>();
+            orderList.Add(orderDishPotatoAndVegetables);
+        }
 
             //Tests pour construire un menu
         [TestMethod]
@@ -324,51 +313,64 @@ namespace Tests_Unitaires
         [TestMethod]
         public void cookPrepareDishTest()
         {
-            Assert.AreEqual(orderEntreePotato.dish.state, EnumKitchen.DishState.preparing);
+            List<Dish> dishListReturn = new List<Dish>();
             PrepareDish preparingDish = new PrepareDish();
-            Dish dishtmp = preparingDish.dishAct(orderEntreePotato); //<==> cook.Action("PrepareDish", orderEntreePotato);
+            Dish lastDish = new Dish(null, null, null, null, null);
 
-            //Le plat doit avoir le même nom que la commande & être dans le State "Ok"
-            Assert.AreEqual(dishtmp.name, orderEntreePotato.dish.name);
-            Assert.AreEqual(dishtmp.state, EnumKitchen.DishState.OK);
+            /*Before cooking*/
+            foreach (Menu mdish in orderDishPotatoAndVegetables.orderList) //veganMenu
+            {
+                foreach (Dish dish in mdish.dishList) //entreePotato,crushedVegetables
+                {
+                    Assert.AreEqual(dish.state, EnumKitchen.DishState.preparing);
+                }
+            }
+
+            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables); //cook
+
+            /*After cooking*/
+                foreach (Dish dish in dishListReturn) //entreePotato,crushedVegetables
+                {
+                    Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
+                //Les noms correspondent aussi
+                    lastDish = dish;
+                }
+            Assert.AreEqual(lastDish.name, "crushed Vegetables");
         }
         
-
+        
         [TestMethod]
         public void cookPrepareMorningDishTest()
         {
             
             PrepareMorningDish preparingMorningDish = new PrepareMorningDish();
-            Dish dishtmp = preparingMorningDish.dishAct(); //<==> cook.Action("PrepareMonringDish", orderEntreePotato);
-
+            Dish dishtmp = preparingMorningDish.act(); //<==> cook.Action("PrepareMonringDish", orderEntreePotato);
             //Le plat doit avoir le même nom que la commande & être dans le State "Ok"
             Assert.AreEqual(dishtmp.name, "Spceial dessert");
             Assert.AreEqual(dishtmp.type, EnumKitchen.DishType.dessert);
             Assert.AreEqual(dishtmp.state, EnumKitchen.DishState.OK);
         }
-
+        
 
         [TestMethod]
         public void cookCheckIfPlateAvailibility()
         {
-            int[] tableNumber = new int[3];
-            Dish[] DishTable = new Dish[3] ;
-     
-            DishTable[0] = entreePotato;// Notre dish continet : carotte + patatte
-            DishTable[1] = entreePotato;
-            OrderTable orderTbl = new OrderTable(DishTable, tableNumber);
+            // orderDishPotatoAndVegetables == VeganMenu == entreePotato + crushedVegetables
+            List<Order> listOrder = new List<Order>();
+            listOrder.Add(orderDishPotatoAndVegetables);
+            int[] tabNumber = new int[15];
 
+            OrderTable orderTbl = new OrderTable(listOrder, tabNumber);
             IsDishAchievable isDishAvailable = new IsDishAchievable(); // <==> MainChef call
 
             List<Ingredients> fridgeContainer = new List<Ingredients>();
             Fridge frige = new Fridge(fridgeContainer);
 
-            Assert.IsFalse(isDishAvailable.boolAct(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
+            Assert.IsFalse(isDishAvailable.act(orderTbl, frige)); //Renvoi false car le fridge est vide, et ne contient pas le nécessaire
             frige.fillStorage(5, carotte);
             frige.fillStorage(5, patatte);
-            Assert.IsTrue(isDishAvailable.boolAct(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
-
+            Assert.IsTrue(isDishAvailable.act(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
         }
-
+        
     }
 }

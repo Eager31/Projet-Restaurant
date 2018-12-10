@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.Interfaces;
+using Controleur.Room;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -10,81 +11,32 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class TakeOrder : IAct
+    public class TakeOrder //: IAct
     {
-        public bool boolAct()
-        {
-            throw new NotImplementedException();
-        }
+        // Todo : Need to take car of the thread, the lock access
+        
+        Boolean orderOk = false;
 
-        public bool boolAct(Actor act)
+        // This method changes the lock and gives the list of dish to the kitchen
+        public void voidAct(Client client, List<Menu> orderList)
         {
-            throw new NotImplementedException();
-        }
+            while (orderOk == false)
+            {
+                if (client.lockAction == true)  // Need to look at the lock
+                {
+                    //Thread.Sleep(2000);
+                }
 
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
+                else if (client.lockAction == false) // If the client is free, take the order
+                {
+                    Order order = new Order(orderList, client.tableNumber);
+                    client.lockAction = true;
+                    // Give to the kitchen the order
+                    //tableOrder.registerOrder(order);
+                    orderOk = true;
 
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+                }
+            }
         }
     }
 }

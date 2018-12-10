@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.Interfaces;
+using Controleur.Room;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -10,81 +11,16 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class Pay : IAct
+    public class Pay //: IAct
     {
-        public bool boolAct()
+         //TODO : Take care of the threads and find how to free a thread
+        public void voidAct(Client client, ElementTable table)
         {
-            throw new NotImplementedException();
-        }
+            // We don't manage the price of the dishes 
+            // so we could think we just have to destroy the client's thread.
 
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            table.state = "free";
+            //client.Dispose();
         }
     }
 }

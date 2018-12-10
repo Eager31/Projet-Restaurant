@@ -1,4 +1,5 @@
 ﻿using Controleur.Commun.Interfaces;
+using Controleur.Room;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -10,81 +11,20 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class AssignTable : IAct
+     public class AssignTable // : IAct // Give the client a table number
     {
-        public bool boolAct()
+        // TODO : Need to use Thread and the locks
+        public void voidAct(Client client, ElementTable table) // Assign a client to a table
         {
-            throw new NotImplementedException();
-        }
+            PlaceClient placeClient = new PlaceClient();
+            client.setTableNumber(table.tableNumber); // Give the table's number to the client
+            table.state = "occupied";
 
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            if(table.isReserved == true) // Remove reservation if assigned
+            {
+                table.isReserved = false;
+            }
+            placeClient.voidAct(table, client); // Place the client to the table
         }
     }
 }
