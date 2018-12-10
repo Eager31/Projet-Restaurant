@@ -10,10 +10,10 @@ namespace Controleur.Room
     public class Client : Commun.Actor
     {
         public int number { get; set; } // The number of the client in the group
-        public IEatBehavior behavior { get; set; } // The behavior for the strategy DP
+        public string behavior { get; set; } // The behavior for the eat() method
         public int tableNumber { get; set; }
 
-        public Client(string name, int number, int tableNumber) : base(name)
+        public Client(string name, int number, int tableNumber, string behavior = "relaxed") : base(name)
         {
             this.number = number;
             this.name = name;
@@ -40,10 +40,6 @@ namespace Controleur.Room
             }
         }
 
-        public void setBehavior(IEatBehavior behavior) // Define the client's behavior
-        {
-            this.behavior = behavior;
-        }
 
         public void setTableNumber(int number) // Attribute a table number
         {
