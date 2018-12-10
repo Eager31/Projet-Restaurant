@@ -9,11 +9,11 @@ namespace Tests_Unitaires
     public class RoleDaoTest
     {
         [TestMethod]    // READ
-        public void Test_GetMethodReturnsRoleWhenGivenId()
+        public void Test_GetMethodReturnsRoleWhenGivenName()
         {
             var dao = RoleDAO.Instance;
 
-            var actual = dao.get(21);
+            var actual = dao.getByName("TestRole");
             var expected = new DAL.Role();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());

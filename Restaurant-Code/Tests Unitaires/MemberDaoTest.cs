@@ -9,11 +9,11 @@ namespace Tests_Unitaires
     public class MemberDaoTest
     {
         [TestMethod]    // READ
-        public void Test_GetMethodReturnsMemberWhenGivenId()
+        public void Test_GetMethodReturnsMemberWhenGivenName()
         {
             var dao = MemberDAO.Instance;
 
-            var actual = dao.get(21);
+            var actual = dao.getByName("TestMember");
             var expected = new DAL.Member();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());

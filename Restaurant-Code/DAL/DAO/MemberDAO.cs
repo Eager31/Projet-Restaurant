@@ -66,6 +66,18 @@ namespace DAL
             return query;
         }
 
+        public Member getByName(String name)
+        {
+            Member query = null;
+
+            using (var db = new DataContext())
+            {
+                query = db.Member.Where(a => a.name == name).FirstOrDefault<Member>();
+            }
+
+            return query;
+        }
+
         public bool update(int id, Member newMember)
         {
             using (var db = new DataContext())

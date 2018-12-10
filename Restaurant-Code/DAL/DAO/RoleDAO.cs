@@ -66,6 +66,18 @@ namespace DAL
             return query;
         }
 
+        public Role getByName(string name)
+        {
+            Role query = null;
+
+            using (var db = new DataContext())
+            {
+                query = db.Role.Where(a => a.name == name).FirstOrDefault<Role>();
+            }
+
+            return query;
+        }
+
         public bool update(int id, Role newRole)
         {
             using (var db = new DataContext())

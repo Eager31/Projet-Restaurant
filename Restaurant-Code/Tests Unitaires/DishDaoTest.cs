@@ -9,11 +9,11 @@ namespace Tests_Unitaires
     public class DishDaoTest
     {
         [TestMethod]    // READ
-        public void Test_GetMethodReturnsDishWhenGivenId()
+        public void Test_GetMethodReturnsDishWhenGivenName()
         {
             var dao = DishDAO.Instance;
 
-            var actual = dao.get(21);
+            var actual = dao.getByName("TestDish");
             var expected = new DAL.Dish();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());

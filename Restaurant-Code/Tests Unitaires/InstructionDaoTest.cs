@@ -9,11 +9,11 @@ namespace Tests_Unitaires
     public class InstructionDaoTest
     {
         [TestMethod]    // READ
-        public void Test_GetMethodReturnsInstructionWhenGivenId()
+        public void Test_GetMethodReturnsInstructionWhenGivenName()
         {
             var dao = InstructionDAO.Instance;
 
-            var actual = dao.get(21);
+            var actual = dao.getByName("TestInstruction");
             var expected = new DAL.Instruction();
 
             Assert.AreEqual(expected.GetType(), actual.GetType());

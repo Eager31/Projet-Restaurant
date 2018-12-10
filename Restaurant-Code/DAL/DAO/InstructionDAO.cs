@@ -64,6 +64,18 @@ namespace DAL
             return query;
         }
 
+        public Instruction getByName(string name)
+        {
+            Instruction query = null;
+
+            using (var db = new DataContext())
+            {
+                query = db.Instruction.Where(a => a.name == name).FirstOrDefault<Instruction>();
+            }
+
+            return query;
+        }
+
         public bool update(int id, Instruction newInstruction)
         {
             using (var db = new DataContext())
