@@ -60,17 +60,11 @@
   <ItemGroup>
     <Compile Include="ActionDaoTest.cs" />
     <Compile Include="DishDaoTest.cs" />
-    <Compile Include="DishwasherTests.cs" />
     <Compile Include="IngredientDaoTest.cs" />
     <Compile Include="IngredientTypeDaoTest.cs" />
     <Compile Include="InstructionDaoTest.cs" />
-    <Compile Include="KitchenTests.cs" />
     <Compile Include="KitchenToolDaoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controleur\Controleur.csproj">
