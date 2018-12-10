@@ -23,7 +23,9 @@ namespace Tests_Unitaires
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenIngredient()
         {
             var dao = IngredientDAO.Instance;
-            var ingredientToAdd = new DAL.Ingredient { ID = 1000, name = "TestIngredient", quantityInStock = 0, dateArrival = new DateTime(), dateExpire = new DateTime(), typeId = 1 };
+            var today = DateTime.Today;
+            var d2 = today.AddDays(2);
+            var ingredientToAdd = new DAL.Ingredient { name = "TestIngredient", quantityInStock = 0, dateArrival = today, dateExpire = d2, typeId = 1 };
 
             dao.create(ingredientToAdd);
 
@@ -36,7 +38,11 @@ namespace Tests_Unitaires
             var dao = IngredientDAO.Instance;
 
             var oldIngredient = dao.get(1000);
-            var newIngredient = new DAL.Ingredient { ID = 1000, name = "TestIngredient (MOD)", quantityInStock = 0, dateArrival = new DateTime(), dateExpire = new DateTime(), typeId = 1 };
+
+            var today = DateTime.Today;
+            var d2 = today.AddDays(2);
+
+            var newIngredient = new DAL.Ingredient { name = "TestIngredient", quantityInStock = 0, dateArrival = today, dateExpire = d2, typeId = 1 };
 
             dao.update(1000, newIngredient);
 

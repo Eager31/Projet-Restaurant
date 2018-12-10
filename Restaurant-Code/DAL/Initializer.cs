@@ -85,9 +85,7 @@ namespace DAL
 
             var dishes = new List<Dish>
             {
-                new Dish { ID = 0, name = "Chicken Satay", description = "", recipe = new List<int> {
-                    sliceChicken.ID
-                } }
+                new Dish { ID = 0, name = "Chicken Satay", description = "" }
             };
 
             dishes.ForEach(s => context.Dish.Add(s));
