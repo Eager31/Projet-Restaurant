@@ -9,8 +9,8 @@ namespace Modèle.Room
 {
     public class Card
     {
-        List<Menu> menus = new List<Menu>();
-        List<Drink> drinks = new List<Drink>();
+        public List<Menu> menus = new List<Menu>();
+        public List<Drink> drinks = new List<Drink>();
 
         public Card(List<Menu> menus, List<Drink> drinks)
         {

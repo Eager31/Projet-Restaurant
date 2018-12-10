@@ -65,10 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Map\IElements.cs" />
     <Compile Include="Room\BookingForm.cs" />
+    <Compile Include="Room\BookingList.cs" />
     <Compile Include="Room\Card.cs" />
     <Compile Include="Room\ElementTable.cs" />
     <Compile Include="Room\Element\ElementTowel.cs" />
-    <Compile Include="Room\Element\ElementWater.cs" />
     <Compile Include="Room\Element\EnumRoom.cs" />
     <Compile Include="Room\RoomStuff.cs" />
     <Compile Include="Room\Drink.cs" />

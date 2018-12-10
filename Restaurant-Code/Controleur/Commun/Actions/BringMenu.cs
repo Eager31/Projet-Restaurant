@@ -10,81 +10,18 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class BringMenu : IAct
+    public class BringMenu //: IAct
     {
-        public bool boolAct()
+        // TODO : Need to use thread
+        public void voidAct(ElementTable table, Card card) // Bring the menu to the client
         {
-            throw new NotImplementedException();
-        }
+            table.card = card; // Add the card to the table
 
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
+            // If we want to remove the card from stock we can do something like that :
+            /*
+                int cardToRemove = table.chairAmount
+                RemoveCardFromStock(cardToRemove)
+            */
         }
     }
 }

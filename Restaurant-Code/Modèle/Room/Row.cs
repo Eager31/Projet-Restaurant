@@ -9,8 +9,8 @@ namespace Modèle.Room
 {
     public class Row : Modèle.Map.IElements
     {
-        private int number { get; set; }
-        private ElementTable table { get; set; }
+        public int number { get; set; }
+        public ElementTable table { get; set; }
 
         public Row(int number, ElementTable table)
         {

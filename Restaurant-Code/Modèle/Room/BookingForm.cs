@@ -8,15 +8,20 @@ namespace Modèle.Room
 {
     public class BookingForm
     {
-        private string name { get; set; }
-        private ElementTable table { get; set; }
-        private DateTime hour { get; set; }
+        public string name { get; set; }
+        public ElementTable table { get; set; }
+        public DateTime hour { get; set; }
 
         public BookingForm(string name, ElementTable table, DateTime hour)
         {
             this.name = name;
             this.table = table;
             this.hour = hour;
+        }
+
+        public void saveBookingForm(BookingForm bookingForm)
+        {
+            BookingList.bookingList.Add(bookingForm);
         }
     }
 }
