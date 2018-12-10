@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.dbModel
+namespace DAL
 {
-    class Member
+    public class Member
     {
         // Member ID
         public int ID { get; set; }

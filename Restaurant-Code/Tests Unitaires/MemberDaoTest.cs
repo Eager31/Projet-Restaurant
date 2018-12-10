@@ -23,7 +23,7 @@ namespace Tests_Unitaires
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenMember()
         {
             var dao = MemberDAO.Instance;
-            var memberToAdd = new DAL.Member { ID = 1000, name = "TestMember", description = "To delete ...", duration = 0 };
+            var memberToAdd = new DAL.Member { ID = 1000, name = "TestMember", roleID = 1 };
 
             dao.create(memberToAdd);
 
@@ -36,7 +36,7 @@ namespace Tests_Unitaires
             var dao = MemberDAO.Instance;
 
             var oldMember = dao.get(1000);
-            var newMember = new DAL.Member { ID = 1000, name = "TestMember (MOD)", description = "To delete next ...", duration = 0 };
+            var newMember = new DAL.Member { ID = 1000, name = "TestMember (MOD)", roleID = 1 };
 
             dao.update(1000, newMember);
 

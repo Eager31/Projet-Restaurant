@@ -23,7 +23,7 @@ namespace Tests_Unitaires
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenRole()
         {
             var dao = RoleDAO.Instance;
-            var roleToAdd = new DAL.Role { ID = 1000, name = "TestRole", description = "To delete ...", duration = 0 };
+            var roleToAdd = new DAL.Role { ID = 1000, name = "TestRole", nbStaffMember = 0 };
 
             dao.create(roleToAdd);
 
@@ -36,7 +36,7 @@ namespace Tests_Unitaires
             var dao = RoleDAO.Instance;
 
             var oldRole = dao.get(1000);
-            var newRole = new DAL.Role { ID = 1000, name = "TestRole (MOD)", description = "To delete next ...", duration = 0 };
+            var newRole = new DAL.Role { ID = 1000, name = "TestRole (MOD)", nbStaffMember = 0 };
 
             dao.update(1000, newRole);
 
