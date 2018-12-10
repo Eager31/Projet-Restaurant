@@ -21,10 +21,12 @@ namespace Controleur.Cuisine
             switch (choice)
             {
                 case "PrepareDish":
-                    this.mapAct["PrepareDish"].dishAct(order); //Crée un dish à partir d'un order
+                    PrepareDish prepare = (PrepareDish)this.mapAct["PrepareDish"];
+                    prepare.act(order);//Crée un dish à partir d'un order
                     break;
                 case "PrepareMorningDish" :
-                    this.mapAct["PrepareMorningDish"].dishAct();
+                    PrepareMorningDish prepareMorningDish = (PrepareMorningDish) this.mapAct["PrepareMorningDish"];
+                    prepareMorningDish.act();
                     break;
                 case "CheckClock":
                     this.checkTime();

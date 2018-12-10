@@ -52,7 +52,7 @@ namespace Modèle.Plonge
             if (!toolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)
             foreach (RoomStuff tw in toolsToWash)
             {
-                tw.Type = EnumRoom.MaterialState.OK;
+                tw.type = EnumRoom.MaterialState.OK;
             }
             endWash();
             this.isRunning = false;

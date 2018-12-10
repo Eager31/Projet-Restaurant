@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controleur.Commun;
 using Modèle.Room;
 
 namespace Controleur.Room
@@ -32,16 +33,16 @@ namespace Controleur.Room
             switch (choice)
             {
                 case "Serve":
-                    this.mapAct["Serve"].act();
+                    //this.mapAct["Serve"].act();
                     break;
                 case "CleanTable":
-                    this.mapAct["CleanTable"].act();
+                    //this.mapAct["CleanTable"].act();
                     break;
                 case "BringBread":
-                    this.mapAct["BringBread"].act();
+                    //this.mapAct["BringBread"].act();
                     break;
                 case "Bringjug":
-                    this.mapAct["Bringjug"].act();
+                    //this.mapAct["Bringjug"].act();
                     break;
                 default:
                     break;

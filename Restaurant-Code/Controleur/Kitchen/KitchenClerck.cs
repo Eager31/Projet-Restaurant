@@ -17,7 +17,7 @@ namespace Controleur.Cuisine
             this.mapAct.Add("CleanKitchen", new CleanKitchen());
             this.mapAct.Add("ChopVegetables", new ChopVegetables());
             this.mapAct.Add("CleanKitchenware", new CleanKitchenware());
-            this.mapAct.Add("CleanTableware", new CleanTableware());
+            //this.mapAct.Add("CleanTableware", new CleanTableware()); ?
             this.mapAct.Add("CheckStocks", new CheckStocks());
             this.mapAct.Add("FillStocks", new FillStocks());
             this.mapAct.Add("RemoveFromStocks", new RemoveFromStocks());
@@ -30,13 +30,14 @@ namespace Controleur.Cuisine
             switch (choice)
             {
                 case "CleanKitchen":
-                    this.mapAct["CleanKitchen"].voidAct();
+                    CleanKitchen cleanKitchen = (CleanKitchen)this.mapAct["CleanKitchen"];
+                    //cleanKitchen.act();
                     break;
                 case "ChopVegetables":
-                    this.mapAct["CleanKitchen"].voidAct(washMachine,(QueueKitchenTools) itemToWash);
+                    //this.mapAct["CleanKitchen"].voidAct(washMachine,(QueueKitchenTools) itemToWash);
                     break;
                 case "CleanKitchenware":
-                    this.mapAct["CleanKitchenware"].voidAct(washMachine, (QueueRoomStuff)itemToWash);
+                    //this.mapAct["CleanKitchenware"].voidAct(washMachine, (QueueRoomStuff)itemToWash);
                     break;
                 default:
                     //Do nothing ?
@@ -49,13 +50,13 @@ namespace Controleur.Cuisine
             switch (choice)
             {
                 case "CheckStocks":
-                    this.mapAct["CheckStocks"].ingredientListAct(stor);
+                    //this.mapAct["CheckStocks"].ingredientListAct(stor);
                     break;
                 case "FillStocks":
-                    this.mapAct["FillStocks"].voidAct(number, ingredient);
+                    //this.mapAct["FillStocks"].voidAct(number, ingredient);
                     break;
                 case "RemoveFromStocks":
-                    this.mapAct["RemoveFromStocks"].voidAct(number, ingredient);
+                    //this.mapAct["RemoveFromStocks"].voidAct(number, ingredient);
                     break;
                 case "CheckClock":
                     this.checkTime();
