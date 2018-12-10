@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201812101405506_addedMoreTables.Designer.cs">
       <DependentUpon>201812101405506_addedMoreTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812102050109_AddedInterTable.cs" />
+    <Compile Include="Migrations\201812102050109_AddedInterTable.Designer.cs">
+      <DependentUpon>201812102050109_AddedInterTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812101405506_addedMoreTables.resx">
       <DependentUpon>201812101405506_addedMoreTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812102050109_AddedInterTable.resx">
+      <DependentUpon>201812102050109_AddedInterTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

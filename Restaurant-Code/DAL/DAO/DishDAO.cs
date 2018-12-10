@@ -65,6 +65,18 @@ namespace DAL
             return query;
         }
 
+        public Dish getByName(string name)
+        {
+            Dish query = null;
+
+            using (var db = new DataContext())
+            {
+                query = db.Dish.Where(a => a.name == name).FirstOrDefault<Dish>();
+            }
+
+            return query;
+        }
+
         public List<int> getInstructionsFromDish(int dishID)
         {
             var instructions = new List<int>();
