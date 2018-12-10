@@ -52,6 +52,8 @@ namespace Tests_Unitaires
         private Freezer freezer;
         private Counter counter;
         private Cook cook;
+        private List<Order> orderList;
+        private Order orderDishPotatoAndVegetables;
         private Order orderEntreePotato;
 
         /// <summary>
@@ -125,7 +127,11 @@ namespace Tests_Unitaires
             counter = new Counter();
 
             cook = new Cook("GillyCuisto");
-            orderEntreePotato = new Order(entreePotato,5);
+
+
+            orderDishPotatoAndVegetables = new Order(listDish, 1);
+            orderList = new List<Order>();
+            orderList.Add(orderDishPotatoAndVegetables);
         }
 
         #region Additional test attributes
@@ -324,7 +330,8 @@ namespace Tests_Unitaires
         [TestMethod]
         public void cookPrepareDishTest()
         {
-            Assert.AreEqual(orderEntreePotato.dish.state, EnumKitchen.DishState.preparing);
+            foreach (orderEntreePotato.dishList)
+            Assert.AreEqual(orderEntreePotato.dishList.get, EnumKitchen.DishState.preparing);
             PrepareDish preparingDish = new PrepareDish();
             Dish dishtmp = preparingDish.dishAct(orderEntreePotato); //<==> cook.Action("PrepareDish", orderEntreePotato);
 

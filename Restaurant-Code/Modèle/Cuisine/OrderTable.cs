@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modèle.Room;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,14 @@ namespace Modèle.Cuisine
 {
     public class OrderTable
     {
-        public OrderTable(Dish[] dishTable, int[] tableNumberTable) //Check if we can make static
+        public OrderTable(List<Order> orderList, int[] tableNumberTable) //Check if we can make static
         {
-            this.dishTable = dishTable;
+            this.orderList = orderList;
             this.tableNumberTable = tableNumberTable;
         }
 
         // /!\ les indices doivent-être respectés
-        public Dish[] dishTable { get; set; }
+        public List<Order> orderList { get; set; }
         public int[] tableNumberTable { get; set; }
 
     }

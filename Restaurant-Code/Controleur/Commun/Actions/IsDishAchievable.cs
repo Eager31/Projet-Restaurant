@@ -16,15 +16,11 @@ namespace Controleur.Commun
 
         public bool boolAct(OrderTable orderTbl, Storage stor)
         {
-            List <Instruction> instructions;
-            
-            for(int i = 0; i < orderTbl.dishTable.Length; i++) //Pour toute notre order table
-            {
-                if (orderTbl.dishTable[i] != null)
+            foreach (Order order in orderTbl.orderList)
+            {                
+                foreach (Dish dishList in order.dishList)
                 {
-                    instructions = orderTbl.dishTable[i].listInstructions;
-
-                    foreach (Instruction inst in instructions) //On récupère les instructions
+                    foreach (Instruction inst in dishList.listInstructions) //On récupère les instructions
                     {
                         foreach (Ingredients ing in inst.ingredients) //Pour tous les ingrédients de toutes les instructions
                         {
@@ -32,20 +28,19 @@ namespace Controleur.Commun
                             {
                                 return false; //Ingredient non contain into Storage
                             }
-                        }
+                        }   
                     }
                 }
             }
             return true;
         }
 
-        /* Others */
-        public bool boolAct(Actor act)
+        public bool boolAct()
         {
             throw new NotImplementedException();
         }
 
-        public bool boolAct()
+        public bool boolAct(Actor act)
         {
             throw new NotImplementedException();
         }
@@ -80,6 +75,11 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
+        public void voidAct(int number, Ingredients ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
         public void voidAct(Dish d)
         {
             throw new NotImplementedException();
@@ -100,14 +100,12 @@ namespace Controleur.Commun
             throw new NotImplementedException();
         }
 
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
         public void voidAct(OrderTable orderTbl)
         {
             throw new NotImplementedException();
         }
     }
+          /* Others */
+
 }
+       

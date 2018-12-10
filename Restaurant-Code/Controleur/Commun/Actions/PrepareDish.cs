@@ -15,8 +15,17 @@ namespace Controleur.Commun
         /* principal */
         public Dish dishAct(Order order)
         {
-            Dish dish = new Dish(order.dish.name, order.dish.description, order.dish.listInstructions,order.dish.type,EnumKitchen.DishState.OK);
-            return dish;
+            Dish mynewDish = new Dish(null, null, null, null, null);
+            foreach (Menu menu in order.dishList)
+            {
+                foreach (Dish dish in menu.dishList)
+                {
+
+                    mynewDish = new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK);
+                    return mynewDish;
+                }
+            }
+            return mynewDish;
         }
 
         /* Others*/

@@ -9,12 +9,12 @@ namespace Modèle.Room
 {
     public class Order
     {
-        public Dish dish { get; set; }
+        public List<Menu> dishList { get; set; }
         public int tableNumber { get; set; } 
 
-        public Order(Dish dich, int tableNumber)
+        public Order(List<Menu> dishList, int tableNumber)
         {
-            this.dish = dich;
+            this.dishList = dishList;
             this.tableNumber = tableNumber;
         }
     }
