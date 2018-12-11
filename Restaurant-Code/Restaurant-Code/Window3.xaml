@@ -24,7 +24,7 @@
             <Button Content="Quit" HorizontalAlignment="Left" Margin="880,641,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click_1"/>
             <DataGrid x:Name="DataGridS" HorizontalAlignment="Left" Height="424" Margin="136,189,0,0" VerticalAlignment="Top" Width="819">
                 <DataGrid.Background>
-                    <ImageBrush ImageSource="Restaurant.png"/>
+                    <ImageBrush ImageSource="planResto.png"/>
                 </DataGrid.Background>
             </DataGrid>
 

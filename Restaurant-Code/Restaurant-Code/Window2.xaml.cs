@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Sql;
+using System.Data.SqlTypes;
+
 
 namespace Restaurant_Code
 {
@@ -33,33 +36,36 @@ namespace Restaurant_Code
             fill_combo_Kitchen_Clerk();
             fill_combo_Dish_Washer();
         }
-        //string con = @"Data Source=projet_restaurant.db;version = v4.0;";
+        string con = @"Data Source=.\SQLEXPRESS; Initial Catalog=projet_restaurant.db; Integrated security=true;";
 
-        private SqlConnection myConexion()
+        /*private SqlConnection myConexion()
         {
-            return new SqlConnection(ConfigurationSettings.AppSettings["cnx"]);
+            SqlConnection Conexion = new SqlConnection(@"Data Source=DESKTOP-0VMMD6D\SQLEXPRESS; Initial Catalog=projet_restaurant; Integrated security=true;");
+            Conexion.Open();
+            return Conexion;
         }
-
+    */
 
         void fill_combo_Butler()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
-                string Query = "select Name from StaffMember where RoleID = 0";
-                SqlCommand command = new SqlCommand(Query, con);
+                sql.Open();
+                //string Query = "select Name from StaffMember where RoleID = 0";
+
+                SqlCommand command = new SqlCommand("select Name from StaffMember where RoleID = 1", sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read()) {
                     string Name = dr.GetString(1);
                     ComboBox1.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
-            catch(Exception e)
+            catch
             {
                 //MessageBox.Show(e.Message);
             }
@@ -68,21 +74,21 @@ namespace Restaurant_Code
         void fill_combo_Head_Waiter()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 1";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
-                    string Name = dr.GetString(1);
-                    ComboBox2.Items.Add(Name);
+                    string name = dr.GetString(1);
+                    ComboBox2.Items.Add(name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -93,21 +99,21 @@ namespace Restaurant_Code
         void fill_combo_Waiter()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+           // SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 2";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox3.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -118,21 +124,21 @@ namespace Restaurant_Code
         void fill_combo_Room_Clerk()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 3";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox4.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -143,21 +149,21 @@ namespace Restaurant_Code
         void fill_combo_Head_Chef()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 4";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox5.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -168,21 +174,21 @@ namespace Restaurant_Code
         void fill_combo_Cook()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 5";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox6.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -193,21 +199,21 @@ namespace Restaurant_Code
         void fill_combo_Kitchen_Clerk()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 6";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox7.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -218,21 +224,21 @@ namespace Restaurant_Code
         void fill_combo_Dish_Washer()
         {
             //Create connection database
-            SqlConnection con = myConexion();
-            //SqlConnection sql = new SqlConnection(con);
+            //SqlConnection con = myConexion();
+            SqlConnection sql = new SqlConnection(con);
             //Open connection to database
             try
             {
-                con.Open();
+                sql.Open();
                 string Query = "select Name from StaffMember where RoleID = 7";
-                SqlCommand command = new SqlCommand(Query, con);
+                SqlCommand command = new SqlCommand(Query, sql);
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string Name = dr.GetString(1);
                     ComboBox8.Items.Add(Name);
                 }
-                con.Close();
+                sql.Close();
             }
             catch (Exception e)
             {
@@ -246,10 +252,6 @@ namespace Restaurant_Code
             Environment.Exit(1);
         }
 
-        private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void Btn2_Click(object sender, RoutedEventArgs e)
         {

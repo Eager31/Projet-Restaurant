@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Code"
         mc:Ignorable="d"
-        Title="Window4" Height="879" Width="936">
+        Title="Window4" Height="921" Width="936">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid>
             <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="236,102,0,0" VerticalAlignment="Top" Height="38" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
@@ -23,9 +23,9 @@
             <Label Content="Simulation" HorizontalAlignment="Left" Margin="370,192,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Button x:Name="Btnpause" Content="Pause" HorizontalAlignment="Left" Margin="104,755,0,0" VerticalAlignment="Top" Width="76"/>
             <Button x:Name="Btnstop" Content="Stop" HorizontalAlignment="Left" Margin="686,755,0,0" VerticalAlignment="Top" Width="74"/>
-            <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Height="498" Width="908">
+            <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Height="498" Width="880">
                 <DataGrid.Background>
-                    <ImageBrush ImageSource="Restaurant.png"/>
+                    <ImageBrush ImageSource="planResto.png"/>
                 </DataGrid.Background>
             </DataGrid>
             <Button Content="Restart" HorizontalAlignment="Left" Margin="402,760,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
