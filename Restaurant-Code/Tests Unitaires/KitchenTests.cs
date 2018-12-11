@@ -295,7 +295,7 @@ namespace Tests_Unitaires
         [TestMethod]
         public void observerObservableAnyActorWatchingClock()
         {
-            Clock clock = new Clock();
+            Clock clock = Clock.Instance;
             Butler studentObserver = new Butler("Student"); //Student can't check counter normaly :o
             ClockHandler provider = new ClockHandler();
 

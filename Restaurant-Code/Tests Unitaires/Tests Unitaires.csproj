@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionDaoTest.cs" />
+    <Compile Include="ClockTest.cs" />
     <Compile Include="DishDaoTest.cs" />
     <Compile Include="DishwasherTests.cs" />
     <Compile Include="IngredientDaoTest.cs" />

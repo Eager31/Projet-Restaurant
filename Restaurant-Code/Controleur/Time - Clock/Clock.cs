@@ -88,5 +88,10 @@ namespace Controleur.Temps
         {
             return tickCount;
         }
+
+        void IClock.Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
