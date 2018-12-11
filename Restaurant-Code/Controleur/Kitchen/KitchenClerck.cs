@@ -30,7 +30,7 @@ namespace Controleur.Cuisine
             {
                 case "ChopVegetables":
                     this.lockAction = true;
-                    this.checkTime(); //number en paramètre == duration ==> Va faire patienter le thread le temps qu'il découpe les légumes en fonction du temps de l'instruction
+                    //this.checkTime(); //number en paramètre == duration ==> Va faire patienter le thread le temps qu'il découpe les légumes en fonction du temps de l'instruction
                     this.lockAction = false;
                     break;
                 case "CheckStocks":

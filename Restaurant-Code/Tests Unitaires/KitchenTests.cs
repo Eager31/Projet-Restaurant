@@ -44,6 +44,7 @@ namespace Tests_Unitaires
         private Instruction instruction2;
         private KitchenAction crush;
         private KitchenAction cut;
+        private KitchenAction chopVegetables;
         private Dish crushedVegetables;
         private List<Dish> listDish;
         private Menu veganMenu;
@@ -95,6 +96,7 @@ namespace Tests_Unitaires
 
             crush = new KitchenAction("crush", 10);
             cut = new KitchenAction("cut", 5);
+            chopVegetables = new KitchenAction("Chop Vegetables", 10);
 
             instruction1 = new Instruction(1, "Cut the carrot", kitchenToolsList, ingredientsList, cut, 5);
             instruction2 = new Instruction(2, "crush the vegetables", kitchenToolsList, ingredientsList, crush, 10);
@@ -374,6 +376,51 @@ namespace Tests_Unitaires
             Assert.IsTrue(isDishAvailable.act(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
         }
 
+        [TestMethod]
+        public void clerkCookHelpTheCook()
+        {
+            //Acteurs
+            Cook mazCook = new Cook("mazCook"); //Ne va rien faire
+            KitchenClerck dorian = new KitchenClerck("Dorian"); //Va s'occuper de cook à la place du chef
+
+            //Instructions - Le "Chop Vegetables" est le seul nom d'instruction que le comis sait faire ==> 'chopVegetables'
+            Instruction chopVegetables1 = new Instruction(1, "chop the vegetables", kitchenToolsList, ingredientsList, chopVegetables, 10); 
+            Instruction chopVegetables2 = new Instruction(1, "chop the vegetables", kitchenToolsList, ingredientsList, chopVegetables, 10);
+            List<Instruction> cookForKClerck = new List<Instruction>
+            {
+                chopVegetables1,
+                chopVegetables2
+            };
+            Dish chop1 = new Dish("chop1", "chop1 created by Clerck", cookForKClerck, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.preparing);
+            Dish chop2 = new Dish("chop2", "chop1 created by Clerck", cookForKClerck, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.preparing);
+            List<Dish> dishListForClerck = new List<Dish>
+            {
+                chop1,
+                chop2
+            };
+            Menu menuForClerck = new Menu("ClerckMenu", dishListForClerck, false);
+            List<Menu> menuForClerckList = new List<Menu>
+            {
+                menuForClerck
+            };
+
+            Order orderForClerck = new Order(menuForClerckList, 5);
+            List<Dish> dishListReturn = new List<Dish>();
+            PrepareDish preparingDish = new PrepareDish();
+            Dish lastDish = new Dish(null, null, null, null, null);
+            //mazCook.Action("PrepareDish", orderForClerck, dorian); //Les plats vont être commencé par Maz, mais vu qu'il n'y a que des "Chop Vegetables"
+            //<==>
+            dishListReturn = preparingDish.act(orderForClerck, dorian, mazCook); //On passe par ça pour récup une data à la place
+            // C'est le clerck qui s'en occupe (dorian).
+            foreach (Dish dish in dishListReturn)
+            {
+                Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
+                lastDish = dish;
+            }
+            Assert.AreEqual(lastDish.name, "chop2");
+
+
+        }
 
     }
 }
