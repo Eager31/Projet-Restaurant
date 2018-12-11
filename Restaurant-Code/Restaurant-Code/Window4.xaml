@@ -5,31 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Code"
         mc:Ignorable="d"
-        Title="Window4" Height="921" Width="936">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <Grid>
-            <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="236,102,0,0" VerticalAlignment="Top" Height="38" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.135"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Image HorizontalAlignment="Left" Height="126" Margin="514,78,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png"/>
-            <Label Content="Restaurant Toulouse - Labege" HorizontalAlignment="Left" Margin="250,146,0,0" VerticalAlignment="Top" Height="28" Width="198" FontSize="14"/>
-            <Label Content="Simulation" HorizontalAlignment="Left" Margin="370,192,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Button x:Name="Btnpause" Content="Pause" HorizontalAlignment="Left" Margin="104,755,0,0" VerticalAlignment="Top" Width="76"/>
-            <Button x:Name="Btnstop" Content="Stop" HorizontalAlignment="Left" Margin="686,755,0,0" VerticalAlignment="Top" Width="74"/>
-            <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Height="498" Width="880">
-                <DataGrid.Background>
-                    <ImageBrush ImageSource="planResto.png"/>
-                </DataGrid.Background>
-            </DataGrid>
-            <Button Content="Restart" HorizontalAlignment="Left" Margin="402,760,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
-
-        </Grid>
-    </ScrollViewer>
+        Title="Window4" Height="1242.327" Width="1988.521">
+    <Grid Margin="0,0,0,-99">
+        <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="803,26,0,0" VerticalAlignment="Top" Height="38" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.135"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="126" Margin="1166,21,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png" RenderTransformOrigin="-0.377,0.378"/>
+        <Label Content="Restaurant Toulouse - Labege" HorizontalAlignment="Left" Margin="821,80,0,0" VerticalAlignment="Top" Height="28" Width="198" FontSize="14"/>
+        <Label Content="Simulation" HorizontalAlignment="Left" Margin="873,113,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="Btnpause" Content="Pause" HorizontalAlignment="Left" Margin="1366,98,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="7.026,-33.3"/>
+        <Button x:Name="Btnstop" Content="Stop" HorizontalAlignment="Left" Margin="1704,98,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="11.054,-32.6"/>
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="10,152,0,182" Width="1861">
+            <DataGrid.Background>
+                <ImageBrush ImageSource="planResto.png"/>
+            </DataGrid.Background>
+        </DataGrid>
+        <Button Content="Restart" HorizontalAlignment="Left" Margin="1540,98,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" RenderTransformOrigin="-1.395,0.85"/>
+        <Rectangle Name="table1" Fill="Transparent" HorizontalAlignment="Left" Height="88" Margin="282,251,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="234"/>
+        <Rectangle Name="table2" Fill="Transparent" HorizontalAlignment="Left" Height="108" Margin="538,240,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="122"/>
+        <Rectangle Name="table3" Fill="Transparent" HorizontalAlignment="Left" Height="110" Margin="340,390,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="122"/>
+        <Rectangle Name="table4" Fill="Transparent" HorizontalAlignment="Left" Height="81" Margin="491,419,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.01,-0.075"/>
+        <Rectangle Name="table5" Fill="Transparent" HorizontalAlignment="Left" Height="81" Margin="604,419,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="83" RenderTransformOrigin="-0.18,0.24"/>
+        <Rectangle Name="table6" Fill="Transparent" HorizontalAlignment="Left" Height="70" Margin="334,520,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.155,-0.3"/>
+        <Rectangle Name="table7" Fill="Transparent" HorizontalAlignment="Left" Height="70" Margin="470,520,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="107"/>
+        <Rectangle Name="table8" Fill="Transparent" HorizontalAlignment="Left" Height="80" Margin="604,514,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.38,0.235"/>
+        <Rectangle Name="table9" Fill="Transparent" HorizontalAlignment="Left" Height="81" Margin="304,656,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="86"/>
+        <Rectangle Name="table10" Fill="Transparent" HorizontalAlignment="Left" Height="81" Margin="416,656,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="86"/>
+        <Rectangle Name="table11" Fill="Transparent" HorizontalAlignment="Left" Height="112" Margin="548,652,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="124"/>
+        <Rectangle Name="table12" Fill="Transparent" HorizontalAlignment="Left" Height="70" Margin="350,775,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="106"/>
+        <Rectangle Name="table13" Fill="Transparent" HorizontalAlignment="Left" Height="50" Margin="552,784,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="50"/>
+        <Rectangle Name="table14" Fill="Transparent" HorizontalAlignment="Left" Height="50" Margin="622,784,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="50"/>
+        <Rectangle Name="table15" Fill="Transparent" HorizontalAlignment="Left" Height="85" Margin="290,875,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="234"/>
+        <Rectangle Name="table16" Fill="Transparent" HorizontalAlignment="Left" Height="70" Margin="560,884,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="108"/>
+        <Rectangle Name="table17" Fill="Transparent" HorizontalAlignment="Left" Height="79" Margin="834,721,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="85"/>
+        <Rectangle Name="table18" Fill="Transparent" HorizontalAlignment="Left" Height="79" Margin="964,721,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="84"/>
+        <Rectangle Name="table19" Fill="Transparent" HorizontalAlignment="Left" Height="54" Margin="1196,729,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="54"/>
+        <Rectangle Name="table20" Fill="Transparent" HorizontalAlignment="Left" Height="54" Margin="1279,729,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="53"/>
+        <Rectangle Name="table21" Fill="Transparent" HorizontalAlignment="Left" Height="54" Margin="1366,729,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="50"/>
+        <Rectangle Name="table22" Fill="Transparent" HorizontalAlignment="Left" Height="105" Margin="1462,740,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="75"/>
+        <Rectangle Name="table23" Fill="Transparent" HorizontalAlignment="Left" Height="81" Margin="1578,745,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="86"/>
+        <Rectangle Name="table24" Fill="Transparent" HorizontalAlignment="Left" Height="110" Margin="1695,729,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="126"/>
+        <Rectangle Name="table25" Fill="Transparent" HorizontalAlignment="Left" Height="50" Margin="1284,822,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="48"/>
+        <Rectangle Name="table26" Fill="Transparent" HorizontalAlignment="Left" Height="50" Margin="1366,822,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="50"/>
+        <Rectangle Name="table27" Fill="Transparent" HorizontalAlignment="Left" Height="49" Margin="1202,911,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="48"/>
+        <Rectangle Name="table28" Fill="Transparent" HorizontalAlignment="Left" Height="54" Margin="1284,906,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="48"/>
+        <Rectangle Name="table29" Fill="Transparent" HorizontalAlignment="Left" Height="49" Margin="1366,911,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="55"/>
+        <Rectangle Name="table30" Fill="Transparent" HorizontalAlignment="Left" Height="76" Margin="1462,884,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="82"/>
+        <Rectangle Name="table31" Fill="Transparent" HorizontalAlignment="Left" Height="76" Margin="1578,884,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="86"/>
+        <Rectangle Name="table32" Fill="Transparent" HorizontalAlignment="Left" Height="111" Margin="1695,864,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="126"/>
+    </Grid>
 </Window>
