@@ -77,6 +77,11 @@ namespace Controleur.Temps
             isRestaurantOpen = false;
         }
 
+        private void openCloseRestaurant()
+        {
+            
+        }
+
 
 
         public long GetTickCount()
