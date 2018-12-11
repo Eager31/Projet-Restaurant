@@ -38,7 +38,7 @@ namespace Controleur.Room
                     break;
                 case "PlaceClient": // Arg Client Table
                     PlaceClient placeClient = (PlaceClient)this.mapAct["PlaceClient"];
-                    placeClient.voidAct(table, client);
+                    placeClient.voidAct(client, table);
                     break;
                 default:
                     break;

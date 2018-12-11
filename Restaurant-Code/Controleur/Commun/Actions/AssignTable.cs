@@ -24,7 +24,7 @@ namespace Controleur.Commun
             {
                 table.isReserved = false;
             }
-            placeClient.voidAct(table, client); // Place the client to the table
+            placeClient.voidAct(client, table); // Place the client to the table
         }
     }
 }

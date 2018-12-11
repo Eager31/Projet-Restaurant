@@ -7,20 +7,16 @@ using Modèle.Room.Element;
 using Modèle.Cuisine;
 using Controleur.Room;
 using System.Threading;
+using Controleur.Commun;
 
 namespace Tests_Unitaires
 {
-    /// <summary>
-    /// Description résumée pour RoomTests
-    /// </summary>
+
     [TestClass]
     public class RoomTests
     {
         public RoomTests()
         {
-            //
-            // TODO: ajoutez ici la logique du constructeur
-            //
         }
 
         private TestContext testContextInstance;
@@ -39,8 +35,9 @@ namespace Tests_Unitaires
         private Row row;
         private BookingForm bookingForm;
         private DateTime bookingHour;
+        private Card card;
 
-        //Controller
+        //Controler
         private Butler butler;
         private ClerkRoom clerkRoom;
         private Client client;
@@ -48,11 +45,7 @@ namespace Tests_Unitaires
         private HeadWaiter headWaiter;
         private Waiter waiter;
 
-        /// <summary>
-        ///Obtient ou définit le contexte de test qui fournit
-        ///des informations sur la série de tests active, ainsi que ses fonctionnalités.
-        ///</summary>
-        ///
+
         public TestContext TestContext
         {
             get
@@ -94,6 +87,8 @@ namespace Tests_Unitaires
             square = new Square(1, row);
             room = new Room(1, square);
             bookingForm = new BookingForm("foo", table, bookingHour);
+            BookingList.bookingList.Add(bookingForm);
+
 
             // Controller
             butler = new Butler("foo");
@@ -102,6 +97,8 @@ namespace Tests_Unitaires
             headWaiter = new HeadWaiter("foo", square);
             waiter = new Waiter("foo", square, row);
             client = new Client("foo", 10, 0);
+
+            Card card = new Card(null, null);
         }
         #region Attributs de tests supplémentaires
         //
@@ -245,5 +242,55 @@ namespace Tests_Unitaires
 
         }
 
+        [TestMethod]
+        public void isBringBreadAndJugAreWorking()
+        {
+            table.bread = null;
+            table.jug = null;
+
+            waiter.Action("BringBread", table, EnumRoom.BreadType.White);
+            waiter.Action("BringJug", table, EnumRoom.BreadType.White, EnumRoom.JugType.Tap);
+
+            ElementBread newbBread = new ElementBread(EnumRoom.BreadType.White, EnumRoom.MaterialState.OK);
+            ElementJug newJug = new ElementJug(EnumRoom.JugType.Tap, EnumRoom.MaterialState.OK);
+
+            Assert.AreEqual(newbBread.name, table.bread.name);
+            Assert.AreEqual(newJug.name, table.jug.name);
+
+        }
+
+        [TestMethod]
+        public void IsTheTableEmptyWhenWeUseCleanTable() // i don't test the socket here /!\
+        {
+            waiter.Action("CleanTable", table);
+            Assert.AreEqual(null, table.bread);
+            Assert.AreEqual(null, table.card);
+            Assert.AreEqual(null, table.glass);
+            Assert.AreEqual(null, table.jug);
+            Assert.AreEqual(null, table.plate);
+            Assert.AreEqual(null, table.tablecloth);
+            Assert.AreEqual(null, table.towel);
+ 
+        }
+
+        [TestMethod]
+        public void CanTheHeadWaiterBringTheCard()
+        {
+            table.card = null;
+            headWaiter.Action("BringMenu", table, card);
+            Assert.AreEqual(card, table.card);
+
+        }
+
+        [TestMethod]
+        public void CanAClientWithReservationHaveATable() // this method test "VerifyReservation" but also "AssignTable" and "PlaceClient"
+        {
+            ClientList.clientList.Add(client);
+            table.isReserved = true;
+            butler.Action("VerifyReservation", client);
+
+            Assert.AreEqual(client.tableNumber, table.tableNumber);
+
+        }
     }
 }

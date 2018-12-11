@@ -8,6 +8,6 @@ namespace Controleur.Room
 {
     public class ClientList
     {
-        public static List<Client> clientList { get; set; }
+        public static List<Client> clientList = new List<Client>();
     }
 }

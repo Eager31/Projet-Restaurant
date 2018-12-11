@@ -14,7 +14,7 @@ namespace Controleur.Commun
     public class PlaceClient //: IAct
     {
         // TODO : Need to use thread, locks 
-        public void voidAct(ElementTable table, Client client)
+        public void voidAct(Client client, ElementTable table)
         {
             ClientListTable.clientAndTable.Add(table, client); // Add the client in the list of client present in the room
             ClientList.clientList.Remove(client); // Remove the client of the queue

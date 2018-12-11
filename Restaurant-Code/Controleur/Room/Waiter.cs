@@ -26,7 +26,7 @@ namespace Controleur.Room
 
             // But it can take also the clerk's role,
             this.mapAct.Add("BringBread", new BringBread()); // Can bring the bread
-            this.mapAct.Add("Bringjug", new BringJug()); // Can bring the Jug
+            this.mapAct.Add("BringJug", new BringJug()); // Can bring the Jug
         }
 
         public void Action(String choice, ElementTable table, EnumRoom.BreadType breadType = EnumRoom.BreadType.White, EnumRoom.JugType jugType = EnumRoom.JugType.Tap)
@@ -37,8 +37,8 @@ namespace Controleur.Room
                     BringBread bringBread = (BringBread)this.mapAct["BringBread"];
                     bringBread.voidAct(table, breadType);
                     break;
-                case "Bringjug":
-                    BringJug bringJug = (BringJug)this.mapAct["Bringjug"];
+                case "BringJug":
+                    BringJug bringJug = (BringJug)this.mapAct["BringJug"];
                     bringJug.voidAct(table, jugType);
                     break;
                 /* case "Serve":

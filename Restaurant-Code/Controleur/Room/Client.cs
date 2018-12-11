@@ -22,9 +22,10 @@ namespace Controleur.Room
             this.tableNumber = 0;
 
 
-            // This the client behavior
+            // This the OrderAction behavior
             this.mapAct.Add("Order", new OrderAction()); // Can order to the Waiter
             this.mapAct.Add("Pay", new Pay()); // Can pay
+            this.mapAct.Add("Eat", new Eat());
         }
 
         public void Action(String choice, Card card = null, Client client = null, ElementTable table = null)
@@ -36,7 +37,7 @@ namespace Controleur.Room
                     eat.voidAct(client);
                     break;
                 case "OrderAction":
-                    OrderAction orderAction = (OrderAction)this.mapAct["Order"];
+                    OrderAction orderAction = (OrderAction)this.mapAct["OrderAction"];
                     orderAction.voidAct(card);
                     break;
                 case "Pay":

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Controleur.Commun
@@ -24,7 +25,7 @@ namespace Controleur.Commun
             {
                 if (client.lockAction == true)  // Need to look at the lock
                 {
-                    //Thread.Sleep(2000);
+                    Thread.Sleep(2000);
                 }
 
                 else if (client.lockAction == false) // If the client is free, take the order
