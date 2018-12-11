@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Code"
         mc:Ignorable="d"
-        Title="Window1" Height="720" Width="1080">
+        Title="Window1" Height="717" Width="1035">
     <Grid>
-        <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="363,54,0,0" VerticalAlignment="Top" Height="39" Width="232" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Restaurant 'Les Gars' " HorizontalAlignment="Left" Margin="348,54,0,0" VerticalAlignment="Top" Height="39" Width="247" FontSize="24" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontStyle="Italic">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,75 +18,29 @@
             </Label.RenderTransform>
         </Label>
         <Image HorizontalAlignment="Left" Height="127" Margin="649,10,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png"/>
-        <Label Content="Dining room" HorizontalAlignment="Left" Margin="288,184,0,0" VerticalAlignment="Top" Height="50" Width="148" FontSize="18"/>
-        <Label Content="Butler" HorizontalAlignment="Left" Margin="124,233,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Head waiter" HorizontalAlignment="Left" Margin="93,289,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Waiter" HorizontalAlignment="Left" Margin="120,356,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Clerk" HorizontalAlignment="Left" Margin="131,421,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ListView x:Name="List3" HorizontalAlignment="Left" Height="33" Margin="246,356,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="List1" HorizontalAlignment="Left" Height="33" Margin="246,234,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="List2" HorizontalAlignment="Left" Height="33" Margin="246,290,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="List4" HorizontalAlignment="Left" Height="33" Margin="246,421,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label Content="Cuisine" HorizontalAlignment="Left" Margin="822,184,0,0" VerticalAlignment="Top" Height="50" Width="85" FontSize="18"/>
-        <Label Content="Chef" HorizontalAlignment="Left" Margin="635,232,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Head of parties" HorizontalAlignment="Left" Margin="584,290,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Kitchen clerk" HorizontalAlignment="Left" Margin="584,354,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ListView x:Name="List7" HorizontalAlignment="Left" Height="33" Margin="757,355,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="List5" HorizontalAlignment="Left" Height="33" Margin="757,233,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="List6" HorizontalAlignment="Left" Height="33" Margin="757,289,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label Content="Diver" HorizontalAlignment="Left" Margin="616,487,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Plunge" HorizontalAlignment="Left" Margin="822,431,0,0" VerticalAlignment="Top" Height="50" Width="85" FontSize="18"/>
-        <ListView x:Name="List8" HorizontalAlignment="Left" Height="33" Margin="757,488,0,0" VerticalAlignment="Top" Width="248">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Label Content="Dining room" HorizontalAlignment="Left" Margin="178,183,0,0" VerticalAlignment="Top" Height="50" Width="148" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Butler" HorizontalAlignment="Left" Margin="124,233,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Head waiter" HorizontalAlignment="Left" Margin="93,300,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Waiter" HorizontalAlignment="Left" Margin="120,356,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Room clerk" HorizontalAlignment="Left" Margin="93,421,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Kitchen" HorizontalAlignment="Left" Margin="694,177,0,0" VerticalAlignment="Top" Height="50" Width="85" FontSize="18" RenderTransformOrigin="-0.559,0.13" FontWeight="Bold"/>
+        <Label Content="Head Chef" HorizontalAlignment="Left" Margin="602,232,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Cook" HorizontalAlignment="Left" Margin="616,290,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Kitchen clerk" HorizontalAlignment="Left" Margin="584,354,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Dishwasher" HorizontalAlignment="Left" Margin="602,488,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Plunge" HorizontalAlignment="Left" Margin="694,427,0,0" VerticalAlignment="Top" Height="50" Width="85" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="BtnPrevious" Content="Previous" HorizontalAlignment="Left" Margin="93,611,0,0" VerticalAlignment="Top" Width="136" Height="44" Click="BtnPrevious_Click" FontSize="18"/>
-        <Button x:Name="BtnNext" Content="Next" HorizontalAlignment="Left" Margin="869,611,0,0" VerticalAlignment="Top" Width="136" Height="44" FontSize="18" Click="BtnNext_Click"/>
+        <Button x:Name="BtnNext" Content="Next" HorizontalAlignment="Left" Margin="753,611,0,0" VerticalAlignment="Top" Width="136" Height="44" FontSize="18" Click="BtnNext_Click"/>
+        <Label Content="Manager" HorizontalAlignment="Left" Margin="413,145,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Ed" HorizontalAlignment="Left" Margin="546,145,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Mike, Sonny" HorizontalAlignment="Left" Margin="216,236,0,0" VerticalAlignment="Top" Width="110" FontSize="16"/>
+        <Label Content="Marcus, Joe" HorizontalAlignment="Left" Margin="216,427,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Neil, Aron, Greg, Clint, Billy, Gary, Josh, Jacob" HorizontalAlignment="Left" Margin="216,357,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Louis, Tyler, Chad, Adam, Tommy" HorizontalAlignment="Left" Margin="216,300,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Usama, Rayan" HorizontalAlignment="Left" Margin="753,494,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Jonny, Dennis" HorizontalAlignment="Left" Margin="753,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.842,0.346" FontSize="16"/>
+        <Label Content="Dane, Seb, Igor" HorizontalAlignment="Left" Margin="753,290,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Chay, Reggie, Mylo, Brad" HorizontalAlignment="Left" Margin="753,354,0,0" VerticalAlignment="Top" FontSize="16" Width="191"/>
 
     </Grid>
 </Window>
