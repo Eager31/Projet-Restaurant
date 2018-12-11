@@ -10,6 +10,7 @@ namespace Modèle.Room.Element
     {
         public ElementTablecloth(EnumRoom.TableclothType type, EnumRoom.MaterialState state) : base("Tablecloth", type, state)
         {
+
         }
     }
 }

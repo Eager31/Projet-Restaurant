@@ -71,15 +71,7 @@ namespace Modèle.Plonge
             //Wash
         }
 
-        public void addToWash(Object objToWash)
-        {
-            //addToWash
-        }
 
-        public void endWash()
-        {
-            //endWash
-        }
 
         public void OnError(Exception error)
         {

@@ -10,6 +10,7 @@ using Controleur.Cuisine;
 using Modèle.Room.Element;
 using Controleur.Room;
 using Controleur.Temps;
+using Modèle.Room;
 
 namespace Tests_Unitaires
 {
@@ -36,6 +37,9 @@ namespace Tests_Unitaires
         private DishwasherMachine dishWasherMachine;
         private QueueRoomStuff queueRoomTools;
         private QueueKitchenTools queueKitchenToolsEmpty;
+        private QueueRoomStuff queueRoomStuff;
+        private List<RoomStuff> dirtyRoomStuff;
+        private ElementTowel towel;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -89,7 +93,7 @@ namespace Tests_Unitaires
 
             };
             dishWasherMachine = new DishwasherMachine();
-            washingMachine = new WashingMachine();
+
             dirtyKitchenToolListEmpty = new List<KitchenTool> { };
          
 
@@ -102,6 +106,18 @@ namespace Tests_Unitaires
             queueKitchenToolsEmpty = new QueueKitchenTools();
             queueKitchenToolsEmpty.kitchenToolsQueue = dirtyKitchenToolListEmpty;
 
+
+            /* Même principe mais avec RoomStuff*/
+            washingMachine = new WashingMachine();
+            queueRoomStuff = new QueueRoomStuff();
+            towel = new ElementTowel(EnumRoom.TowelType.Paper,EnumRoom.MaterialState.Dirt);
+            dirtyRoomStuff = new List<RoomStuff>()
+            {
+                towel,
+                towel
+
+            };
+            queueRoomStuff.roomToolsQueue = dirtyRoomStuff;
 
 
             //Récupérer la sortie standard
@@ -202,6 +218,42 @@ namespace Tests_Unitaires
             }
         }
 
+        [TestMethod]
+        public void dishWasherCleanKitchenWareTest()
+        {
+            DishWasher dishWasher = new DishWasher("Maz");
+            dishWasher.Action("CleanKitchenware", dishWasherMachine, queueKitchenTools); //1 dirty Knife et 1 dirty Hammer de base;
+                                                                                         // Les objets sont lavés et retirés de la queueKitchenTools
+
+            Assert.AreEqual(queueKitchenTools.kitchenToolsQueue.Count, 0); //Plus aucun élement dans notre queue
+
+            //Imaginons que nous avons 15 élements dans notre queue
+            for (int i = 0; i < 15; i++)
+            {
+                queueKitchenTools.kitchenToolsQueue.Add(dirtyKnife);
+            }
+
+            dishWasher.Action("CleanKitchenware", dishWasherMachine, queueKitchenTools);
+            Assert.AreEqual(queueKitchenTools.kitchenToolsQueue.Count, 5); //La capacité de la machine à laver est de 10, queue = 5
+        }
+
+        [TestMethod]
+        public void disWasherCleanRoomStuffTest()
+        {
+            DishWasher dishWasher = new DishWasher("Maz");
+            dishWasher.Action("CleanTableware", washingMachine, queueRoomStuff); //2 towel
+                                                                                         
+            Assert.AreEqual(queueRoomStuff.roomToolsQueue.Count, 0); //Plus aucun élement dans notre queue
+
+            //Imaginons que nous avons 15 élements dans notre queue
+            for (int i = 0; i < 15; i++)
+            {
+                queueRoomStuff.roomToolsQueue.Add(towel);
+            }
+
+            dishWasher.Action("CleanTableware", washingMachine, queueRoomStuff);
+            Assert.AreEqual(queueRoomStuff.roomToolsQueue.Count, 10); //La capacité de la machine à laver est de 5, queue = 10
+        }
 
     }
 }

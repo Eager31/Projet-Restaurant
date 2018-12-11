@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class AuthorizeOrder : IVoidActWithOrderTableAndCook
+    public class AuthorizeOrder
     {
         /* Main */
-        public void act(OrderTable orderTbl, Cook c)
+        public void act(OrderTable orderTbl, Cook c, KitchenClerck kc)
         {
             //Les cooks vont devoir cuisiner
            foreach (Order order in orderTbl.orderList)
             {
-                c.Action("PrepareDish", order);
+                c.Action("PrepareDish", order, kc);
             }
 
         }

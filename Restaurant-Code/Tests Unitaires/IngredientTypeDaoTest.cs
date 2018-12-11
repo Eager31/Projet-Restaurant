@@ -8,6 +8,7 @@ namespace Tests_Unitaires
     [TestClass]
     public class IngredientTypeDaoTest
     {
+        [Ignore] // you can ignore this test
         [TestMethod]    // READ
         public void Test_GetMethodReturnsIngredientTypeWhenGivenId()
         {
@@ -19,6 +20,7 @@ namespace Tests_Unitaires
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // CREATE
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenIngredientType()
         {
@@ -30,6 +32,7 @@ namespace Tests_Unitaires
             Assert.ReferenceEquals(ingredientTypeToAdd, dao.get(1000));
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // UPDATE
         public void Test_UpdateMethodModifiesEntryInDatabaseWhenGivenIdAndIngredientType()
         {
@@ -43,6 +46,7 @@ namespace Tests_Unitaires
             Assert.AreNotEqual(oldIngredientType, newIngredientType);
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // DELETE
         public void Test_DeleteMethodRemovesEntryFromDatabaseWhenGivenIngredientTypeId()
         {

@@ -326,7 +326,9 @@ namespace Tests_Unitaires
                 }
             }
 
-            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables); //cook
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables, kc, c); //cook
 
             /*After cooking*/
                 foreach (Dish dish in dishListReturn) //entreePotato,crushedVegetables
@@ -371,6 +373,7 @@ namespace Tests_Unitaires
             frige.fillStorage(5, patatte);
             Assert.IsTrue(isDishAvailable.act(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
         }
-        
+
+
     }
 }

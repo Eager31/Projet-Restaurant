@@ -10,8 +10,13 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    class ChopVegetables
+    public class ChopVegetables
     {
-        
+        /* Unnecessary implement */
+        //fais patienter le KitchenClerck le temps qu'il découpe les légumes
+       public void act(int duration)
+        {
+            //checkClockDuration le temps de découper les légumes ==> Mis directement sur l'acteur
+        }
     }
 }
