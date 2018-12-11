@@ -283,13 +283,24 @@ namespace Tests_Unitaires
         }
 
         [TestMethod]
-        public void CanAClientWithReservationHaveATable() // this method test "VerifyReservation" but also "AssignTable" and "PlaceClient"
+        public void CanAClientWithReservationHaveATable() 
         {
+            /* In this first part we will test 3 methods :
+            - "VerifyReservation"
+            - "AssignTable"
+             -"PlaceClient"
+            */
             ClientList.clientList.Add(client);
             table.isReserved = true;
             butler.Action("VerifyReservation", client);
 
             Assert.AreEqual(client.tableNumber, table.tableNumber);
+            Assert.AreEqual("occupied", table.state);
+
+            // In this second part we will test if the table is released after a client payed
+            client.Action("Pay", null, client, table);
+            Assert.AreEqual("free", table.state);
+
 
         }
     }
