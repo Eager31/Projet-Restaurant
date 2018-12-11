@@ -15,7 +15,7 @@ namespace Controleur.Commun
         /* Main */
         public void act(OrderTable orderTbl)
         {
-            throw new NotImplementedException();
+            //Demander à Re-Order auprès du serverur ==> Cf avec Gilly
         }
     }
 }

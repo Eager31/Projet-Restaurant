@@ -12,6 +12,9 @@ namespace Controleur.Commun.Actions
 {
     public class RemoveFromStocks
     {
-
+        public void act(Storage stor, int number, Ingredients ingredients)
+        {
+            stor.removeFromStorage(number, ingredients);
+        }
     }
 }

@@ -34,13 +34,16 @@ namespace Controleur.Cuisine
                     this.lockAction = false;
                     break;
                 case "CheckStocks":
-                    //this.mapAct["CheckStocks"].ingredientListAct(stor);
+                    CheckStocks checkStock = (CheckStocks)this.mapAct["CheckStocks"];
+                    checkStock.act(stor);
                     break;
                 case "FillStocks":
-                    //this.mapAct["FillStocks"].voidAct(number, ingredient);
+                    FillStocks fillStocks = (FillStocks)this.mapAct["FillStocks"];
+                    fillStocks.act(stor,number,ingredient);
                     break;
                 case "RemoveFromStocks":
-                    //this.mapAct["RemoveFromStocks"].voidAct(number, ingredient);
+                    RemoveFromStocks removeFromStocks = (RemoveFromStocks)this.mapAct["RemoveFromStocks"];
+                    removeFromStocks.act(stor, number, ingredient);
                     break;
                 case "CheckClock":
                     this.checkTime();

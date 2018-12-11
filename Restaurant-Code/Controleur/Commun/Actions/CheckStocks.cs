@@ -12,6 +12,11 @@ namespace Controleur.Commun
 {
     public class CheckStocks
     {
+
+        public List<Ingredients> act(Storage stor)
+        {
+            return stor.checkStorage();
+        }
         
     }
 }

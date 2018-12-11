@@ -12,6 +12,9 @@ namespace Controleur.Commun.Actions
 {
     public class FillStocks
     {
-       
+       public void act(Storage stor, int number, Ingredients ingredients)
+        {
+            stor.fillStorage(number, ingredients);
+        }
     }
 }

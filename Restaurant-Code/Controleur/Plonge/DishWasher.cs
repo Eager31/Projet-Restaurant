@@ -33,7 +33,7 @@ namespace Controleur.Cuisine
                     break;
                 case "ChopVegetables":
                     //this.mapAct["CleanKitchen"].voidAct(washMachine,(QueueKitchenTools) itemToWash);
-                    break;
+                break;
                 case "CleanKitchenware":
                     CleanKitchenware cleanKitchenware = (CleanKitchenware)this.mapAct["CleanKitchenware"];
                     cleanKitchenware.act((WashingKitchenTools)washMachine, (QueueKitchenTools)itemToWash);
