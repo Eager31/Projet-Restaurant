@@ -37,6 +37,7 @@
                 </TransformGroup>
             </GridSplitter.RenderTransform>
         </GridSplitter>
+        
         <Button x:Name="BTNValider" Content="Next" HorizontalAlignment="Left" Margin="230,328,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.99,-0.202" FontSize="14" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -50,10 +51,10 @@
         <Label Content="Address:" HorizontalAlignment="Left" Margin="88,124,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Working Hours:" HorizontalAlignment="Left" Margin="66,175,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="66,228,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.524,0.887"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="224,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Image HorizontalAlignment="Left" Height="127" Margin="368,131,0,0" VerticalAlignment="Top" Width="130" Source="Logo.png"/>
+        <Image HorizontalAlignment="Left" Height="89" Margin="362,170,0,0" VerticalAlignment="Top" Width="96" Source="Logo.png"/>
+        <Label Content="16 Rue Magellan, 31670 Labège" HorizontalAlignment="Left" Margin="194,131,0,0" VerticalAlignment="Top" Height="39" Width="213" FontSize="14"/>
+        <Label Content="10-24h" HorizontalAlignment="Left" Margin="239,175,0,0" VerticalAlignment="Top" Width="58" Height="31" FontSize="14"/>
+        <Label Content="06 08 12 45 23" HorizontalAlignment="Left" Margin="226,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.216,0.692" FontSize="14"/>
 
     </Grid>
 </Window>

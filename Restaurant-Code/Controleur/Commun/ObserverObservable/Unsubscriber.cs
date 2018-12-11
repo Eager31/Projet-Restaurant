@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun.ObserverObservable
 {
-    internal class Unsubscriber<QueueKitchenTools> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
+    internal class Unsubscriber<T> : IDisposable //Demander à arrêter les notifs jusqu'à stop onCompleted()
     {
-        public List<IObserver<QueueKitchenTools>> _observers { get; set; }
-        public IObserver<QueueKitchenTools> _observer { get; set; }
+        public List<IObserver<T>> _observers { get; set; }
+        public IObserver<T> _observer { get; set; }
 
-        internal Unsubscriber(List<IObserver<QueueKitchenTools>> observers, IObserver<QueueKitchenTools> observer)
+        internal Unsubscriber(List<IObserver<T>> observers, IObserver<T> observer)
         {
             this._observers = observers;
             this._observer = observer;

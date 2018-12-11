@@ -22,20 +22,25 @@ namespace Restaurant_Code
         public Window1()
         {
             InitializeComponent();
+            
         }
 
         private void BtnPrevious_Click(object sender, RoutedEventArgs e)
         {
             MainWindow windowMain = new MainWindow();
-            windowMain.Owner = this;
-            windowMain.ShowDialog();
+            
+            windowMain.Show();
+
+            this.Close();
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
             Window2 window2 = new Window2();
-            window2.Owner = this;
-            window2.ShowDialog();
+            
+            window2.Show();
+
+            this.Close();
         }
     }
 }
