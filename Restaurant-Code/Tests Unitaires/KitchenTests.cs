@@ -473,6 +473,38 @@ namespace Tests_Unitaires
             Assert.AreEqual(counter.tableNumber[4], 2);
             Assert.AreEqual(counter.tabDish[4], entreePotato);
             Assert.IsFalse(counter.isTabFull());
+        }
+
+        [TestMethod]
+        public void cookPrepareDishTestThenAfterToolsAreGoingToWashKitchenQueue()
+        {
+            PrepareDish preparingDish = new PrepareDish();
+            KitchenTool lastTool = new KitchenTool(null, null);
+
+            /*Before cooking*/
+            foreach (Menu mdish in orderDishPotatoAndVegetables.orderList) //veganMenu
+            {
+                foreach (Dish dish in mdish.dishList) //entreePotato,crushedVegetables
+                {
+                    Assert.AreEqual(dish.state, EnumKitchen.DishState.preparing);
+                }
+            }
+
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c, null, queueKT); //knife,hammer sale ajouté à chaque fois à la queue
+
+            /*After cooking*/
+            foreach (KitchenTool kt in queueKT.kitchenToolsQueue) //entreePotato,crushedVegetables
+            {
+                Assert.AreEqual(kt.type, EnumKitchen.KitchenToolsType.Dirt);
+                //Les noms correspondent aussi
+                lastTool = kt;
+            }
+
+            Assert.AreEqual(lastTool.name, "hammer"); 
+
 
         }
 
