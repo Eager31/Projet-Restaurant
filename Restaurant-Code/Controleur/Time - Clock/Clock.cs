@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace Controleur.Temps
 {
-    public class Clock : IClock
+    public class Clock : IClock, IObservable<Clock>
     {
 
         private static Clock instance = null;
@@ -15,10 +15,12 @@ namespace Controleur.Temps
 
         private long tickCount;
         private int timeBetweenTicks;
-        private Timer t;
+        private Timer t = new Timer();
 
         public bool isStarted { get; set; }
         public bool isRestaurantOpen { get; set; }
+
+        private List<IObserver<Clock>> observers;
 
         private Clock()
         {
@@ -82,11 +84,22 @@ namespace Controleur.Temps
             
         }
 
-
-
         public long GetTickCount()
         {
             return tickCount;
+        }
+
+        public IDisposable Subscribe(IObserver<Clock> observer)
+        {
+            // Check whether observer is already registered. If not, add it
+            if (!observers.Contains(observer))
+            {
+                observers.Add(observer);
+                // Provide observer with existing data.
+                observer.OnNext(this);
+            }
+
+            return new Unsubscriber<Clock>(observers, observer);
         }
     }
 }

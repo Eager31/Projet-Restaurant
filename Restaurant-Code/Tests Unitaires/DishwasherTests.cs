@@ -187,7 +187,7 @@ namespace Tests_Unitaires
         [TestMethod]
         public void observerObservableMachinerWatchingClock()
         {
-            Clock clock = new Clock();
+            Clock clock = Clock.Instance;
             WashingMachine machine = new WashingMachine(); //Student can't check counter normaly :o
             ClockHandler provider = new ClockHandler();
 
