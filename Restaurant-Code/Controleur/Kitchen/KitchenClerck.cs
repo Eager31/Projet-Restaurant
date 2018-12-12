@@ -24,7 +24,7 @@ namespace Controleur.Cuisine
 
 
         //Intéragir avec les stocks
-        public void Action(String choice, Storage stor, int number, Ingredients ingredient, Tuple<List<Dish>, int> tupleCommand, Counter counter)
+        public override void actionKitchenClerck(String choice, Storage stor, int number, Ingredients ingredient, Tuple<List<Dish>, int> tupleCommand, Counter counter)
         {
             switch (choice)
             {

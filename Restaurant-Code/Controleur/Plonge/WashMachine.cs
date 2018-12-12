@@ -30,6 +30,7 @@ namespace Modèle.Plonge
             this.maxToolNumber = maxToolNumber;
             this.name = name;
             this.toolsToWash = new List<Object>();
+            this.threadStart();
 
         }
 
@@ -61,17 +62,20 @@ namespace Modèle.Plonge
         public void threadStart()
         {
             
-            ThreadStart threadDelegate = new ThreadStart(this.wash);
+            ThreadStart threadDelegate = new ThreadStart(this.wait);
             Thread newThread = new Thread(threadDelegate);
             newThread.Start();
         }
 
-        public void wash()
+        public virtual void wash()
         {
             //Wash
         }
 
-
+        public void wait()
+        {
+            //check the clock with undefinied time before aknowledging and order
+        }
 
         public void OnError(Exception error)
         {

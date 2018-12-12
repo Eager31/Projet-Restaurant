@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Modèle.Cuisine;
+﻿using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
 using System;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class RefuseOrder : IVoidActWithOrderTable
+    public class RefuseOrder
     {
         /* Main */
         public void act(OrderTable orderTbl)

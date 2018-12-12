@@ -13,12 +13,12 @@ namespace Controleur.Cuisine
     public class Cook : Actor
     {
         public Cook(string name) : base(name)
-        {
+        { 
             this.mapAct.Add("PrepareDish", new PrepareDish());
             this.mapAct.Add("PrepareMorningDish", new PrepareMorningDish());
         }
 
-        public void Action(String choice, Order order, KitchenClerck kc, Counter c, QueueKitchenTools queueKitchenTools)
+        public override void actionCook(String choice, Order order, KitchenClerck kc, Counter c, QueueKitchenTools queueKitchenTools)
         {
             switch (choice)
             {
@@ -38,6 +38,5 @@ namespace Controleur.Cuisine
                     break;
             }
         }
-        
     }
 }

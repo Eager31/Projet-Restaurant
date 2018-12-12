@@ -33,7 +33,7 @@ namespace Controleur.Commun.ObserverObservable
         }
     
         
-    public QueueKitchenTools QueueKitchenToolsStatus(QueueKitchenTools info)
+    public QueueKitchenTools QueueKitchenToolsStatus(QueueKitchenTools info) //, Sink sink, DishwasherMachine dishwasherMachin
         {
             qktList.Add(info);
                 foreach (var observer in observers)

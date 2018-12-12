@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Controleur.Cuisine;
+﻿using Controleur.Cuisine;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -19,7 +18,7 @@ namespace Controleur.Commun
             //Les cooks vont devoir cuisiner
            foreach (Order order in orderTbl.orderList)
             {
-                c.Action("PrepareDish", order, kc, counter, queueKitchenTools);
+                c.actionCook("PrepareDish", order, kc, counter, queueKitchenTools);
             }
 
         }

@@ -21,18 +21,18 @@ namespace Controleur.Cuisine
             this.mapAct.Add("CleanKitchenware", new CleanKitchenware());
             this.mapAct.Add("CleanTableware", new CleanTableware());
         }
-
+ 
         //Intéragir avec la plonge
-        public void Action(String choice, WashMachine washMachine, Object itemToWash)
+        public override void actionDishWasher(String choice, WashMachine washMachine, Object itemToWash)
         {
             switch (choice)
             {
                 case "CleanKitchen":
                     CleanKitchen cleanKitchen = (CleanKitchen)this.mapAct["CleanKitchen"];
-                    //cleanKitchen.act();
+                    //Unimplementd now
                     break;
                 case "ChopVegetables":
-                    //this.mapAct["CleanKitchen"].voidAct(washMachine,(QueueKitchenTools) itemToWash);
+                    //Unimplementend now
                 break;
                 case "CleanKitchenware":
                     CleanKitchenware cleanKitchenware = (CleanKitchenware)this.mapAct["CleanKitchenware"];

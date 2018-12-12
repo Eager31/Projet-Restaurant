@@ -438,9 +438,9 @@ namespace Tests_Unitaires
             //<==>
             CheckStocks check = new CheckStocks();
             Assert.AreEqual(check.act(fridge).Count,2);
-            dorian.Action("FillStocks", fridge, 5, carotte,null,null);
+            dorian.actionKitchenClerck("FillStocks", fridge, 5, carotte,null,null);
             Assert.AreEqual(check.act(fridge).Count, 7);
-            dorian.Action("RemoveFromStocks", fridge, 3,carotte,null,null);
+            dorian.actionKitchenClerck("RemoveFromStocks", fridge, 3,carotte,null,null);
             Assert.AreEqual(check.act(fridge).Count, 4);
         }
 
@@ -504,9 +504,9 @@ namespace Tests_Unitaires
             }
 
             Assert.AreEqual(lastTool.name, "hammer"); 
-
-
         }
+
+  
 
     }
 }

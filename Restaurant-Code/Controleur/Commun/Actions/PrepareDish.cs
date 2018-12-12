@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Controleur.Cuisine;
+﻿using Controleur.Cuisine;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -28,7 +27,7 @@ namespace Controleur.Commun
                         //On pourrait l'améliorer avec une enumeration à la place du name ==> Amélioration du porgramme
                         if (instruction.action.name.Equals("Chop Vegetables") && (!kc.lockAction))//Si nécessité de chop vegetables, demander de le faire au Comis de cuisine si dispo
                         {
-                            kc.Action("ChopVegetables", null, instruction.action.duration, null,null,null); //Demander au comis de préparer le plat (Pause du comis)
+                            kc.actionKitchenClerck("ChopVegetables", null, instruction.action.duration, null,null,null); //Demander au comis de préparer le plat (Pause du comis)
                         }
                         else //Cook cuisine directement
                         {
@@ -50,7 +49,7 @@ namespace Controleur.Commun
                     dishListReturn.Add(new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK));
                 }
             }
-            kc.Action("BringMealToCounter",null, 0,null, Tuple.Create(dishListReturn, order.tableNumber),counter);
+            kc.actionKitchenClerck("BringMealToCounter",null, 0,null, Tuple.Create(dishListReturn, order.tableNumber),counter);
             return Tuple.Create(dishListReturn,order.tableNumber); 
         }
     }

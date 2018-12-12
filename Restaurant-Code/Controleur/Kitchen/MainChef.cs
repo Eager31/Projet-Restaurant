@@ -18,7 +18,7 @@ namespace Controleur.Cuisine
             this.mapAct.Add("FindDishSimilarities", new FindDishSimilarities());
         }
 
-        public void Action(String choice, OrderTable orderTbl, Storage stor)
+        public override void actionMainChef(String choice, OrderTable orderTbl, Storage stor)
         {
             switch (choice)
             {
