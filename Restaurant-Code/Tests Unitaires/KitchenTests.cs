@@ -10,6 +10,7 @@ using Controleur.Temps;
 using Controleur.Cuisine;
 using Modèle.Room;
 using Controleur.Commun;
+using Modèle.Plonge;
 
 namespace Tests_Unitaires
 {
@@ -55,6 +56,7 @@ namespace Tests_Unitaires
         private Cook cook;
         private List<Order> orderList;
         private Order orderDishPotatoAndVegetables;
+        private QueueKitchenTools queueKT;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -139,6 +141,11 @@ namespace Tests_Unitaires
 
             orderList = new List<Order>();
             orderList.Add(orderDishPotatoAndVegetables);
+
+
+            /* Others */
+
+            queueKT = new QueueKitchenTools();
         }
 
             //Tests pour construire un menu
@@ -331,7 +338,7 @@ namespace Tests_Unitaires
             KitchenClerck kc = new KitchenClerck("Idoia");
             Cook c = new Cook("David");
             
-            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c,null); //cook
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c,null, queueKT); //cook
             
             /*After cooking*/
                 foreach (Dish dish in tupleCommand.Item1) //entreePotato,crushedVegetables
@@ -411,7 +418,7 @@ namespace Tests_Unitaires
             Dish lastDish = new Dish(null, null, null, null, null);
             //mazCook.Action("PrepareDish", orderForClerck, dorian); //Les plats vont être commencé par Maz, mais vu qu'il n'y a que des "Chop Vegetables"
             //<==>
-            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderForClerck, dorian, mazCook,null); //On passe par ça pour récup une data à la place
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderForClerck, dorian, mazCook,null, queueKT); //On passe par ça pour récup une data à la place
             // C'est le clerck qui s'en occupe (dorian).
             foreach (Dish dish in tupleCommand.Item1)
             {

@@ -1,5 +1,6 @@
 ﻿using Controleur.Commun;
 using Modèle.Cuisine;
+using Modèle.Plonge;
 using Modèle.Room;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,13 @@ namespace Controleur.Cuisine
             this.mapAct.Add("PrepareMorningDish", new PrepareMorningDish());
         }
 
-        public void Action(String choice, Order order, KitchenClerck kc, Counter c)
+        public void Action(String choice, Order order, KitchenClerck kc, Counter c, QueueKitchenTools queueKitchenTools)
         {
             switch (choice)
             {
                 case "PrepareDish":
                     PrepareDish prepare = (PrepareDish)this.mapAct["PrepareDish"];
-                    prepare.act(order,kc,this,c);//Crée un dish à partir d'un order
+                    prepare.act(order,kc,this,c, queueKitchenTools);//Crée un dish à partir d'un order
                     break;
                 case "PrepareMorningDish" :
                     PrepareMorningDish prepareMorningDish = (PrepareMorningDish) this.mapAct["PrepareMorningDish"];

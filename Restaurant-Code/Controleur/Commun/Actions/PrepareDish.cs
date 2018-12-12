@@ -13,7 +13,7 @@ namespace Controleur.Commun
 {
     public class PrepareDish
     {
-        public Tuple<List<Dish>,int> act(Order order, KitchenClerck kc, Cook c, Counter counter)
+        public Tuple<List<Dish>,int> act(Order order, KitchenClerck kc, Cook c, Counter counter, QueueKitchenTools qKT)
         {
             List<Dish> dishListReturn = new List<Dish>();
             Dish mynewDish = new Dish(null, null, null, null, null);
@@ -24,8 +24,7 @@ namespace Controleur.Commun
                     foreach (Instruction instruction in dish.listInstructions)
                     {
                         //Utilisation du morning Dish à implémenter ici
-                        //Envoyer outils à la plonge à envoyer ici
-                        
+
                         //On pourrait l'améliorer avec une enumeration à la place du name ==> Amélioration du porgramme
                         if (instruction.action.name.Equals("Chop Vegetables") && (!kc.lockAction))//Si nécessité de chop vegetables, demander de le faire au Comis de cuisine si dispo
                         {
@@ -36,6 +35,15 @@ namespace Controleur.Commun
                             c.lockAction = true;
                             //c.checkTime(); // sur la instruction.action.duration
                             c.lockAction = false;
+                        }
+
+                        //Envoyer outils à la plonge
+                        
+                        foreach (KitchenTool kt in instruction.kitchenTool)
+                        { 
+                            kt.type = EnumKitchen.KitchenToolsType.Dirt;
+                            qKT.kitchenToolsQueue.Add(kt); //Envoyer vers la plonge
+                            //notifier le plongeur
                         }
                     }
 
