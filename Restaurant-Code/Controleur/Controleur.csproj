@@ -115,6 +115,7 @@
     <Compile Include="Room\ClientListTable.cs" />
     <Compile Include="Room\ClientPool.cs" />
     <Compile Include="Room\HeadWaiter.cs" />
+    <Compile Include="Room\SocketRoom.cs" />
     <Compile Include="Room\Waiter.cs" />
     <Compile Include="Time - Clock\Clock.cs" />
     <Compile Include="Time - Clock\IClock.cs" />

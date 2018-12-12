@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Controleur.Room
 {
@@ -13,7 +9,7 @@ namespace Controleur.Room
     {
         // ---------------------------------------------- Client ----------------------------------------------
 
-        public void SendDirtyDishes(List<String> dirtyDishesList)
+        public void SendDirtyDishes(String dirtyDish)
         {
 
             // Connect to a remote device.  
@@ -38,12 +34,10 @@ namespace Controleur.Room
                         sender.RemoteEndPoint.ToString());
 
                     // Add EOF in the list
-                    dirtyDishesList.Add("<EOF>");
+                    dirtyDish = dirtyDish + "<EOF>";
 
                     // Encode the data string into a byte array. 
-                    byte[] msg = dirtyDishesList
-                        .SelectMany(s => Encoding.ASCII.GetBytes(s))
-                        .ToArray();
+                    byte[] msg = Encoding.ASCII.GetBytes(dirtyDish);
 
                     // Send the data through the socket.  
                     int bytesSent = sender.Send(msg);
@@ -78,10 +72,8 @@ namespace Controleur.Room
         // Incoming data from the client.  
         public static string data = null;
 
-        public List<String> StartListening()
+        public void StartListening()
         {
-            List<String> dirtyDishesList = new List<string> { };
-
             // Data buffer for incoming data.  
             byte[] bytes = new Byte[1024];
 
@@ -124,6 +116,8 @@ namespace Controleur.Room
 
                     // Show the data on the console.  
                     Console.WriteLine("Text received : {0}", data);
+                    // Write data in text file
+                    System.IO.File.WriteAllText(@"C:\Projet-Restaurant\dirtydishes.txt", data);
 
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
@@ -134,7 +128,6 @@ namespace Controleur.Room
             {
                 Console.WriteLine(e.ToString());
             }
-            return dirtyDishesList;
 
         }
 

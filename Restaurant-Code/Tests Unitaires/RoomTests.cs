@@ -300,8 +300,6 @@ namespace Tests_Unitaires
             // In this second part we will test if the table is released after a client payed
             client.Action("Pay", null, client, table);
             Assert.AreEqual("free", table.state);
-
-
         }
     }
 }

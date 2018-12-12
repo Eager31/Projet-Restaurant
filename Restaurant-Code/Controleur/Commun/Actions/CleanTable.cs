@@ -1,5 +1,6 @@
 ﻿using Controleur.Room;
 using Modèle.Room;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -37,16 +38,8 @@ namespace Controleur.Commun
             }
             for (int i = 0; i < moveNeeded; i++) // Carry 5 items to kitchen and loop until done
             {
-                socketRoom.SendDirtyDishes((List<string>) elementToClean.Take(5)); // Use Socket to give to the kitchen the dirty dishes
-
-                if(elementToClean.Count >= 5) // Remove element from list
-                {
-                    elementToClean.RemoveRange(0, 5);
-                }
-                else // Remove element from list
-                {
-                    elementToClean.RemoveRange(0, elementToClean.Count);
-                }
+                socketRoom.SendDirtyDishes(elementToClean[0]); // Use Socket to give to the kitchen the dirty dishes
+                elementToClean.RemoveAt(0); // Remove element from list
             }
         }
     }
