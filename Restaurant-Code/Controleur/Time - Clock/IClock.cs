@@ -8,10 +8,12 @@ namespace Controleur.Temps
 {
     interface IClock
     {
-        DateTime getTime();
-        void setTime(DateTime time);
-        void pause();
-        void resume();
-        void accelerate(int fast);
+        void Start();                           // Start the tick count incrementation
+        void Stop();                            // Stop the tick count from incrementing
+        void Reset();                           // Set tick count to 0
+        void Warp(int multiplier);              // Modify ticker speed
+        void Tick(object sender, EventArgs e);  // Increment tick count
+        long GetTickCount();                    // Retrun the tick count (getter for the "tickCount" attribute)
+
     }
 }
