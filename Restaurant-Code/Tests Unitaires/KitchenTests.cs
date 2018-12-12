@@ -437,5 +437,37 @@ namespace Tests_Unitaires
             Assert.AreEqual(check.act(fridge).Count, 4);
         }
 
+        [TestMethod]
+        public void kitchenClerckBringPlate()
+        {
+
+            BringMealToCounter bringMeal = new BringMealToCounter();
+            Counter counter = new Counter();
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+            
+            //On va apporter à notre comptoir l'order initialement commandé : entreePotato, crushedVegetables
+            bringMeal.act(Tuple.Create(listDish, 1), counter); //table n°1
+            Assert.AreEqual(counter.tableNumber[0], 1);
+            Assert.AreEqual(counter.tabDish[0], entreePotato);
+            Assert.AreEqual(counter.tableNumber[1], 1);
+            Assert.AreEqual(counter.tabDish[1], crushedVegetables);
+            List<Dish> listNb2 = new List<Dish>
+            {
+                entreePotato,
+                crushedVegetables,
+                entreePotato
+            };
+            bringMeal.act(Tuple.Create(listNb2, 2), counter); //table n°2
+            Assert.AreEqual(counter.tableNumber[2], 2);
+            Assert.AreEqual(counter.tabDish[2], entreePotato);
+            Assert.AreEqual(counter.tableNumber[3], 2);
+            Assert.AreEqual(counter.tabDish[3], crushedVegetables);
+            Assert.AreEqual(counter.tableNumber[4], 2);
+            Assert.AreEqual(counter.tabDish[4], entreePotato);
+            Assert.IsFalse(counter.isTabFull());
+
+        }
+
     }
 }

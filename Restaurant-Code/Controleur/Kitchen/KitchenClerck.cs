@@ -30,7 +30,9 @@ namespace Controleur.Cuisine
             {
                 case "BringMealToCounter":
                     BringMealToCounter bringMealToCounter = (BringMealToCounter)this.mapAct["BringMealToCounter"];
+                    this.lockAction = true;
                     bringMealToCounter.act(tupleCommand, counter);
+                    this.lockAction = false;
                     break;
                 case "ChopVegetables":
                     this.lockAction = true;

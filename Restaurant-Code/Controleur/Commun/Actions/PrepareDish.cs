@@ -23,6 +23,9 @@ namespace Controleur.Commun
                 {
                     foreach (Instruction instruction in dish.listInstructions)
                     {
+                        //Utilisation du morning Dish à implémenter ici
+                        //Envoyer outils à la plonge à envoyer ici
+                        
                         //On pourrait l'améliorer avec une enumeration à la place du name ==> Amélioration du porgramme
                         if (instruction.action.name.Equals("Chop Vegetables") && (!kc.lockAction))//Si nécessité de chop vegetables, demander de le faire au Comis de cuisine si dispo
                         {
@@ -35,6 +38,7 @@ namespace Controleur.Commun
                             c.lockAction = false;
                         }
                     }
+
                     dishListReturn.Add(new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK));
                 }
             }
