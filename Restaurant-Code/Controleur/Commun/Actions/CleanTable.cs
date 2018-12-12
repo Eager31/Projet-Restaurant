@@ -1,12 +1,8 @@
-﻿using Controleur.Commun.Interfaces;
-using Modèle.Cuisine;
-using Modèle.Plonge;
+﻿using Controleur.Room;
 using Modèle.Room;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Controleur.Commun
 {
@@ -16,6 +12,8 @@ namespace Controleur.Commun
         // TODO: Need to use thread and locks
         public void voidAct(ElementTable table) // Clean all the Element
         {
+            SocketRoom socketRoom = new SocketRoom(); // Call Socket here
+
             int numberOfClient = table.chairAmount; // Number of client at table
             int moveNeeded = (numberOfClient / 5) + 1; // Number of move between room and kitchen needed
             table.bread = null;
@@ -39,7 +37,16 @@ namespace Controleur.Commun
             }
             for (int i = 0; i < moveNeeded; i++) // Carry 5 items to kitchen and loop until done
             {
-                // Call Socket here
+                socketRoom.SendDirtyDishes((List<string>) elementToClean.Take(5)); // Use Socket to give to the kitchen the dirty dishes
+
+                if(elementToClean.Count >= 5) // Remove element from list
+                {
+                    elementToClean.RemoveRange(0, 5);
+                }
+                else // Remove element from list
+                {
+                    elementToClean.RemoveRange(0, elementToClean.Count);
+                }
             }
         }
     }
