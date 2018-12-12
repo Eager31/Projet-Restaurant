@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Modèle.Cuisine;
+﻿using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
 using System;
@@ -12,6 +11,6 @@ namespace Controleur.Commun
 {
     public class CleanKitchen
     {
-       
+       //public void 
     }
 }

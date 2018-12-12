@@ -1,4 +1,6 @@
 ﻿using Controleur.Commun;
+using Modèle.Cuisine;
+using Modèle.Plonge;
 using Modèle.Room;
 using System;
 using System.Collections.Generic;
@@ -11,18 +13,18 @@ namespace Controleur.Cuisine
     public class Cook : Actor
     {
         public Cook(string name) : base(name)
-        {
+        { 
             this.mapAct.Add("PrepareDish", new PrepareDish());
             this.mapAct.Add("PrepareMorningDish", new PrepareMorningDish());
         }
 
-        public void Action(String choice, Order order)
+        public override void actionCook(String choice, Order order, KitchenClerck kc, Counter c, QueueKitchenTools queueKitchenTools)
         {
             switch (choice)
             {
                 case "PrepareDish":
                     PrepareDish prepare = (PrepareDish)this.mapAct["PrepareDish"];
-                    prepare.act(order);//Crée un dish à partir d'un order
+                    prepare.act(order,kc,this,c, queueKitchenTools);//Crée un dish à partir d'un order
                     break;
                 case "PrepareMorningDish" :
                     PrepareMorningDish prepareMorningDish = (PrepareMorningDish) this.mapAct["PrepareMorningDish"];
@@ -36,6 +38,5 @@ namespace Controleur.Cuisine
                     break;
             }
         }
-        
     }
 }

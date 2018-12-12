@@ -1,5 +1,5 @@
-﻿using Controleur.Commun.Interfaces;
-using Controleur.Commun.ObserverObservable;
+﻿using Controleur.Commun.ObserverObservable;
+using Controleur.Cuisine;
 using Controleur.Temps;
 using Modèle.Cuisine;
 using Modèle.Plonge;
@@ -27,6 +27,7 @@ namespace Controleur.Commun
             this.name = name;
             this.lockAction = false;
             this.mapAct = new Dictionary<string,Object>();
+            this.threadStart();
         }
 
         /*Subscribe*/
@@ -63,11 +64,10 @@ namespace Controleur.Commun
         }
 
         /*Action after receving data*/
-        public void OnNext(QueueKitchenTools info)
+        public virtual void OnNext(QueueKitchenTools info)
         {
             if (info.kitchenToolsQueue.Count > 0)
             {
-                //traitement
                 Console.WriteLine("List contains : {1} : elements - {0}", this.name, info.kitchenToolsQueue.Count);
             }
             else
@@ -77,7 +77,7 @@ namespace Controleur.Commun
             }
         }
 
-        public void OnNext(QueueRoomStuff info)
+        public virtual void OnNext(QueueRoomStuff info)
         {
             if (info.roomToolsQueue.Count > 0)
             {
@@ -90,7 +90,7 @@ namespace Controleur.Commun
                 Console.WriteLine("List is empty - {0}", this.name);
             }
         }
-        public void OnNext(Counter info)
+        public virtual void OnNext(Counter info)
         {
             int cpt = 0;
             for (int i = 0; i < info.tabDish.Length; i++)
@@ -112,113 +112,65 @@ namespace Controleur.Commun
             }
         }
 
-
-        public void OnNext(Clock info)
+   
+        public virtual void OnNext(Clock info)
         {
             //traitement
             Console.WriteLine("The clock is watched - {0}", this.name);
         }
 
         /* Thread */
-        public void threadStart()
+        public virtual void threadStart()
         {
-            ThreadStart threadDelegate = new ThreadStart(this.action);
+            ThreadStart threadDelegate = new ThreadStart(this.wait);
             Thread newThread = new Thread(threadDelegate);
             newThread.Start();
         }
 
-        /*Functions*/
+        /*Actions*/
 
-        public void action()
+        public virtual void action(String choice)
         {
             throw new NotImplementedException();
         }
+
+        public virtual void actionCook(string choice, Order order, KitchenClerck kc, Counter c, QueueKitchenTools queueKitchenTools)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void actionMainChef(string choice, OrderTable orderTbl, Storage stor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void actionKitchenClerck(string choice, Storage stor, int number, Ingredients ingredient, Tuple<List<Dish>, int> tupleCommand, Counter counter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void actionDishWasher(string choice, WashMachine washMachine, object itemToWash)
+        {
+            throw new NotImplementedException();
+        }
+
+        /* Others */
+        
         public void checkTime()
         {
             throw new NotImplementedException();
         }
+        
+        public void wait()
+        {
+            //check the clock with undefinied time before aknowledging and order
+        }
 
-        /*Others*/
         public void OnError(Exception error)
         {
             throw new NotImplementedException();
         }
 
-        /*Actions possibles*/
-        public int intAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(Dish d)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Ingredients> ingredientListAct(Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueKitchenTools queueKitchenTool)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(WashMachine washMachine, QueueRoomStuff queueRoomStuff)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void eTableAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(Actor act)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(ElementTable elementTable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dish dishAct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(int number, Ingredients ingredient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool boolAct(OrderTable orderTbl, Storage stor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void voidAct(OrderTable orderTbl)
-        {
-            throw new NotImplementedException();
-        }
 
     }
 

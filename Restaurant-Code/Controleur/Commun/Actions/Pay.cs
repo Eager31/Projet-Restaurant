@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Controleur.Room;
+﻿using Controleur.Room;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;

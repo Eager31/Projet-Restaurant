@@ -8,6 +8,7 @@ namespace Tests_Unitaires
     [TestClass]
     public class RoleDaoTest
     {
+        [Ignore] // you can ignore this test
         [TestMethod]    // READ
         public void Test_GetMethodReturnsRoleWhenGivenName()
         {
@@ -18,7 +19,7 @@ namespace Tests_Unitaires
 
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
-
+        [Ignore] // you can ignore this test
         [TestMethod]    // CREATE
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenRole()
         {
@@ -29,7 +30,7 @@ namespace Tests_Unitaires
 
             Assert.ReferenceEquals(roleToAdd, dao.get(1000));
         }
-
+        [Ignore] // you can ignore this test
         [TestMethod]    // UPDATE
         public void Test_UpdateMethodModifiesEntryInDatabaseWhenGivenIdAndRole()
         {
@@ -42,7 +43,7 @@ namespace Tests_Unitaires
 
             Assert.AreNotEqual(oldRole, newRole);
         }
-
+        [Ignore] // you can ignore this test
         [TestMethod]    // DELETE
         public void Test_DeleteMethodRemovesEntryFromDatabaseWhenGivenRoleId()
         {

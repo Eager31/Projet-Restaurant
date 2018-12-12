@@ -1,4 +1,6 @@
-﻿using Modèle.Room;
+﻿using Modèle.Cuisine;
+using Modèle.Plonge;
+using Modèle.Room;
 using Modèle.Room.Element;
 
 namespace Controleur.Commun

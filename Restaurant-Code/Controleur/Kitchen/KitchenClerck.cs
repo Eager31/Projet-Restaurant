@@ -2,6 +2,7 @@
 using Controleur.Commun.Actions;
 using Modèle.Cuisine;
 using Modèle.Plonge;
+using Modèle.Room;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,49 +15,41 @@ namespace Controleur.Cuisine
     {
         public KitchenClerck(string name) : base(name)
         {
-            this.mapAct.Add("CleanKitchen", new CleanKitchen());
-            this.mapAct.Add("ChopVegetables", new ChopVegetables());
-            this.mapAct.Add("CleanKitchenware", new CleanKitchenware());
-            //this.mapAct.Add("CleanTableware", new CleanTableware()); ?
+            this.mapAct.Add("BringMealToCounter", new BringMealToCounter());
             this.mapAct.Add("CheckStocks", new CheckStocks());
             this.mapAct.Add("FillStocks", new FillStocks());
             this.mapAct.Add("RemoveFromStocks", new RemoveFromStocks());
         }
         
 
-        //Intéragir avec la plonge
-        public void Action(String choice, WashMachine washMachine, Object itemToWash)
+
+        //Intéragir avec les stocks
+        public override void actionKitchenClerck(String choice, Storage stor, int number, Ingredients ingredient, Tuple<List<Dish>, int> tupleCommand, Counter counter)
         {
             switch (choice)
             {
-                case "CleanKitchen":
-                    CleanKitchen cleanKitchen = (CleanKitchen)this.mapAct["CleanKitchen"];
-                    //cleanKitchen.act();
+                case "BringMealToCounter":
+                    BringMealToCounter bringMealToCounter = (BringMealToCounter)this.mapAct["BringMealToCounter"];
+                    this.lockAction = true;
+                    bringMealToCounter.act(tupleCommand, counter);
+                    this.lockAction = false;
                     break;
                 case "ChopVegetables":
-                    //this.mapAct["CleanKitchen"].voidAct(washMachine,(QueueKitchenTools) itemToWash);
+                    this.lockAction = true;
+                    //this.checkTime(); //number en paramètre == duration ==> Va faire patienter le thread le temps qu'il découpe les légumes en fonction du temps de l'instruction
+                    this.lockAction = false;
                     break;
-                case "CleanKitchenware":
-                    //this.mapAct["CleanKitchenware"].voidAct(washMachine, (QueueRoomStuff)itemToWash);
-                    break;
-                default:
-                    //Do nothing ?
-                    break;
-            }
-        }
-        //Intéragir avec les stocks
-        public void Action(String choice, Storage stor, int number, Ingredients ingredient)
-        {
-            switch (choice)
-            {
                 case "CheckStocks":
-                    //this.mapAct["CheckStocks"].ingredientListAct(stor);
+                    CheckStocks checkStock = (CheckStocks)this.mapAct["CheckStocks"];
+                    checkStock.act(stor);
                     break;
                 case "FillStocks":
-                    //this.mapAct["FillStocks"].voidAct(number, ingredient);
+                    FillStocks fillStocks = (FillStocks)this.mapAct["FillStocks"];
+                    fillStocks.act(stor,number,ingredient);
                     break;
                 case "RemoveFromStocks":
-                    //this.mapAct["RemoveFromStocks"].voidAct(number, ingredient);
+                    RemoveFromStocks removeFromStocks = (RemoveFromStocks)this.mapAct["RemoveFromStocks"];
+                    removeFromStocks.act(stor, number, ingredient);
                     break;
                 case "CheckClock":
                     this.checkTime();

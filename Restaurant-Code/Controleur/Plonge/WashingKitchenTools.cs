@@ -11,6 +11,7 @@ namespace Modèle.Plonge
     {
         public WashingKitchenTools(int washTime, int maxToolNumber, string name) : base(washTime, maxToolNumber, name)
         {
+            
 
         }
         public void addToWash(QueueKitchenTools qkt)
@@ -43,7 +44,7 @@ namespace Modèle.Plonge
             toolsToWash.Clear();
         }
 
-        public void wash()
+        public override void wash()
         {
             this.isRunning = true;
             if (!toolsToWash.Any()) { return; } //Liste vide ou moins d'élements que prévu ==> Arrêt machine (même si durée ne change pas)

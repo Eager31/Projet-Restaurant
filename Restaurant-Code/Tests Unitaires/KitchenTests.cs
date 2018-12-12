@@ -10,6 +10,7 @@ using Controleur.Temps;
 using Controleur.Cuisine;
 using Modèle.Room;
 using Controleur.Commun;
+using Modèle.Plonge;
 
 namespace Tests_Unitaires
 {
@@ -44,6 +45,7 @@ namespace Tests_Unitaires
         private Instruction instruction2;
         private KitchenAction crush;
         private KitchenAction cut;
+        private KitchenAction chopVegetables;
         private Dish crushedVegetables;
         private List<Dish> listDish;
         private Menu veganMenu;
@@ -54,6 +56,7 @@ namespace Tests_Unitaires
         private Cook cook;
         private List<Order> orderList;
         private Order orderDishPotatoAndVegetables;
+        private QueueKitchenTools queueKT;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -95,6 +98,7 @@ namespace Tests_Unitaires
 
             crush = new KitchenAction("crush", 10);
             cut = new KitchenAction("cut", 5);
+            chopVegetables = new KitchenAction("Chop Vegetables", 10);
 
             instruction1 = new Instruction(1, "Cut the carrot", kitchenToolsList, ingredientsList, cut, 5);
             instruction2 = new Instruction(2, "crush the vegetables", kitchenToolsList, ingredientsList, crush, 10);
@@ -137,6 +141,11 @@ namespace Tests_Unitaires
 
             orderList = new List<Order>();
             orderList.Add(orderDishPotatoAndVegetables);
+
+
+            /* Others */
+
+            queueKT = new QueueKitchenTools();
         }
 
             //Tests pour construire un menu
@@ -326,10 +335,13 @@ namespace Tests_Unitaires
                 }
             }
 
-            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables); //cook
-
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+            
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c,null, queueKT); //cook
+            
             /*After cooking*/
-                foreach (Dish dish in dishListReturn) //entreePotato,crushedVegetables
+                foreach (Dish dish in tupleCommand.Item1) //entreePotato,crushedVegetables
                 {
                     Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
                 //Les noms correspondent aussi
@@ -371,6 +383,130 @@ namespace Tests_Unitaires
             frige.fillStorage(5, patatte);
             Assert.IsTrue(isDishAvailable.act(orderTbl, frige)); //Maintenant que le frigo contient les ingrédients ==> True
         }
-        
+
+        [TestMethod]
+        public void clerkCookHelpTheCook()
+        {
+            //Acteurs
+            Cook mazCook = new Cook("mazCook"); //Ne va rien faire
+            KitchenClerck dorian = new KitchenClerck("Dorian"); //Va s'occuper de cook à la place du chef
+
+            //Instructions - Le "Chop Vegetables" est le seul nom d'instruction que le comis sait faire ==> 'chopVegetables'
+            Instruction chopVegetables1 = new Instruction(1, "chop the vegetables", kitchenToolsList, ingredientsList, chopVegetables, 10); 
+            Instruction chopVegetables2 = new Instruction(1, "chop the vegetables", kitchenToolsList, ingredientsList, chopVegetables, 10);
+            List<Instruction> cookForKClerck = new List<Instruction>
+            {
+                chopVegetables1,
+                chopVegetables2
+            };
+            Dish chop1 = new Dish("chop1", "chop1 created by Clerck", cookForKClerck, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.preparing);
+            Dish chop2 = new Dish("chop2", "chop1 created by Clerck", cookForKClerck, EnumKitchen.DishType.mainCourse, EnumKitchen.DishState.preparing);
+            List<Dish> dishListForClerck = new List<Dish>
+            {
+                chop1,
+                chop2
+            };
+            Menu menuForClerck = new Menu("ClerckMenu", dishListForClerck, false);
+            List<Menu> menuForClerckList = new List<Menu>
+            {
+                menuForClerck
+            };
+
+            Order orderForClerck = new Order(menuForClerckList, 5);
+            List<Dish> dishListReturn = new List<Dish>();
+            PrepareDish preparingDish = new PrepareDish();
+            Dish lastDish = new Dish(null, null, null, null, null);
+            //mazCook.Action("PrepareDish", orderForClerck, dorian); //Les plats vont être commencé par Maz, mais vu qu'il n'y a que des "Chop Vegetables"
+            //<==>
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderForClerck, dorian, mazCook,null, queueKT); //On passe par ça pour récup une data à la place
+            // C'est le clerck qui s'en occupe (dorian).
+            foreach (Dish dish in tupleCommand.Item1)
+            {
+                Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
+                lastDish = dish;
+            }
+            Assert.AreEqual(lastDish.name, "chop2");
+        }
+
+
+        [TestMethod]
+        public void kitchenClerckActionsOnStorage()
+        {
+            KitchenClerck dorian = new KitchenClerck("Dorian");
+
+            //dorian.Action("CheckStocks", fridge, 0, null);
+            //<==>
+            CheckStocks check = new CheckStocks();
+            Assert.AreEqual(check.act(fridge).Count,2);
+            dorian.actionKitchenClerck("FillStocks", fridge, 5, carotte,null,null);
+            Assert.AreEqual(check.act(fridge).Count, 7);
+            dorian.actionKitchenClerck("RemoveFromStocks", fridge, 3,carotte,null,null);
+            Assert.AreEqual(check.act(fridge).Count, 4);
+        }
+
+        [TestMethod]
+        public void kitchenClerckBringPlate()
+        {
+
+            BringMealToCounter bringMeal = new BringMealToCounter();
+            Counter counter = new Counter();
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+            
+            //On va apporter à notre comptoir l'order initialement commandé : entreePotato, crushedVegetables
+            bringMeal.act(Tuple.Create(listDish, 1), counter); //table n°1
+            Assert.AreEqual(counter.tableNumber[0], 1);
+            Assert.AreEqual(counter.tabDish[0], entreePotato);
+            Assert.AreEqual(counter.tableNumber[1], 1);
+            Assert.AreEqual(counter.tabDish[1], crushedVegetables);
+            List<Dish> listNb2 = new List<Dish>
+            {
+                entreePotato,
+                crushedVegetables,
+                entreePotato
+            };
+            bringMeal.act(Tuple.Create(listNb2, 2), counter); //table n°2
+            Assert.AreEqual(counter.tableNumber[2], 2);
+            Assert.AreEqual(counter.tabDish[2], entreePotato);
+            Assert.AreEqual(counter.tableNumber[3], 2);
+            Assert.AreEqual(counter.tabDish[3], crushedVegetables);
+            Assert.AreEqual(counter.tableNumber[4], 2);
+            Assert.AreEqual(counter.tabDish[4], entreePotato);
+            Assert.IsFalse(counter.isTabFull());
+        }
+
+        [TestMethod]
+        public void cookPrepareDishTestThenAfterToolsAreGoingToWashKitchenQueue()
+        {
+            PrepareDish preparingDish = new PrepareDish();
+            KitchenTool lastTool = new KitchenTool(null, null);
+
+            /*Before cooking*/
+            foreach (Menu mdish in orderDishPotatoAndVegetables.orderList) //veganMenu
+            {
+                foreach (Dish dish in mdish.dishList) //entreePotato,crushedVegetables
+                {
+                    Assert.AreEqual(dish.state, EnumKitchen.DishState.preparing);
+                }
+            }
+
+            KitchenClerck kc = new KitchenClerck("Idoia");
+            Cook c = new Cook("David");
+
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c, null, queueKT); //knife,hammer sale ajouté à chaque fois à la queue
+
+            /*After cooking*/
+            foreach (KitchenTool kt in queueKT.kitchenToolsQueue) //entreePotato,crushedVegetables
+            {
+                Assert.AreEqual(kt.type, EnumKitchen.KitchenToolsType.Dirt);
+                //Les noms correspondent aussi
+                lastTool = kt;
+            }
+
+            Assert.AreEqual(lastTool.name, "hammer"); 
+        }
+
+  
+
     }
 }

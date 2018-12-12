@@ -1,5 +1,4 @@
-﻿using Controleur.Commun.Interfaces;
-using Controleur.Cuisine;
+﻿using Controleur.Cuisine;
 using Modèle.Cuisine;
 using Modèle.Plonge;
 using Modèle.Room;
@@ -11,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace Controleur.Commun
 {
-    public class AuthorizeOrder : IVoidActWithOrderTableAndCook
+    public class AuthorizeOrder
     {
         /* Main */
-        public void act(OrderTable orderTbl, Cook c)
+        public void act(OrderTable orderTbl, Cook c, KitchenClerck kc, Counter counter, QueueKitchenTools queueKitchenTools)
         {
             //Les cooks vont devoir cuisiner
            foreach (Order order in orderTbl.orderList)
             {
-                c.Action("PrepareDish", order);
+                c.actionCook("PrepareDish", order, kc, counter, queueKitchenTools);
             }
 
         }

@@ -9,10 +9,12 @@ namespace Modèle.Cuisine
     public class Counter
     {
         public Dish[] tabDish { get; set; }
+        public int[] tableNumber {get; set; }
 
         public Counter()
         {
             this.tabDish = new Dish[15];
+            this.tableNumber = new int[15]; //Va marquer la correspondance
         }
 
         //public Dish[] TabDish { get => tabDish; set => tabDish = value; }

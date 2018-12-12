@@ -8,6 +8,8 @@ namespace Tests_Unitaires
     [TestClass]
     public class ActionDaoTest
     {
+
+        [Ignore] // you can ignore this test
         [TestMethod]    // READ
         public void Test_GetMethodReturnsActionWhenGivenId()
         {
@@ -19,6 +21,7 @@ namespace Tests_Unitaires
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // CREATE
         public void Test_CreateMethodAddsEntryToDatabaseWhenGivenAction()
         {
@@ -30,6 +33,7 @@ namespace Tests_Unitaires
             Assert.ReferenceEquals(actionToAdd, dao.get(1000));
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // UPDATE
         public void Test_UpdateMethodModifiesEntryInDatabaseWhenGivenIdAndAction()
         {
@@ -43,6 +47,7 @@ namespace Tests_Unitaires
             Assert.AreNotEqual(oldAction, newAction);
         }
 
+        [Ignore] // you can ignore this test
         [TestMethod]    // DELETE
         public void Test_DeleteMethodRemovesEntryFromDatabaseWhenGivenActionId()
         {
