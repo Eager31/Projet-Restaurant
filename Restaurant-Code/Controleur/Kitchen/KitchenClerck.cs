@@ -24,10 +24,14 @@ namespace Controleur.Cuisine
 
 
         //Intéragir avec les stocks
-        public void Action(String choice, Storage stor, int number, Ingredients ingredient)
+        public void Action(String choice, Storage stor, int number, Ingredients ingredient, Tuple<List<Dish>, int> tupleCommand, Counter counter)
         {
             switch (choice)
             {
+                case "BringMealToCounter":
+                    BringMealToCounter bringMealToCounter = (BringMealToCounter)this.mapAct["BringMealToCounter"];
+                    bringMealToCounter.act(tupleCommand, counter);
+                    break;
                 case "ChopVegetables":
                     this.lockAction = true;
                     //this.checkTime(); //number en paramètre == duration ==> Va faire patienter le thread le temps qu'il découpe les légumes en fonction du temps de l'instruction

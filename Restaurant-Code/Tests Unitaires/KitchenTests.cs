@@ -330,10 +330,11 @@ namespace Tests_Unitaires
 
             KitchenClerck kc = new KitchenClerck("Idoia");
             Cook c = new Cook("David");
-            dishListReturn = preparingDish.act(orderDishPotatoAndVegetables, kc, c); //cook
-
+            
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderDishPotatoAndVegetables, kc, c,null); //cook
+            
             /*After cooking*/
-                foreach (Dish dish in dishListReturn) //entreePotato,crushedVegetables
+                foreach (Dish dish in tupleCommand.Item1) //entreePotato,crushedVegetables
                 {
                     Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
                 //Les noms correspondent aussi
@@ -410,16 +411,30 @@ namespace Tests_Unitaires
             Dish lastDish = new Dish(null, null, null, null, null);
             //mazCook.Action("PrepareDish", orderForClerck, dorian); //Les plats vont être commencé par Maz, mais vu qu'il n'y a que des "Chop Vegetables"
             //<==>
-            dishListReturn = preparingDish.act(orderForClerck, dorian, mazCook); //On passe par ça pour récup une data à la place
+            Tuple<List<Dish>, int> tupleCommand = preparingDish.act(orderForClerck, dorian, mazCook,null); //On passe par ça pour récup une data à la place
             // C'est le clerck qui s'en occupe (dorian).
-            foreach (Dish dish in dishListReturn)
+            foreach (Dish dish in tupleCommand.Item1)
             {
                 Assert.AreEqual(dish.state, EnumKitchen.DishState.OK);
                 lastDish = dish;
             }
             Assert.AreEqual(lastDish.name, "chop2");
+        }
 
 
+        [TestMethod]
+        public void kitchenClerckActionsOnStorage()
+        {
+            KitchenClerck dorian = new KitchenClerck("Dorian");
+
+            //dorian.Action("CheckStocks", fridge, 0, null);
+            //<==>
+            CheckStocks check = new CheckStocks();
+            Assert.AreEqual(check.act(fridge).Count,2);
+            dorian.Action("FillStocks", fridge, 5, carotte,null,null);
+            Assert.AreEqual(check.act(fridge).Count, 7);
+            dorian.Action("RemoveFromStocks", fridge, 3,carotte,null,null);
+            Assert.AreEqual(check.act(fridge).Count, 4);
         }
 
     }

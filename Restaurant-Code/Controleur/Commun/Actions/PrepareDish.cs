@@ -13,7 +13,7 @@ namespace Controleur.Commun
 {
     public class PrepareDish
     {
-        public List<Dish> act(Order order, KitchenClerck kc, Cook c)
+        public Tuple<List<Dish>,int> act(Order order, KitchenClerck kc, Cook c, Counter counter)
         {
             List<Dish> dishListReturn = new List<Dish>();
             Dish mynewDish = new Dish(null, null, null, null, null);
@@ -26,9 +26,9 @@ namespace Controleur.Commun
                         //On pourrait l'améliorer avec une enumeration à la place du name ==> Amélioration du porgramme
                         if (instruction.action.name.Equals("Chop Vegetables") && (!kc.lockAction))//Si nécessité de chop vegetables, demander de le faire au Comis de cuisine si dispo
                         {
-                            kc.Action("ChopVegetables", null, instruction.action.duration, null); //Demander au comis de préparer le plat (Pause du comis)
+                            kc.Action("ChopVegetables", null, instruction.action.duration, null,null,null); //Demander au comis de préparer le plat (Pause du comis)
                         }
-                        else
+                        else //Cook cuisine directement
                         {
                             c.lockAction = true;
                             //c.checkTime(); // sur la instruction.action.duration
@@ -36,10 +36,10 @@ namespace Controleur.Commun
                         }
                     }
                     dishListReturn.Add(new Dish(dish.name, dish.description, dish.listInstructions, dish.type, EnumKitchen.DishState.OK));
-
                 }
             }
-            return dishListReturn;
+            kc.Action("BringMealToCounter",null, 0,null, Tuple.Create(dishListReturn, order.tableNumber),counter);
+            return Tuple.Create(dishListReturn,order.tableNumber); 
         }
     }
 }

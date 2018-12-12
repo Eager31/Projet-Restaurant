@@ -12,6 +12,13 @@ namespace Controleur.Commun
 {
     public class BringMealToCounter
     {
-       
+       public void act(Tuple<List<Dish>, int> tupleCommand, Counter c)
+        {
+
+            //dishListReturn.Sort();
+            //for (int i = 0; i < c.tabDish.Length; i++)
+            
+           
+        }
     }
 }

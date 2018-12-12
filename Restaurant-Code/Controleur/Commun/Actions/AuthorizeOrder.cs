@@ -14,12 +14,12 @@ namespace Controleur.Commun
     public class AuthorizeOrder
     {
         /* Main */
-        public void act(OrderTable orderTbl, Cook c, KitchenClerck kc)
+        public void act(OrderTable orderTbl, Cook c, KitchenClerck kc, Counter counter)
         {
             //Les cooks vont devoir cuisiner
            foreach (Order order in orderTbl.orderList)
             {
-                c.Action("PrepareDish", order, kc);
+                c.Action("PrepareDish", order, kc, counter);
             }
 
         }
